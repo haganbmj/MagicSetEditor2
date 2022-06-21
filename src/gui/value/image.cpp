@@ -46,7 +46,7 @@ void ImageValueEditor::sliceImage(const Image& image) {
   // clicked ok?
   if (s.ShowModal() == wxID_OK) {
     // store the image into the set
-    LocalFileName new_image_file = getLocalPackage().newFileName(field().name,_("")); // a new unique name in the package
+    LocalFileName new_image_file = getLocalPackage().newFileName(field().name,_(".png")); // a new unique name in the package
     Image img = s.getImage();
     img.SaveFile(getLocalPackage().nameOut(new_image_file), wxBITMAP_TYPE_PNG); // always use PNG images, see #69. Disk space is cheap anyway.
     addAction(value_action(valueP(), new_image_file));
