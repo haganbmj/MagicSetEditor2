@@ -41,7 +41,8 @@ void ImageValueEditor::sliceImage(const Image& image) {
   AlphaMask mask;
   style().mask.getNoCache(options,mask);
   // slice
-  ImageSliceWindow s(wxGetTopLevelParent(&editor()), image, style().getSize(), mask);
+  RealSize desiredSliceSize = RealSize(style().getSize().width * 2, style().getSize().height * 2);
+  ImageSliceWindow s(wxGetTopLevelParent(&editor()), image, desiredSliceSize, mask);
   // clicked ok?
   if (s.ShowModal() == wxID_OK) {
     // store the image into the set
