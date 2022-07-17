@@ -5,6 +5,16 @@ project(magicseteditor VERSION 2.2.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+if (WIN32 AND NOT CYGWIN AND NOT MSYS)
+	message("-- wxWidgets_FIND_STYLE = win32")
+	set(wxWidgets_FIND_STYLE "win32")
+else()
+	if (UNIX OR MSYS)
+		message("-- wxWidgets_FIND_STYLE = unix")
+		set(wxWidgets_FIND_STYLE "unix")
+	endif()
+endif()
+
 find_package(Boost REQUIRED COMPONENTS regex)
 find_package(wxWidgets 3 REQUIRED COMPONENTS core base net html)
 
