@@ -49,4 +49,3 @@ The latter is used for installing packages if the user doesn't have administrato
 
     format
     package
-    style_triangle

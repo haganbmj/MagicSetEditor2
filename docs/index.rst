@@ -14,6 +14,7 @@ Documentation
     :hidden:
     :caption: Documentation
 
+    concepts/index
     file/index
     type/index
     script/index

@@ -1,5 +1,8 @@
+Core Concepts
+=============
+
 Style Triangle
-==============
+--------------
 
 .. image:: style-triangle.jpg
     :align: right
@@ -24,8 +27,8 @@ This is illustrated in the diagram on the right and in the following table.
     :align: left
 
     * - 
-      - Description
-      - Looks
+      - Definition
+      - Appearance
       - Data
     * - High Level
       - :doc:`Game </type/game>`
