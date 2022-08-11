@@ -1,0 +1,45 @@
+Heirarchical files
+
+The actual MSE data is stored in heirarchical data files, these are usually files with no extension.
+For example <tt>set</tt> or <tt>locale</tt>.
+These are just ordinary text files, but they use an UTF-8 encoding, that means you need to use an editor that supports UTF-8.
+Most modern editors support UTF-8, Notepad does on Windows XP.
+
+--Syntax--
+The files use a heirarchical structure and are made up of keys and values.
+A value can be either a simple text string:
+>game: magic
+Or a block containing more keys and values:
+>card:
+>	name: My Card
+>	type: Creature
+
+Indentation is used to find out what belongs to what block. Indentation must be exactly one <tt>TAB</tt> per level, spaces are not allowed.
+
+When the value is longer then a single line it can be written indented on the following lines:
+>text:
+>	T: Draw a card
+>	WW: Gain 1 life
+
+--Order--
+
+Usually the order in which keys appear in a file doesn't matter.
+However some keys, like @mse version@ and @type@ must come first because they influence how the following keys are interpreted.
+
+--Includes--
+
+A heirachical file can contain a reference to another file:
+>>>include file: <em>filename</em>
+Where filename must be an absolute or relative [[type:filename]].
+
+That file is included literally into the current one; except for indentation, the included file never escapes from the level the 'include file' line is on.
+
+--Example--
+For example, a [[type:set]] might look like this:
+>game: magic
+>style: new
+>card:
+>	name: My Card
+>	type: Creature
+>card:
+>	name: Another card
