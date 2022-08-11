@@ -5,6 +5,7 @@ release = '2.3.1'
 
 html_logo = 'logo.png'
 
+html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'collapse_navigation': False,
     'style_external_links': True,
