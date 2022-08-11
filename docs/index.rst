@@ -16,8 +16,6 @@ Using the program:
 Templates:
 
 * :doc:`File Formats </file/index>`
-* [[doc/tutorial|Templating tutorial]] (comming soon)
-* [[doc/file|File formats]]
 * [[doc/type|Data types used in the files]]
 * [[doc/script|Scripting language overview]]
 * [[doc/function|Script function reference]]
@@ -28,4 +26,9 @@ Other information
 * [[doc/about/license|License]]
 
 .. toctree:: 
+    :maxdepth: 2
+    :hidden:
+    :caption: Documentation
+
     file/index
+    type/index

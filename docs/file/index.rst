@@ -1,35 +1,37 @@
 File Formats
 ============
 
-MSE uses several different types of [[file:format|data files]], usually organized into [[file:package]]s.
+MSE uses several different types of :doc:`data files <format>`, usually organized into :doc:`packages <package>`.
 
---File types--
-The following types are stored in [[file:package]]s in the:
+File Types
+----------
 
-* [[type:game]]
-* [[type:stylesheet]]
-* [[type:symbol font]]
-* [[type:export template]]
-* [[type:locale]]
-* [[type:include]]
+The following types are stored in :doc:`packages <package>` in the:
 
-The following types are stored in [[file:package]]s that can be located anywhere:
+* :doc:`game </type/game>`
+* :doc:`stylesheet </type/stylesheet>`
+* :doc:`symbol font </type/symbol font>`
+* :doc:`export template </type/export template>`
+* :doc:`locale </type/locale>`
+* :doc:`include </type/include>`
 
-* [[type:set]]
-* [[type:installer]]
+The following types are stored in :doc:`packages <package>` that can be located anywhere:
 
-The following types are stored diractly in [[file:format|heirarchical files]], they can be located anywhere:
+* :doc:`set </type/set>`
+* :doc:`installer </type/installer>`
 
-* [[type:symbol]]
+The following types are stored diractly in :doc:`hierarchical files <format>`, they can be located anywhere:
+
+* :doc:`symbol </type/symbol>`
 
 Data directories
 ----------------
 
-The data files that come with Magic Set Editor are stored in [[file:package]]s in the ''data directory'',
+The data files that come with Magic Set Editor are stored in :doc:`packages <package>` in the ``data`` directory,
 these are usually subdirectories of that directory.
 
-There are two data directories, a ''global'' one with data files installed with the program,
-and a ''local'' data directory for the current logged in user.
+There are two data directories, a *global* one with data files installed with the program,
+and a *local* data directory for the current logged in user.
 The latter is used for installing packages if the user doesn't have administrator priviliges.
 
 The location of the global data directory is
@@ -45,4 +47,8 @@ The location of the local data directory is
 | Usually	<tt>C:\Documents and Settings\<i>%USERNAME%</i>\Application Data\Magic Set Editor\data</tt>
 
 .. toctree:: 
+    :hidden:
+
     format
+    package
+    style_triangle

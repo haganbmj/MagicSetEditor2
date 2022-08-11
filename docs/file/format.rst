@@ -1,11 +1,14 @@
-Heirarchical files
+Heirarchical Files
+==================
 
 The actual MSE data is stored in heirarchical data files, these are usually files with no extension.
-For example <tt>set</tt> or <tt>locale</tt>.
+For example :doc:`set </type/set>` or :doc:`locale </type/locale>`.
 These are just ordinary text files, but they use an UTF-8 encoding, that means you need to use an editor that supports UTF-8.
 Most modern editors support UTF-8, Notepad does on Windows XP.
 
---Syntax--
+Syntax
+------
+
 The files use a heirarchical structure and are made up of keys and values.
 A value can be either a simple text string:
 >game: magic
