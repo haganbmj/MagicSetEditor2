@@ -24,7 +24,7 @@ The following types are stored diractly in :doc:`hierarchical files <format>`, t
 
 * :doc:`symbol </type/symbol>`
 
-Data directories
+Data Directories
 ----------------
 
 The data files that come with Magic Set Editor are stored in :doc:`packages <package>` in the ``data`` directory,
@@ -34,17 +34,15 @@ There are two data directories, a *global* one with data files installed with th
 and a *local* data directory for the current logged in user.
 The latter is used for installing packages if the user doesn't have administrator priviliges.
 
-The location of the global data directory is
-! On windows	<<<
-| Location	<tt><i>%MSE_DIR%</i>\data</tt>
-| Usually	<tt>C:\Program Files\Magic Set Editor 2\data</tt>
-! On linux/unix	<<<
-| Location	???
+.. list-table:: On Windows
+    :header-rows: 0
+    :stub-columns: 1
+    :align: left
 
-The location of the local data directory is
-! On windows	<<<
-| Location	<tt><i>%USER_APPLICATION_DATA%</i>\Magic Set Editor\data</tt>
-| Usually	<tt>C:\Documents and Settings\<i>%USERNAME%</i>\Application Data\Magic Set Editor\data</tt>
+    * - Global
+      - ``%MSE_DIR%\data``
+    * - Local
+      - ``%AppData%\Magic Set Editor\data``
 
 .. toctree:: 
     :hidden:
