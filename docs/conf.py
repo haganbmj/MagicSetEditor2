@@ -10,7 +10,7 @@ html_theme_options = {
     'collapse_navigation': False,
     'style_external_links': True,
     'prev_next_buttons_location': 'both',
-    'style_nav_header_background': '#aa2828',
+    'style_nav_header_background': '#2175bc',
 }
 
 # html_static_path = ['_static']
