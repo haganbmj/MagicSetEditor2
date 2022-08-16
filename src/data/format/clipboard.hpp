@@ -30,6 +30,7 @@ public:
   /// Retrieve the cards, only if it is made with the same game as set
   /** Return true if the cards are correctly retrieved, and there is at least one card */
   bool getCards(const SetP& set, vector<CardP>& out);
+  size_t GetDataSize(const wxDataFormat& format) const override;
 };
 
 // ----------------------------------------------------------------------------- : KeywordDataObject
@@ -46,6 +47,7 @@ public:
   
   /// Retrieve a keyword, only if it is made with the same game as set
   KeywordP getKeyword(const SetP& set);
+  size_t GetDataSize(const wxDataFormat& format) const override;
 };
 
 // ----------------------------------------------------------------------------- : Card on clipboard

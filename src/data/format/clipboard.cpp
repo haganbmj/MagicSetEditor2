@@ -81,6 +81,14 @@ CardsDataObject::CardsDataObject(const SetP& set, const vector<CardP>& cards) {
   delete [] has_styling;
 }
 
+size_t CardsDataObject::GetDataSize(const wxDataFormat& f) const {
+  if (f == format) {
+    return GetText().size();
+  } else {
+    wxASSERT_MSG(f == format, _("Unexpected format"));
+  }
+}
+
 CardsDataObject::CardsDataObject() {
   SetFormat(format);
 }
@@ -124,6 +132,15 @@ KeywordDataObject::KeywordDataObject(const SetP& set, const KeywordP& keyword) {
   WrappedKeyword data = { set->game.get(), set->game->name(), keyword };
   SetText(serialize_for_clipboard(*set, data));
   SetFormat(format);
+}
+
+size_t KeywordDataObject::GetDataSize(const wxDataFormat& f) const {
+  if (f == format) {
+    return GetText().size();
+  }
+  else {
+    wxASSERT_MSG(f == format, _("Unexpected format"));
+  }
 }
 
 KeywordDataObject::KeywordDataObject() {
