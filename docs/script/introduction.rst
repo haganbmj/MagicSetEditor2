@@ -19,15 +19,28 @@ Basic elements of scripts are *constants*.
 A constant is something with a fixed value.
 Possible constants are:
 
-! Syntax		Type
-| ``nil``			Nothing
-| ``true``, ``false``	[[type:boolean]]
-| ``123``			[[type:int]]
-| ``123.5``		[[type:double]]
-| ``"abc"``		[[type:string]]
-| ``rgb(255,0,0)``	[[type:color]]
-| ``rgba(0,0,0,0)``	[[type:color]]
-| ``[a,b,c]``		[[type:list]]
+.. list-table:: 
+    :header-rows: 1
+    :align: left
+
+    * - Syntax
+      - Type
+    * - ``nil``
+      - Nothing
+    * - ``true``, ``false``
+      - [[type:boolean]]
+    * - ``123``
+      - [[type:int]]
+    * - ``123.5``
+      - [[type:double]]
+    * - ``"abc"``
+      - [[type:string]]
+    * - ``rgb(255,0,0)``
+      - [[type:color]]
+    * - ``rgba(0,0,0,0)``
+      - [[type:color]]
+    * - ``[a,b,c]``
+      - [[type:list]]
 
 Note: Strings, list and colors don't have to be constants, they can contain other code.
 
