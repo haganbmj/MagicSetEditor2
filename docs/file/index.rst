@@ -35,6 +35,7 @@ and a *local* data directory for the current logged in user.
 The latter is used for installing packages if the user doesn't have administrator priviliges.
 
 .. list-table:: On Windows
+    :class: center
     :header-rows: 0
     :stub-columns: 1
     :align: left

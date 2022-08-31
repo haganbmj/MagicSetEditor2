@@ -20,3 +20,8 @@ html_theme_options = {
 # html_js_files = [
 #     'js/custom.js'
 # ]
+
+# Trying to use a dummy lanaguage to test highlighting.
+# It looks like it'll be possible to define a custom Lexer language type...
+highlight_language = 'sh'
+pygments_style = 'monokai'
