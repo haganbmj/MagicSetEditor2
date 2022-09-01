@@ -45,7 +45,7 @@ Game
 
 **Overview**
 
-Games are part of the :doc:`/concepts#style-triangle` (:ref:`/concepts#style-triangle`):
+Games are part of the :doc:`/concepts#style-triangle`:
 
 .. list-table:: 
     :header-rows: 1
@@ -55,7 +55,7 @@ Games are part of the :doc:`/concepts#style-triangle` (:ref:`/concepts#style-tri
     * - Description	
       - Looks
       - Data
-    * - :ref:`Game`
+    * - **:ref:`Game`**
       - :ref:`Stylesheet`
       - :ref:`Set`
     * - :ref:`Field`
@@ -66,8 +66,8 @@ Games provide the ''description'', i.e. what kinds of things are on a card.
 
 **Package format**
 
-A game is described in a :doc:`/file/package` with the <tt>.mse-game</tt> file extension.
-Such a package contains a :doc:`/file/format|data file` called <tt>game</tt> that has the following properties.
+A game is described in a :doc:`/file/package` with the ``.mse-game`` file extension.
+Such a package contains a :doc:`/file/format|data file` called ``game`` that has the following properties.
 
 **Properties**
 
@@ -109,8 +109,8 @@ Such a package contains a :doc:`/file/format|data file` called <tt>game</tt> tha
       - ``0.0.0``	
       - Version number of this package.
     * - ``depends on``	
-      - :ref:`list` of :ref:`dependency`s
-			 			 		Packages this package depends on.
+      - | :ref:`list` of :ref:`dependency`s
+        | Packages this package depends on.
     * - '''Specific to games'''	
       - <<<
       - <<<
@@ -118,8 +118,8 @@ Such a package contains a :doc:`/file/format|data file` called <tt>game</tt> tha
     * - ``init script``
       - :ref:`script`	
       - ``;``	
-      - Script to run when this game is loaded,<br/> can set variables
-				 					 		to be used by other scripts in this game or stylesheets using it.
+      - | Script to run when this game is loaded,<br/> can set variables
+        | to be used by other scripts in this game or stylesheets using it.
     * - ``set fields``
       - :ref:`list` of :ref:`field`s
       -  	
@@ -143,13 +143,13 @@ Such a package contains a :doc:`/file/format|data file` called <tt>game</tt> tha
     * - ``statistics categories``
       - :ref:`list` of :ref:`statistics category`s	
       - from dimensions
-      - DOC_MSE_VERSION: not used since 0.3.6
-				 					 		Choices shown on the statistics panel. <br/>By default all statistics dimensions are used.
+      - | DOC_MSE_VERSION: not used since 0.3.6
+        | Choices shown on the statistics panel. <br/>By default all statistics dimensions are used.
     * - ``pack types``
       - :ref:`list` of :ref:`pack type`s
       -  	
-      - DOC_MSE_VERSION: since 0.3.7
-				 					 		The types of card packs that will be listed on the random booster panel.
+      - | DOC_MSE_VERSION: since 0.3.7
+        | The types of card packs that will be listed on the random booster panel.
     * - ``has keywords``	
       - :ref:`boolean`
       - ``false``	
@@ -177,8 +177,8 @@ Such a package contains a :doc:`/file/format|data file` called <tt>game</tt> tha
     * - ``add cards script``	
       - :ref:`list` of :ref:`add cards script`s
       -  
-      - DOC_MSE_VERSION: since 0.3.7
-				 						 	A list of scripts for conveniently adding multiple cards to a set.
+      - | DOC_MSE_VERSION: since 0.3.7
+        | A list of scripts for conveniently adding multiple cards to a set.
 
 **Examples**
 Look at the game files in the standard MSE distribution for examples.
@@ -192,14 +192,14 @@ Stylesheets are part of the :doc:`/file/style triangle`:
 
 .. list-table:: 
     :header-rows: 1
-    :stub-columns: 1
+    :stub-columns: 0
     :align: left
 
     * - Description	
       - Looks
       - Data
     * - :ref:`Game`	
-      - '''Stylesheet'''
+      - **:ref:`Stylesheet`**
       - :ref:`Set`
     * - :ref:`Field`
       - :ref:`Style`	
@@ -208,8 +208,8 @@ Stylesheets are part of the :doc:`/file/style triangle`:
 Stylesheets provide the ''look and feel'' of cards.
 
 **Package format**
-A stylesheet is described in a :doc:`/file/package` with the <tt>.mse-style</tt> file extension,
-such a package contains a data file called <tt>style</tt>.
+A stylesheet is described in a :doc:`/file/package` with the ``.mse-style`` file extension,
+such a package contains a data file called ``style``.
 
 **Properties**
 
@@ -251,9 +251,8 @@ such a package contains a data file called <tt>style</tt>.
       - ``0.0.0``	
       - Version number of this package.
     * - ``depends on``	
-      - :ref:`list` of :ref:`dependency`s
-			 			 		Packages this package depends on.
-	
+      - | :ref:`list` of :ref:`dependency`s
+        | Packages this package depends on.
     * - '''Specific to stylesheets'''	
       - <<<
       - <<<
@@ -301,10 +300,10 @@ such a package contains a data file called <tt>style</tt>.
     * - ``extra card fields``
       - :ref:`list` of :ref:`field`s
       -  	
-      - Additional fields to add to each card.<br/>
-			 					 		These fields are intended for things like lines and boxes, whose value is determined automatically.
+      - | Additional fields to add to each card.<br/>
+        | These fields are intended for things like lines and boxes, whose value is determined automatically.
     * - ``extra card style``
-      - :ref:`indexmap] of :ref:`style`s
+      - :ref:`indexmap`` of :ref:`style`s
       -  	
       - Styling for the extra card fields
 
@@ -317,7 +316,7 @@ Sets are part of the :doc:`/file/style triangle`:
 
 .. list-table:: 
     :header-rows: 1
-    :stub-columns: 1
+    :stub-columns: 0
     :align: left
 
     * - Description	
@@ -325,14 +324,14 @@ Sets are part of the :doc:`/file/style triangle`:
       - Data
     * - :ref:`Game`	
       - :ref:`Stylesheet`
-      - '''Set'''
+      - **:ref:`Set`**
     * - :ref:`Field`
       - :ref:`Style`	
       - :ref:`Value`
 
 **Package format**
-A set is described in a :doc:`/file/package` with the <tt>.mse-set</tt> file extension,
-such a package contains a data file called <tt>set</tt>.
+A set is described in a :doc:`/file/package` with the ``.mse-set`` file extension,
+such a package contains a data file called ``set``.
 
 **Properties**
 
@@ -358,8 +357,8 @@ such a package contains a data file called <tt>set</tt>.
       - file name
       - Name of this set.
     * - ``depends on``	
-      - :ref:`list` of :ref:`dependency`s
-			 			 		Packages this package depends on.
+      - | :ref:`list` of :ref:`dependency`s
+        | Packages this package depends on.
     * - '''Specific to sets'''	
       - <<<
       - <<<
@@ -371,17 +370,17 @@ such a package contains a data file called <tt>set</tt>.
     * - ``stylesheet``
       - Name of a :ref:`stylesheet`	
       - ''required''
-      - The default style for drawing cards in this set.<br/>
-		 					 		This is without the game name or extension, so ``"new"`` refers to the package ``"gamename-new.mse-style"``.
+      - | The default style for drawing cards in this set.<br/>
+        | This is without the game name or extension, so ``"new"`` refers to the package ``"gamename-new.mse-style"``.
     * - ``set info``
       - :ref:`indexmap` of :ref:`value`s
       -  
       - The data for the [[prop:game:set fields` defined in the game.
     * - ``styling``
-      - :ref:`map` of :ref:`indexmap`s of :ref:`value`s
-		 	 				Data for the 'extra fields' of the stylesheet.<br/>
-		 	 				This is first indexed by stylesheet name, then by field name.<br/>
-		 	 				Data is given not only for the set's stylesheet but also for those of cards.
+      - | :ref:`map` of :ref:`indexmap`s of :ref:`value`s
+        | Data for the 'extra fields' of the stylesheet.<br/>
+        | This is first indexed by stylesheet name, then by field name.<br/>
+        | Data is given not only for the set's stylesheet but also for those of cards.
     * - ``cards``
       - :ref:`list] of :ref:`card`s	
       -  
@@ -393,8 +392,8 @@ such a package contains a data file called <tt>set</tt>.
     * - ``pack types``
       - :ref:`list` of :ref:`pack type`s
       -  
-      - DOC_MSE_VERSION: since 0.3.8
-		 					 	The custom card pack types in the set.
+      - | DOC_MSE_VERSION: since 0.3.8
+        | The custom card pack types in the set.
 
 **Example**
 
@@ -413,6 +412,7 @@ If the game looks like:
     card field:
     	name: power
     	type: text
+
 The the a set file would looks like:
 
 .. code-block::
@@ -460,8 +460,8 @@ A pack type contains either:
     * - ``name``
       - :ref:`string`	
       -  	
-      - Name of this card pack type.
-		 					 		Other pack types can refer to this name.
+      - | Name of this card pack type.
+        | Other pack types can refer to this name.
     * - ``select``
       - see below	
       - see below
@@ -477,8 +477,8 @@ A pack type contains either:
     * - ``summary``
       - :ref:`boolean`
       - ``true``	
-      - Is a summary of the total number of cards shown in the second panel in the user interface?<br/>
-		 					 		Note: this only applies to pack types that have the ``filter`` property set.
+      - | Is a summary of the total number of cards shown in the second panel in the user interface?<br/>
+        | Note: this only applies to pack types that have the ``filter`` property set.
     * - ``filter``
       - :ref:`script`	
       - ''optional''
@@ -502,23 +502,23 @@ How that happens depends on the ``select`` property:
     * - ``select``	
       - Description
     * - ``all``
-      - Each instance of this pack type contains all of the filtered cards and ``items``.<br/>
-			In general, ``select: all`` is used for the selectable pack types, while other ``select`` types are used for the rest of the packs.<br/>
-			This is the default for pack types with ``items``.
+      - | Each instance of this pack type contains all of the filtered cards and ``items``.<br/>
+        | In general, ``select: all`` is used for the selectable pack types, while other ``select`` types are used for the rest of the packs.<br/>
+        | This is the default for pack types with ``items``.
     * - ``replace``	
-      - Each instance of this pack type contains a single card or ``item``, chosen at random with replacement.
-			The probability of picking an item is proportional to its ``weight``, all filtered cards have weight 1.
+      - | Each instance of this pack type contains a single card or ``item``, chosen at random with replacement.
+        | The probability of picking an item is proportional to its ``weight``, all filtered cards have weight 1.
     * - ``no replace``	
-      - Each instance of this pack type contains a single card or ``item``, chosen at random without replacement.
-			This means that the same card or item will not be chosen twice (if the set is large enough).<br/>
-			This is the default for pack types with a ``filter``.
+      - | Each instance of this pack type contains a single card or ``item``, chosen at random without replacement.
+        | This means that the same card or item will not be chosen twice (if the set is large enough).<br/>
+        | This is the default for pack types with a ``filter``.
     * - ``proportional``
-      - Each instance of this pack type contains a single filtered card or ``item``, chosen with probability proportional to the number of choices for the card/item.
-			The choice is made with replacement.
+      - | Each instance of this pack type contains a single filtered card or ``item``, chosen with probability proportional to the number of choices for the card/item.
+        | The choice is made with replacement.
     * - ``nonempty``	
-      - Each instance of this pack type contains a single filtered card or ``item``,
-			but items that contain no cards will be ignored.
-			The choice is made with replacement.
+      - | Each instance of this pack type contains a single filtered card or ``item``,
+        | but items that contain no cards will be ignored.
+        | The choice is made with replacement.
     * - ``equal``	
       - Instead of choosing cards and items at random, they are chosen to make their numbers as equal as possible.
     * - ``equal proportional``
@@ -526,8 +526,8 @@ How that happens depends on the ``select`` property:
     * - ``equal nonempty``
       - A combination of ``equal`` and ``nonempty``.
     * - ``first``	
-      - If there are any cards, the first is always chosen, otherwise the first ''nonempty'' item is used.<br/>
-			``select: first`` can be used to make a kind of if statement: "If there are any X cards then use those, otherwise use Y cards".
+      - | If there are any cards, the first is always chosen, otherwise the first ''nonempty'' item is used.<br/>
+        | ``select: first`` can be used to make a kind of if statement: "If there are any X cards then use those, otherwise use Y cards".
 
 **Examples**
 
@@ -634,9 +634,9 @@ A reference to another :ref:`pack type`, from which one or more cards are chosen
     * - ``weight``
       - :ref:`scriptable` :ref:`double`
       - 1
-      - How 'important' is this item?
-		 					 	Items with a higher weight will be chosen more often.
-		 					 	Cards from ``filter`` will have a weight of 1.
+      - | How 'important' is this item?
+        | Items with a higher weight will be chosen more often.
+        | Cards from ``filter`` will have a weight of 1.
 
 **Examples**
 
@@ -690,8 +690,8 @@ is specified, and the symbol is rendered at 12pt, the margin will be ``12*0.1 ==
 
 **Package format**
 
-A symbol font is described in a :doc:`/file/package` with the <tt>.mse-symbol-font</tt> file extension.
-Such a package contains a :doc:`/file/format|data file` called <tt>symbol-font</tt> that has the following properties.
+A symbol font is described in a :doc:`/file/package` with the ``.mse-symbol-font`` file extension.
+Such a package contains a :doc:`/file/format|data file` called ``symbol-font`` that has the following properties.
 
 **Properties**
 
@@ -729,8 +729,8 @@ Such a package contains a :doc:`/file/format|data file` called <tt>symbol-font</
       - ``0.0.0``	
       - Version number of this package.
     * - ``depends on``	
-      - :ref:`list` of :ref:`dependency`s
-			 			 		Packages this package depends on.
+      - | :ref:`list` of :ref:`dependency`s
+        | Packages this package depends on.
     * - '''Specific to symbol fonts'''	
       - <<<
       - <<<
@@ -784,8 +784,8 @@ In :ref:`stylesheet`s the symbol fonts are not included inline, instead they are
       - Default
       - Description
     * - ``name``	
-      - :ref:`scriptable` Name of a :ref:`symbol font`
-			 					''required''		Name of the symbol font package to use (without the extension).
+      - | :ref:`scriptable` Name of a :ref:`symbol font`
+        | ''required''		Name of the symbol font package to use (without the extension).
     * - ``size``	
       - :ref:`scriptable` :ref:`double`
       - 12
@@ -853,9 +853,9 @@ A single symbol in a :ref:`symbol font`.
     * - ``enabled``	
       - :ref:`scriptable` :ref:`boolean`
       - ``true``
-      - Is this symbol actually used?<br/>
-			 					 			This can be scripted to optionally disable certain symbols.<br/>
-			 					 			If multiple symbols with the same code are given disabling the first switches to the second one.
+      - | Is this symbol actually used?<br/>
+        | This can be scripted to optionally disable certain symbols.<br/>
+        | If multiple symbols with the same code are given disabling the first switches to the second one.
     * - ``draw text``
       - :ref:`int`
       - ``-1``
@@ -997,9 +997,9 @@ Export Template
 An export template describes a way for a set to be exported to a HTML or other text files.
 
 **Package format**
-An export template is described in a :doc:`/file/package` with the <tt>.mse-export-template</tt> file extension.
-Its name should begin with <tt><i>game</i>-</tt> where <i>game</i> is the name of the game the template is made for.
-It should contain a :doc:`/file/format|data file` called <tt>export-template</tt> with the following properties.
+An export template is described in a :doc:`/file/package` with the ``.mse-export-template`` file extension.
+Its name should begin with ``<i>game</i>-`` where <i>game</i> is the name of the game the template is made for.
+It should contain a :doc:`/file/format|data file` called ``export-template`` with the following properties.
 
 **Properties**
 
@@ -1041,8 +1041,8 @@ It should contain a :doc:`/file/format|data file` called <tt>export-template</tt
       - ``0.0.0``	
       - Version number of this package.
     * - ``depends on``	
-      - :ref:`list` of :ref:`dependency`s
-			 			 		Packages this package depends on.
+      - | :ref:`list` of :ref:`dependency`s
+        | Packages this package depends on.
     * - '''Specific to export template'''	
       - <<<
       - <<<
@@ -1053,9 +1053,9 @@ It should contain a :doc:`/file/format|data file` called <tt>export-template</tt
       - Game this export template is made for
     * - ``file type``	
       - :ref:`string`	
-      - ``"HTML files (*.html)|*.html"``
-			 			 		File type to use, this is a list separated by ``|`` characters.
-			 			 		Alternatingly, a human description and a file pattern to match are given.
+      - | ``"HTML files (*.html)|*.html"``
+        | File type to use, this is a list separated by ``|`` characters.
+        | Alternatingly, a human description and a file pattern to match are given.
     * - ``create directory``
       - :ref:`boolean`
       - ``false``	
@@ -1126,8 +1126,8 @@ A locale gives a translation of the user interface of the program.
 
 **Package format**
 
-A locale is described in a :doc:`/file/package` with the <tt>.mse-locale</tt> file extension.
-Such a package contains a data file called <tt>locale</tt> that has the following properties.
+A locale is described in a :doc:`/file/package` with the ``.mse-locale`` file extension.
+Such a package contains a data file called ``locale`` that has the following properties.
 There are usually no other files in the package.
 
 **Properties**
@@ -1172,11 +1172,11 @@ There are usually no other files in the package.
     * - ``menu``	
       - :ref:`map` of :ref:`string`s
       -  
-      - Translations of menu items.<br/>
-			 					 	Menu items can contain shortcut keys (like Ctrl+C for copy) by using a ''single'' TAB between the text and the shortcut key.<br/>
-			 					 	Keys to use with Alt+Something (displayed underlined) can be specified &</br>
-			 					 	For example
-			 					 	>>>new set: &amp;New...&#9;Ctrl+N
+      - | Translations of menu items.<br/>
+        | Menu items can contain shortcut keys (like Ctrl+C for copy) by using a ''single'' TAB between the text and the shortcut key.<br/>
+        | Keys to use with Alt+Something (displayed underlined) can be specified &</br>
+        | For example
+        | >>>new set: &amp;New...&#9;Ctrl+N
     * - ``help``	
       - :ref:`map` of :ref:`string`s
       -  
@@ -1214,19 +1214,19 @@ There are usually no other files in the package.
       -  
       - Types of objects for error messages.
     * - ``game``	
-      - :ref:`map` of :ref:`map` of :ref:`string`s
-			 					 	Deprecated since MSE 2.1.3, use ``localized_...`` instead.<br/>
-			 					 	Translations for specific :ref:`game`s.<br/>
-			 					 	Field names and field descriptions are looked up in the locale, if they are found the translation is used, otherwise the value from the game file.<br/>
-			 					 	Extra keys not present in the English locale can be added here.
+      - | :ref:`map` of :ref:`map` of :ref:`string`s
+        | Deprecated since MSE 2.1.3, use ``localized_...`` instead.<br/>
+        | Translations for specific :ref:`game`s.<br/>
+        | Field names and field descriptions are looked up in the locale, if they are found the translation is used, otherwise the value from the game file.<br/>
+        | Extra keys not present in the English locale can be added here.
     * - ``stylesheet``	
-      - :ref:`map` of :ref:`map` of :ref:`string`s
-			 					 	Deprecated since MSE 2.1.3, use ``localized_...`` instead.<br/>
-			 					 	Translations for specific :ref:`stylesheet`s.
+      - | :ref:`map` of :ref:`map` of :ref:`string`s
+        | Deprecated since MSE 2.1.3, use ``localized_...`` instead.<br/>
+        | Translations for specific :ref:`stylesheet`s.
     * - ``symbol font``	
-      - :ref:`map` of :ref:`map` of :ref:`string`s
-			 					 	Deprecated since MSE 2.1.3, use ``localized_...`` instead.<br/>
-			 					 	Translations for specific :ref:`symbol font`s, in particular the "insert symbol" menu.
+      - | :ref:`map` of :ref:`map` of :ref:`string`s
+        | Deprecated since MSE 2.1.3, use ``localized_...`` instead.<br/>
+        | Translations for specific :ref:`symbol font`s, in particular the "insert symbol" menu.
 
 Some of the items can contain placeholders for other values, for example:
 
@@ -1257,8 +1257,8 @@ Include
 An include package contains files used by other packages, for example scripts or images.
 
 **Package format**
-An include package is described in a :doc:`/file/package` with the <tt>.mse-include</tt> file extension.
-It should contain a :doc:`/file/format|data file` called <tt>include</tt> with the following properties.
+An include package is described in a :doc:`/file/package` with the ``.mse-include`` file extension.
+It should contain a :doc:`/file/format|data file` called ``include`` with the following properties.
 
 **Properties**
 
@@ -1296,8 +1296,8 @@ It should contain a :doc:`/file/format|data file` called <tt>include</tt> with t
       - ``0.0.0``	
       - Version number of this package.
     * - ``depends on``	
-      - :ref:`list` of :ref:`dependency`s
-			 			 		Packages this package depends on.
+      - | :ref:`list` of :ref:`dependency`s
+        | Packages this package depends on.
 
 No additional properties are available.
 
@@ -1443,16 +1443,16 @@ Fields are part of the :doc:`/file/style triangle`:
     * - ``type``	
       - One of:
       - ''required''
-      - Type of field.
-			* ``text``
-			* ``choice``
-			* ``multiple choice``
-			* ``package choice``
-			* ``boolean``
-			* ``image``
-			* ``symbol``
-			* ``color``
-			* ``info``
+      - | Type of field.
+        | * ``text``
+        | * ``choice``
+        | * ``multiple choice``
+        | * ``package choice``
+        | * ``boolean``
+        | * ``image``
+        | * ``symbol``
+        | * ``color``
+        | * ``info``
     * - ``name``	
       - :ref:`string`	
       - ''required''
@@ -1476,8 +1476,8 @@ Fields are part of the :doc:`/file/style triangle`:
     * - ``show statistics``
       - :ref:`boolean`
       - ``true``	
-      - Should a :ref:`statistics dimension` and :ref:`statistics category|category` be made for this field,
-			 			 		causing it to be listed on the statistics panel?
+      - | Should a :ref:`statistics dimension` and :ref:`statistics category|category` be made for this field,
+        | causing it to be listed on the statistics panel?
     * - ``identifying``	
       - :ref:`boolean`
       - ``false``	
@@ -1565,8 +1565,8 @@ Additional properties are available, depending on the type of field:
       - ``script``
       - :ref:`script`	
       -  
-      - Script to apply to values of this field after each change.<br/>
-		 		 		 		If the script evaluates to a constant (i.e. doesn't use ``value``) then values in this field can effectively not be edited.
+      - | Script to apply to values of this field after each change.<br/>
+        | If the script evaluates to a constant (i.e. doesn't use ``value``) then values in this field can effectively not be edited.
     * - ^^^	
       - ``default``
       - :ref:`script`	
@@ -1586,8 +1586,8 @@ Additional properties are available, depending on the type of field:
       - ``script``
       - :ref:`script`	
       -  
-      - Script to apply to values of this field after each change.<br/>
-		 		 		 		If the script evaluates to a constant (i.e. doesn't use ``value``) then values in this field can effectively not be edited.
+      - | Script to apply to values of this field after each change.<br/>
+        | If the script evaluates to a constant (i.e. doesn't use ``value``) then values in this field can effectively not be edited.
     * - ^^^	
       - ``default``
       - :ref:`script`	
@@ -1633,7 +1633,7 @@ Additional properties are available, depending on the type of field:
       - <<<
     * - ``"package choice"``
 		``script``	:ref:`script`		 	Script to apply to values of this field after each change.<br/>
-		 		 		 		If the script evaluates to a constant (i.e. doesn't use ``value``) then values in this field can effectively not be edited.
+        | If the script evaluates to a constant (i.e. doesn't use ``value``) then values in this field can effectively not be edited.
     * - ^^^	
       - ``match``	
       - :ref:`string`
@@ -1658,8 +1658,8 @@ Additional properties are available, depending on the type of field:
       - ``script``
       - :ref:`script`	
       -  
-      - Script to apply to values of this field after each change.<br/>
-		 		 		 		If the script evaluates to a constant (i.e. doesn't use ``value``) then values in this field can effectively not be edited.
+      - | Script to apply to values of this field after each change.<br/>
+        | If the script evaluates to a constant (i.e. doesn't use ``value``) then values in this field can effectively not be edited.
     * - ^^^	
       - ``default``
       - :ref:`script`	
@@ -1903,8 +1903,8 @@ The rest of the properties depend on the type of :ref:`field` this style is for.
       - ``always symbol``	
       - :ref:`boolean`
       - ``false``	
-      - Should all text be rendered with symbols?<br/>
-		 			 			 		Text that is not supported by the symbol font is still rendered as normal text.
+      - | Should all text be rendered with symbols?<br/>
+        | Text that is not supported by the symbol font is still rendered as normal text.
     * - ^^^	
       - ``allow formating``
       - :ref:`boolean`
@@ -1964,8 +1964,8 @@ The rest of the properties depend on the type of :ref:`field` this style is for.
       - ``line height soft``
       - :ref:`scriptable` :ref:`double`	
       - ``1``	
-      - Multiplier for the line height of 'soft' line breaks. These are breaks caused by wrapping around lines that are too long.<br/>
-		 			 			 		A line height of ``0`` means all lines are in the same position, ``1`` is normal behaviour, ``2`` skips a line, etc.
+      - | Multiplier for the line height of 'soft' line breaks. These are breaks caused by wrapping around lines that are too long.<br/>
+        | A line height of ``0`` means all lines are in the same position, ``1`` is normal behaviour, ``2`` skips a line, etc.
     * - ^^^	
       - ``line height hard``
       - :ref:`scriptable` :ref:`double`	
@@ -1995,17 +1995,17 @@ The rest of the properties depend on the type of :ref:`field` this style is for.
       - ``paragraph height``
       - :ref:`double`	
       - ''flexible''
-      - The height of paragraphs. If specified, each paragraph is given this much space, and aligned inside that space as specified by ``alignment``.<br/>
-		 			 			 		A paragraph break is any line break that is not soft (i.e. caused by word wrap or a ``<soft>`` break).
+      - | The height of paragraphs. If specified, each paragraph is given this much space, and aligned inside that space as specified by ``alignment``.<br/>
+        | A paragraph break is any line break that is not soft (i.e. caused by word wrap or a ``<soft>`` break).
     * - ^^^	
       - ``mask``
       - :ref:`image|scriptable image`
       - ''none''
-      - A mask that indicates where in the box text can be placed.<br/>
-		 			 			 		Text is never put in black areas of the box:<br/>
-		 			 			 		<img src="style-text-mask.png" alt=""/><br/>
-		 			 			 		The same mask image is also used to determine the size and shape of the box.
-		 			 			 		To include a certain pixel in the size/shape but not allow text to be placed there, it can be made dark gray (a value less than 128).
+      - | A mask that indicates where in the box text can be placed.<br/>
+        | Text is never put in black areas of the box:<br/>
+        | <img src="style-text-mask.png" alt=""/><br/>
+        | The same mask image is also used to determine the size and shape of the box.
+        | To include a certain pixel in the size/shape but not allow text to be placed there, it can be made dark gray (a value less than 128).
     * - ^^^	
       - ``layout``	
       - :ref:`text layout`	
@@ -2030,8 +2030,8 @@ The rest of the properties depend on the type of :ref:`field` this style is for.
 !	<<<	<<<	<<<	<<<
     * - ``"choice"``,<br/>``"multiple choice"``,<br/>``"boolean"``
 		``popup style``	``"drop down"`` or ``"in place"``		``"drop down"``	Where to place the drop down box for editing the value.<br/>
-		 		 					 		``"drop down"`` places the box below the field, similar to normal combo boxes.<br/>
-		 		 					 		``"in place"`` places the box at the mouse coordinates.
+        | ``"drop down"`` places the box below the field, similar to normal combo boxes.<br/>
+        | ``"in place"`` places the box at the mouse coordinates.
     * - ^^^	
       - ``render style``
       - :ref:`render style`	
@@ -2056,20 +2056,20 @@ The rest of the properties depend on the type of :ref:`field` this style is for.
       - ``image``	
       - :ref:`image|scriptable image`	
       -  	
-      - Image to show (depending on ``render style``).<br/>
-		 		 					 		The script will be called with ``input`` set to the value to determine an image for.
+      - | Image to show (depending on ``render style``).<br/>
+        | The script will be called with ``input`` set to the value to determine an image for.
     * - ^^^	
       - ``choice images``
       - :ref:`map` of :ref:`image`s	
       -  	
-      - An alternative way to specify what image to show.<br/>
-		 		 					 		For each :ref:`choice` a separate image is specified.
+      - | An alternative way to specify what image to show.<br/>
+        | For each :ref:`choice` a separate image is specified.
     * - ^^^	
       - ``content width``	
       - :ref:`double`
       - ''automatic''
-      - When read from a script, gives the width of the current choice image in this box. <br/>
-		 			 				 		This is only useful when the alignment is changed, otherwise it is always equal the box size itself.
+      - | When read from a script, gives the width of the current choice image in this box. <br/>
+        | This is only useful when the alignment is changed, otherwise it is always equal the box size itself.
     * - ^^^	
       - ``content height``
       - :ref:`double`
@@ -2203,38 +2203,38 @@ A way to render a choice :ref:`field`, see :ref:`style`.
       - Sketch	
       - Description
     * - ``text``	
-      - <img src="choice-render-style-text.png" alt=""/>
-		 	Rendered as text
+      - | <img src="choice-render-style-text.png" alt=""/>
+        | Rendered as text
     * - ``image``	
-      - <img src="choice-render-style-image.png" alt=""/>
-		 	Rendered as an image
+      - | <img src="choice-render-style-image.png" alt=""/>
+        | Rendered as an image
     * - ``both``	
-      - <img src="choice-render-style-both.png" alt=""/>
-		 	Both an image and text
+      - | <img src="choice-render-style-both.png" alt=""/>
+        | Both an image and text
     * - ``hidden``	
-      - <img src="choice-render-style-hidden.png" alt=""/>
-		 	The box is hidden, but the value can still be edited.
+      - | <img src="choice-render-style-hidden.png" alt=""/>
+        | The box is hidden, but the value can still be edited.
     * - ``image hidden``
-      - <img src="choice-render-style-hidden.png" alt=""/>
-		 	The box is hidden, but the value can still be edited.
+      - | <img src="choice-render-style-hidden.png" alt=""/>
+        | The box is hidden, but the value can still be edited.
     * - ``checklist``	
-      - <img src="choice-render-style-checklist-text.png" alt=""/>
-		 	A list of checkboxes, for multiple choice styles.
+      - | <img src="choice-render-style-checklist-text.png" alt=""/>
+        | A list of checkboxes, for multiple choice styles.
     * - ``image checklist``
-      - <img src="choice-render-style-checklist-image.png" alt=""/>
-		 	A list of checkboxes with images instead of text.
+      - | <img src="choice-render-style-checklist-image.png" alt=""/>
+        | A list of checkboxes with images instead of text.
     * - ``both checklist``
-      - <img src="choice-render-style-checklist-both.png" alt=""/>
-		 	A list of checkboxes with both images and text.
+      - | <img src="choice-render-style-checklist-both.png" alt=""/>
+        | A list of checkboxes with both images and text.
     * - ``text list``	
-      - <img src="choice-render-style-list-text.png" alt=""/>
-		 	A list of the selected items, for multiple choice styles.
+      - | <img src="choice-render-style-list-text.png" alt=""/>
+        | A list of the selected items, for multiple choice styles.
     * - ``image list``	
-      - <img src="choice-render-style-list-image.png" alt=""/>
-		 	A list of the selected items with images instead of text.
+      - | <img src="choice-render-style-list-image.png" alt=""/>
+        | A list of the selected items with images instead of text.
     * - ``both list``	
-      - <img src="choice-render-style-list-both.png" alt=""/>
-		 	A list of the selected items with both images and text.
+      - | <img src="choice-render-style-list-both.png" alt=""/>
+        | A list of the selected items with both images and text.
 
 **Examples**
 
@@ -2269,8 +2269,8 @@ A variation of a symbol, describes color and border.
       - ``0.05``	
       - Border radius of the symbol.
     * - ``fill type``	
-      - ``solid`` or ``linear gradient`` or ``radial gradient``
-			 			``"solid"``	How to fill the symbol.
+      - | ``solid`` or ``linear gradient`` or ``radial gradient``
+        | ``"solid"``	How to fill the symbol.
 
 Depending on the ``fill type`` there are additional properties:
 
@@ -2459,8 +2459,8 @@ The type of a value depends on the corresponding field:
       - One of the choices of the field.
     * - ``"multiple choice"``
       - :ref:`string`
-      - A list of choices from the field, separated by commas.<br/>
-			 				For example: ``"red, green, blue"``.
+      - | A list of choices from the field, separated by commas.<br/>
+        | For example: ``"red, green, blue"``.
     * - ``"package choice"``
       - Name of a package	
       - The (file)name of a package, including the extension.
@@ -2472,8 +2472,8 @@ The type of a value depends on the corresponding field:
       - Filename of an image file in the :ref:`set` package.
     * - ``"symbol"``	
       - :ref:`filename`	
-      - Filename of a :ref:`symbol` file in the :ref:`set` package.<br/>
-			 				When accessed from a script, image fields can be directly used as :ref:`image`s.
+      - | Filename of a :ref:`symbol` file in the :ref:`set` package.<br/>
+        | When accessed from a script, image fields can be directly used as :ref:`image`s.
     * - ``"color"``	
       - opaque :ref:`color`	
       - A color.
@@ -2542,14 +2542,14 @@ A '''card''' in a :ref:`set`.
       - ''now''	
       - Time at which the card was last modified.
     * - ``extra data``
-      - :ref:`map` of :ref:`indexmap`s of :ref:`value`s
-				 					 		Data for the 'extra card fields' of the stylesheet.<br/>
-				 					 		This is first indexed by stylesheet name, then by field name.
+      - | :ref:`map` of :ref:`indexmap`s of :ref:`value`s
+        | Data for the 'extra card fields' of the stylesheet.<br/>
+        | This is first indexed by stylesheet name, then by field name.
     * - ''remaining keys''	
       - :ref:`indexmap` of :ref:`value`s
       -  	
-      - The remaining keys contain the data for the game's ``card fields``.<br/>
-				 					 		So for example ``card.some_field`` corresponds to the value of the card field ``some field``.
+      - | The remaining keys contain the data for the game's ``card fields``.<br/>
+        | So for example ``card.some_field`` corresponds to the value of the card field ``some field``.
 
 **Examples**
 
@@ -2730,10 +2730,10 @@ A type of parameter that can be used in a :ref:`keyword`.
     * - ``eat separator``
       - :ref:`boolean`
       - ``true``	
-      - Allow the user to 'type over' the separator.<br/>
-			 					 		For example if the separator is ``" "`` in the keyword ``"Cycling"``, and the user types ``"Cycling"``,
-			 					 		a space and a placeholder is automatically inserted, making ``"Cycling <cost>"``.
-			 					 		If the user now presses space the cursor is only moved, no additional space is inserted, the space is 'eaten'.
+      - | Allow the user to 'type over' the separator.<br/>
+        | For example if the separator is ``" "`` in the keyword ``"Cycling"``, and the user types ``"Cycling"``,
+        | a space and a placeholder is automatically inserted, making ``"Cycling <cost>"``.
+        | If the user now presses space the cursor is only moved, no additional space is inserted, the space is 'eaten'.
     * - ``script``	
       - :ref:`script`	
       -  	
@@ -2747,9 +2747,9 @@ A type of parameter that can be used in a :ref:`keyword`.
       -  	
       - Example for in the keyword editor, currently not used.
     * - ``refer scripts``
-      - :ref:`list` of :ref:`keyword param reference script`s
-			 					 		Scripts for inserting parameters of this type into the reminder text.
-			 					 		To make this easy for the user, a menu of ways to use a parameter is provided.
+      - | :ref:`list` of :ref:`keyword param reference script`s
+        | Scripts for inserting parameters of this type into the reminder text.
+        | To make this easy for the user, a menu of ways to use a parameter is provided.
 
 **Example**
 The 'number' parameter type. It matches a sequence of digits.
@@ -2803,9 +2803,9 @@ To make this easy for the user, a menu of choices is provided, this type describ
     * - ``script``	
       - :ref:`script`
       - ''required''
-      - Script that generates the code using the parameter.<br/>
-			 		 		This means you will likely need to do some escaping.<br/>
-			 		 		In the script, ``input`` refers to the name of the parameter, for example ``"param1"``.
+      - | Script that generates the code using the parameter.<br/>
+        | This means you will likely need to do some escaping.<br/>
+        | In the script, ``input`` refers to the name of the parameter, for example ``"param1"``.
 
 **Example**
 Apply the :doc:`/function#english_number` function to the parameter:
@@ -2870,8 +2870,8 @@ Categories are also automatically generated from dimensions.
     * - ``bin size``	
       - :ref:`double`	
       - ''none''
-      - For numeric dimensions: group numbers together into bins this large.<br/>
-			 			 		For example with ``bin size: 5``, values ``1`` and ``3`` both get put under ``"1-5"``.
+      - | For numeric dimensions: group numbers together into bins this large.<br/>
+        | For example with ``bin size: 5``, values ``1`` and ``3`` both get put under ``"1-5"``.
     * - ``show empty``	
       - :ref:`boolean`
       - ``false``	
@@ -2985,8 +2985,8 @@ A word in a :ref:`word list`.
     * - ``is prefix``
       - :ref:`boolean`	
       - ``false``	
-      - Should this word be used as a prefix before another word from the list?<br/>
-		 						 		Think "Legendary ". Note the space after it, words are directly concatenated.
+      - | Should this word be used as a prefix before another word from the list?<br/>
+        | Think "Legendary ". Note the space after it, words are directly concatenated.
     * - ``words``
       - :ref:`list` of :ref:`word list word`s
       -  	
@@ -2994,9 +2994,9 @@ A word in a :ref:`word list`.
     * - ``script``
       - :ref:`script`
       - ''Optional''
-      - A script that determines zero or more words.<br/>
-		 						 		The result should be a list of comma separated words, for example ``"x,y,z"`` specifies three words.
-		 						 		The words are included in the parent menu, not a sub menu.
+      - | A script that determines zero or more words.<br/>
+        | The result should be a list of comma separated words, for example ``"x,y,z"`` specifies three words.
+        | The words are included in the parent menu, not a sub menu.
 
 A word can also be given in a short form, in that case only the name is specified.
 
@@ -3066,9 +3066,9 @@ A script to add multiple cards to the set at once.
     * - ``script``
       - :ref:`script`	
       -  	
-      - Script that produces the cards.<br>
-		 					 		This script should return a :ref:`list` of :ref:`card`s.
-		 					 		The :doc:`/function#new_card` function can be used to make new cards.
+      - | Script that produces the cards.<br>
+        | This script should return a :ref:`list` of :ref:`card`s.
+        | The :doc:`/function#new_card` function can be used to make new cards.
 
 **Example**
 
@@ -3196,10 +3196,10 @@ A part of a symbol, corresponds to an item you see in the list on the left of th
     * - ``type``	
       - One of:
       - ``"shape"``
-      - What type of symbol part is this?
-			* ``shape``
-			* ``group``
-			* ``symmetry``
+      - | What type of symbol part is this?
+        | * ``shape``
+        | * ``group``
+        | * ``symmetry``
     * - ``name``	
       - :ref:`string`	
       - ``""``	
@@ -3284,10 +3284,10 @@ The control points of a shape are circular, the point after the last point in th
       - Position of the control point.
     * - ``lock``	
       - ``free``, ``direction`` or ``size``
-      -  ``"free"``
-			 			 		Is this point 'locked', i.e. is the relation between the two handles fixed?<br/>
-			 			 		If ``lock`` is ``"direction"`` then the two handles must lie on a line.<br/>
-			 			 		If ``lock`` is ``"direction"`` then the two handles must lie exactly oppisite each other on the same distance from the point.
+      - |  ``"free"``
+        | Is this point 'locked', i.e. is the relation between the two handles fixed?<br/>
+        | If ``lock`` is ``"direction"`` then the two handles must lie on a line.<br/>
+        | If ``lock`` is ``"direction"`` then the two handles must lie exactly oppisite each other on the same distance from the point.
     * - ``line after``	
       - ``line`` or ``curve``
       - ``"line"``
@@ -3332,14 +3332,14 @@ Collection Types
     :align: left
 
     * - :doc:`list <#list>`
-      - Lists of items
-			* item
-			* item
-			* item
+      - | Lists of items
+        | * item
+        | * item
+        | * item
     * - :doc:`indexmap <#indexmap>`
-      - Lists indexed by field name
-			<table><tr><td>name:</td><td>someone</td></tr>
-			<tr><td>type:</td><td>something</td></tr></table>
+      - | Lists indexed by field name
+        | <table><tr><td>name:</td><td>someone</td></tr>
+        | <tr><td>type:</td><td>something</td></tr></table>
     * - :doc:`map <#map>`
       - Lists indexed by other text
 
@@ -3779,13 +3779,13 @@ These flags can appear in any order.
     * - ``justify-all``	
       - Fill the box exactly, by moving individual characters apart/together.
     * - ``stretch``	
-      - Fill the box exactly, by stretching the text.<br/>
-			For images: stretch them, but preserve the aspect ratio.
+      - | Fill the box exactly, by stretching the text.<br/>
+        | For images: stretch them, but preserve the aspect ratio.
     * - ``if-overflow``	
       - Only apply ``justify``, ``justify-all`` and ``stretch`` when the box is overfull.
     * - ``force``	
-      - Also justify text at the end of a line in a multiline text field.<br/>
-			Normally only lines ending in a soft line break are justified.
+      - | Also justify text at the end of a line in a multiline text field.<br/>
+        | Normally only lines ending in a soft line break are justified.
 
 **Examples**
 
@@ -3893,11 +3893,11 @@ In scripts, combine modes are stored as a string.
       -  
     * - ``heat``	
       -  
-    * - <tt>and</tt>	
+    * - ``and``	
       - Bitwise and
-    * - <tt>or</tt>	
+    * - ``or``	
       - Bitwise or
-    * - <tt>xor</tt>	
+    * - ``xor``	
       - Bitwise xot
     * - ``shadow``	
       - Dark colors normally, white colors darken the background.
@@ -3970,25 +3970,25 @@ The value is one of the following options:
       - Description
     * - ``bar``	
       - 1	
-      - <img src="graph-type-bar.png" alt="bar graph"/>
-		 	 	One bar for each value on the axis, the height represent the number of cards with that value.
+      - | <img src="graph-type-bar.png" alt="bar graph"/>
+        | One bar for each value on the axis, the height represent the number of cards with that value.
     * - ``pie``	
       - 1	
-      - <img src="graph-type-pie.png" alt="pie graph"/>
-		 	 	A pie graph, the size of the slice represents the numer of cards with a particular value.
+      - | <img src="graph-type-pie.png" alt="pie graph"/>
+        | A pie graph, the size of the slice represents the numer of cards with a particular value.
     * - ``stack``
       - 2	
-      - <img src="graph-type-stack.png" alt="stack graph"/>	
-		 	 	One bar for each value on the first axis, bars for each value on axis2 are stacked on top of each other.
+      - | <img src="graph-type-stack.png" alt="stack graph"/>	
+        | One bar for each value on the first axis, bars for each value on axis2 are stacked on top of each other.
     * - ``scatter``
       - 2	
-      - <img src="graph-type-scatter.png" alt="scatter graph"/>
-		 	 	Scatter plot, the size of the circles corresponds to the number of cards with those two values.
+      - | <img src="graph-type-scatter.png" alt="scatter graph"/>
+        | Scatter plot, the size of the circles corresponds to the number of cards with those two values.
     * - ``scatter pie``
       - 3	
-      - <img src="graph-type-scatter-pie.png" alt="scatter-pie graph"/>
-		 	 	Scatter plot, the size of the circles corresponds to the number of cards with those two values.
-		 	 	Each circle is a small pie graph for the third axis.
+      - | <img src="graph-type-scatter-pie.png" alt="scatter-pie graph"/>
+        | Scatter plot, the size of the circles corresponds to the number of cards with those two values.
+        | Each circle is a small pie graph for the third axis.
 
 **Examples**
 
@@ -4168,8 +4168,8 @@ This is written as the character with code 1 in files.
     * - ``<soft-line>``	
       - Line breaks inside this tag use the [[prop:style:soft line height`.
     * - ``<atom>``	
-      - An atomic piece of text. The cursor can never be inside it; it is selected as a whole.
-			The program automatically inserts ``<atom-soft>``.
+      - | An atomic piece of text. The cursor can never be inside it; it is selected as a whole.
+        | The program automatically inserts ``<atom-soft>``.
     * - ``<code>``	
       - The text inside the tag is rendered in a monospace font. This is used for syntax highlighting script code.
     * - ``<code-kw>``	
@@ -4187,17 +4187,17 @@ This is written as the character with code 1 in files.
     * - Tag
       - Description
     * - ``<kw-?>``	
-      - Indicates that the text inside it is a keyword. This tag is automatically inserted by
-			The :doc:`/function#expand_keywords` function.<br/>
-			There are four versions, indicating whether or not reminder text is shown:
-			* ``<kw-0>``, Reminder text hidden, by default
-			* ``<kw-1>``, Reminder text shown, by default
-			* ``<kw-a>``, Reminder hidden manually
-			* ``<kw-A>``, Reminder shown manually
+      - | Indicates that the text inside it is a keyword. This tag is automatically inserted by
+        | The :doc:`/function#expand_keywords` function.<br/>
+        | There are four versions, indicating whether or not reminder text is shown:
+        | * ``<kw-0>``, Reminder text hidden, by default
+        | * ``<kw-1>``, Reminder text shown, by default
+        | * ``<kw-a>``, Reminder hidden manually
+        | * ``<kw-A>``, Reminder shown manually
     * - ``<sep>``	
-      - A separator between fields. This tag is automatically inserted by the :doc:`/function#combined_editor` function.<br/>
-			Inserting this tag manually will confuse that function!<br/>
-			This tag can never be selected, and its contents can not be edited.
+      - | A separator between fields. This tag is automatically inserted by the :doc:`/function#combined_editor` function.<br/>
+        | Inserting this tag manually will confuse that function!<br/>
+        | This tag can never be selected, and its contents can not be edited.
     * - ``<prefix>``	
       - At the beginning of a string, indicates a part that can not be selected. This tag is automatically inserted by the :doc:`/function#combined_editor` function.
     * - ``<suffix>``	
@@ -4207,13 +4207,13 @@ This is written as the character with code 1 in files.
     * - ``<soft>``	
       - Text who's width is ignored for alignment, similar to ``<sep-soft>``, but not a separator.
     * - ``<word-list-???>``
-      - Indicate that the text inside the tag should be selected from a :ref:`word list`.
-			The <tt>???</tt> must be the name of a word list in the game.
+      - | Indicate that the text inside the tag should be selected from a :ref:`word list`.
+        | The ``???`` must be the name of a word list in the game.
     * - ``<error>``	
       - The text inside the tag is an error, and is shown with a red wavy underline.
     * - ``<error-spelling:???>``
-      - A spelling error, marked by the :doc:`/function#:check_spelling` function.
-			The <tt>???</tt> part indicates the language used for spelling checking.
+      - | A spelling error, marked by the :doc:`/function#:check_spelling` function.
+        | The ``???`` part indicates the language used for spelling checking.
     * - any other tag	
       - Other tags are ignored.
 
@@ -4269,10 +4269,10 @@ There are two types of filenames, relative and absolute:
 
     * - Syntax	
       - Description
-    * - <tt>path/to/file</tt>
-      - A relative file, this is retrieved from the current package.
-					i.e. for a filename in a stylesheet, the file is retrieved from that stylesheet.
-    * - <tt>/package/path/to/file</tt>
+    * - ``path/to/file``
+      - | A relative file, this is retrieved from the current package.
+        | i.e. for a filename in a stylesheet, the file is retrieved from that stylesheet.
+    * - ``/package/path/to/file``
       - An absolute filename includes the name of the package. This is a package somewhere in the MSE data directory.
 
 Don't forget the double quotes (``""``) in scripts.
@@ -4383,9 +4383,9 @@ The operators ``or``, ``and`` and ``xor`` combine two booleans:
 
     * - ``a``	
       - ``b``	
-      - <tt>a or b</tt>
-      - <tt>a and b</tt>
-      - <tt>a xor b</tt>
+      - ``a or b``
+      - ``a and b``
+      - ``a xor b``
     * - ``false``
       - ``false``	
       - ``false``	
@@ -4513,7 +4513,7 @@ An alpha value of ``0`` indicates a transparent color, an alpha value of ``255``
 
 You can also use HTML style hexadecimal colors,
 <pre>#<i>rgb</i>, #<i>rgba</i>, #<i>rrggbb</i>, #<i>rrggbbaa</i></pre>
-For example, <tt>#ff0000</tt> is red, as is <tt>#f00</tt>
+For example, ``#ff0000`` is red, as is ``#f00``
 
 **Named colors**
 MSE also supports named colors, for instance ``"white"`` is the same as ``rgb(255,255,255)``.
@@ -4629,8 +4629,8 @@ A possible choice for a choice :ref:`field`.
     * - ``type``	
       - ``"check"`` or ``"radio"``
       - ``"check"``
-      - How should this choice be displayed? As a checkbox or a radio box?<br/>
-			 			 		Only applies to multiple choice fields.
+      - | How should this choice be displayed? As a checkbox or a radio box?<br/>
+        | Only applies to multiple choice fields.
 
 A choice can also be given in a short form, in that case only the name is specified.
 
