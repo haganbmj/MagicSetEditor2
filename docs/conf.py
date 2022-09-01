@@ -13,6 +13,10 @@ html_theme_options = {
     'style_nav_header_background': '#2175bc',
 }
 
+extensions = [
+    'sphinx.ext.autosectionlabel',
+]
+
 # html_static_path = ['_static']
 # html_css_files = [
 #     'css/custom.css'
@@ -23,5 +27,5 @@ html_theme_options = {
 
 # Trying to use a dummy lanaguage to test highlighting.
 # It looks like it'll be possible to define a custom Lexer language type...
-highlight_language = 'sh'
+highlight_language = 'julia'
 pygments_style = 'monokai'
