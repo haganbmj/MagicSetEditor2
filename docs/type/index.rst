@@ -372,7 +372,7 @@ such a package contains a data file called <tt>set</tt>.
       - Name of a :ref:`stylesheet`	
       - ''required''
       - The default style for drawing cards in this set.<br/>
-		 					 		This is without the game name or extension, so ``"new"@ refers to the package @"gamename-new.mse-style"``.
+		 					 		This is without the game name or extension, so ``"new"`` refers to the package ``"gamename-new.mse-style"``.
     * - ``set info``
       - :ref:`indexmap` of :ref:`value`s
       -  
@@ -503,7 +503,7 @@ How that happens depends on the ``select`` property:
       - Description
     * - ``all``
       - Each instance of this pack type contains all of the filtered cards and ``items``.<br/>
-			In general, ``select: all@ is used for the selectable pack types, while other @select`` types are used for the rest of the packs.<br/>
+			In general, ``select: all`` is used for the selectable pack types, while other ``select`` types are used for the rest of the packs.<br/>
 			This is the default for pack types with ``items``.
     * - ``replace``	
       - Each instance of this pack type contains a single card or ``item``, chosen at random with replacement.
@@ -522,9 +522,9 @@ How that happens depends on the ``select`` property:
     * - ``equal``	
       - Instead of choosing cards and items at random, they are chosen to make their numbers as equal as possible.
     * - ``equal proportional``
-      - A combination of ``equal@ and @proportional``.
+      - A combination of ``equal`` and ``proportional``.
     * - ``equal nonempty``
-      - A combination of ``equal@ and @nonempty``.
+      - A combination of ``equal`` and ``nonempty``.
     * - ``first``	
       - If there are any cards, the first is always chosen, otherwise the first ''nonempty'' item is used.<br/>
 			``select: first`` can be used to make a kind of if statement: "If there are any X cards then use those, otherwise use Y cards".
@@ -859,7 +859,7 @@ A single symbol in a :ref:`symbol font`.
     * - ``draw text``
       - :ref:`int`
       - ``-1``
-      - The index of the captured regex expression to draw as text, or -1 to not draw text.<br/> For example with the code ``"x([a-z])"@ and @draw text: 1@ the text of the symbol @"xb"@ will be @"b"``.
+      - The index of the captured regex expression to draw as text, or -1 to not draw text.<br/> For example with the code ``"x([a-z])"`` and ``draw text: 1`` the text of the symbol ``"xb"`` will be ``"b"``.
     * - ``text font``
       - :ref:`font`
       -  
@@ -933,7 +933,7 @@ The menu consists of a number of entries, either items, separators or submenus.
       - Description
     * - ``type``
       - One of:
-      - ``"code"@ or @"submenu"``	
+      - ``"code"`` or ``"submenu"``	
       - What type of menu item is this?
 		* ``code``, inserts a symbol with the given code.
 		* ``custom``, pops up a dialog where the user can choose a code to insert.
@@ -954,9 +954,9 @@ The menu consists of a number of entries, either items, separators or submenus.
     * - ``items``
       - :ref:`list` of :ref:`insert symbol menu|submenu items`
       -  
-      - Items in the submenu, when items are present the ``type@ is set to @"submenu"``.
+      - Items in the submenu, when items are present the ``type`` is set to ``"submenu"``.
 
-For custom items the dialog will be titled with the ``label@ and have message text @prompt``.
+For custom items the dialog will be titled with the ``label`` and have message text ``prompt``.
 
 **Examples**
 A menu for magic mana symbols (simplified). Containing all types of items.
@@ -1241,7 +1241,7 @@ Look at the ``"en.mse-locale"`` file in the standard MSE distribution for an exa
 
 **Translating MSE**
 To translate the MSE user interface:
-* Create a copy of the ``"en.mse-locale"@ directory, name it @"**.mse-locale"@, where @"**"`` is a two or three letter [[http://en.wikipedia.org/wiki/ISO_language_code|ISO language code`.
+* Create a copy of the ``"en.mse-locale"`` directory, name it ``"**.mse-locale"``, where ``"**"`` is a two or three letter [[http://en.wikipedia.org/wiki/ISO_language_code|ISO language code`.
 * Open the ``"locale"`` file with Notepad (or another program that supports UTF-8), and translate the strings.
 * Add new keys for game, stylesheet or symbol font specific keys as described above.
 * Save the file, select the new locale from Edit->Preferences.
@@ -1318,7 +1318,7 @@ Symbols are not stored in packages, the data file is directly written to a ``".m
 **Coordinates**
 
 Various parts of a symbol use :ref:`vector2d|coordinates`.
-These are pairs of numbers in the range ``0@ to @1@. @(0,0)@ is the top-left of the symbol, @(1,1)`` the bottom-right.
+These are pairs of numbers in the range ``0`` to ``1``. ``(0,0)`` is the top-left of the symbol, ``(1,1)`` the bottom-right.
 
 **Properties**
 
@@ -1534,7 +1534,7 @@ The ``type`` determines what values of this field contain:
       - A choice from a list of installed :ref:`package`s
       - Text and/or an image
     * - ``boolean``	
-      - ``yes@ or @no``	
+      - ``yes`` or ``no``	
       - Text or an image or both
     * - ``color``	
       - Any color or a restricted selection from a list	
@@ -1627,7 +1627,7 @@ Additional properties are available, depending on the type of field:
 		To refer to a combination of values in the initial attribute use ``choice1, choice2, choice3``.<br/>
 		These choices must appear in the same order as they do in the ``choices`` property.
     * - ``"boolean"``
-      - ''A boolean field is a choice field with the choices ``"yes"@ and @"no"``.''
+      - ''A boolean field is a choice field with the choices ``"yes"`` and ``"no"``.''
       - <<<
       - <<<
       - <<<
@@ -1638,7 +1638,7 @@ Additional properties are available, depending on the type of field:
       - ``match``	
       - :ref:`string`
       - ''required'' 
-      - Filenames of the packages to match, can include wildcards ``"*"@. For example @"magic-mana-*.mse-symbol-font"``.
+      - Filenames of the packages to match, can include wildcards ``"*"``. For example ``"magic-mana-*.mse-symbol-font"``.
     * - ^^^	
       - ``initial``
       - :ref:`string`
@@ -1764,7 +1764,7 @@ Styles are part of the :doc:`/file/style triangle`:
 
 <img src="style-positioning.png" alt="" style="float:right;border:1px solid #ccc;"/>
 A style specifies the position of a box for the content.
-To specify the horizontal location ''two'' of ``left@, @width@ and @right`` must be specified.
+To specify the horizontal location ''two'' of ``left``, ``width`` and ``right`` must be specified.
 
 For example:
 
@@ -1782,7 +1782,7 @@ Similarly:
      right: 30
 Implies the ``width`` is 20.
 
-The same holds for the vertical location and size; ``top@, @height@ and @bottom``.
+The same holds for the vertical location and size; ``top``, ``height`` and ``bottom``.
 
 **Rotation**
 Rotating a box can be done with the ``angle`` property.
@@ -1965,7 +1965,7 @@ The rest of the properties depend on the type of :ref:`field` this style is for.
       - :ref:`scriptable` :ref:`double`	
       - ``1``	
       - Multiplier for the line height of 'soft' line breaks. These are breaks caused by wrapping around lines that are too long.<br/>
-		 			 			 		A line height of ``0@ means all lines are in the same position, @1@ is normal behaviour, @2`` skips a line, etc.
+		 			 			 		A line height of ``0`` means all lines are in the same position, ``1`` is normal behaviour, ``2`` skips a line, etc.
     * - ^^^	
       - ``line height hard``
       - :ref:`scriptable` :ref:`double`	
@@ -2028,8 +2028,8 @@ The rest of the properties depend on the type of :ref:`field` this style is for.
       - When read from a script, gives the number of lines of the current content in this box. Equivalent to ``length(layout.lines)``
 	
 !	<<<	<<<	<<<	<<<
-    * - ``"choice"@,<br/>@"multiple choice"@,<br/>@"boolean"``
-		``popup style@	@"drop down"@ or @"in place"@		@"drop down"``	Where to place the drop down box for editing the value.<br/>
+    * - ``"choice"``,<br/>``"multiple choice"``,<br/>``"boolean"``
+		``popup style``	``"drop down"`` or ``"in place"``		``"drop down"``	Where to place the drop down box for editing the value.<br/>
 		 		 					 		``"drop down"`` places the box below the field, similar to normal combo boxes.<br/>
 		 		 					 		``"in place"`` places the box at the mouse coordinates.
     * - ^^^	
@@ -2076,7 +2076,7 @@ The rest of the properties depend on the type of :ref:`field` this style is for.
       - ''automatic''
       - When read from a script, gives the height of the current choice image in this box.
     * - ``"multiple choice"``
-		``direction@	:ref:`scriptable` :ref:`direction`	@"left to right"@	Direction the items are laid out in, only when @render style@ is @list``.
+		``direction``	:ref:`scriptable` :ref:`direction`	``"left to right"``	Direction the items are laid out in, only when ``render style`` is ``list``.
     * - ^^^	
       - ``spacing``
       - :ref:`scriptable` :ref:`double`
@@ -2269,7 +2269,7 @@ A variation of a symbol, describes color and border.
       - ``0.05``	
       - Border radius of the symbol.
     * - ``fill type``	
-      - ``solid@ or @linear gradient@ or @radial gradient``
+      - ``solid`` or ``linear gradient`` or ``radial gradient``
 			 			``"solid"``	How to fill the symbol.
 
 Depending on the ``fill type`` there are additional properties:
@@ -2308,11 +2308,11 @@ Depending on the ``fill type`` there are additional properties:
       - :ref:`color`
       - Color to use for the border of the symbol at the ends of the gradient.
     * - ^^^
-      - ``center x@, @center y``
+      - ``center x``, ``center y``
       - :ref:`double`
       - Position of the center point of the gradient (in the range 0 to 1)
     * - ^^^
-      - ``end x@, @end y``
+      - ``end x``, ``end y``
       - :ref:`double`
       - Position of the end point of the gradient (in the range 0 to 1)
     * - ``"radial gradient"``
@@ -2465,7 +2465,7 @@ The type of a value depends on the corresponding field:
       - Name of a package	
       - The (file)name of a package, including the extension.
     * - ``"boolean"``	
-      - ``"yes"@ or @"no"``	
+      - ``"yes"`` or ``"no"``	
       - This can be directly used as a :ref:`boolean` value in scripts.
     * - ``"image"``	
       - :ref:`filename`	
@@ -2549,7 +2549,7 @@ A '''card''' in a :ref:`set`.
       - :ref:`indexmap` of :ref:`value`s
       -  	
       - The remaining keys contain the data for the game's ``card fields``.<br/>
-				 					 		So for example ``card.some_field@ corresponds to the value of the card field @some field``.
+				 					 		So for example ``card.some_field`` corresponds to the value of the card field ``some field``.
 
 **Examples**
 
@@ -2619,10 +2619,10 @@ A keyword is something that matches a piece of text, and optionally some kind of
       -  	
       - Mode of this keyword.
 
-The match string can include parameters, ``"<atom-param>type</atom-param>"@ where @"type"`` is the name of a :ref:`keyword param type|keyword parameter type` in the game.
+The match string can include parameters, ``"<atom-param>type</atom-param>"`` where ``"type"`` is the name of a :ref:`keyword param type|keyword parameter type` in the game.
 These will match according to the ``match`` property of that parameter type.
 
-When expanding the reminder text ``param1@ refers to the first parameter in the match string, @param2`` to the second, etc.
+When expanding the reminder text ``param1`` refers to the first parameter in the match string, ``param2`` to the second, etc.
 
 **Example**
 
@@ -2714,7 +2714,7 @@ A type of parameter that can be used in a :ref:`keyword`.
     * - ``optional``	
       - :ref:`boolean`
       - ``true``	
-      - Is a placeholder used when a keyword is encountered with no parameter,<br/> for example ``"Cycling "@ would become @"Cycling <atom-kwpph>cost</atom-kwpph>"``.
+      - Is a placeholder used when a keyword is encountered with no parameter,<br/> for example ``"Cycling "`` would become ``"Cycling <atom-kwpph>cost</atom-kwpph>"``.
     * - ``match``	
       - :ref:`regex`	
       - ''required''
@@ -2731,7 +2731,7 @@ A type of parameter that can be used in a :ref:`keyword`.
       - :ref:`boolean`
       - ``true``	
       - Allow the user to 'type over' the separator.<br/>
-			 					 		For example if the separator is ``" "@ in the keyword @"Cycling"@, and the user types @"Cycling"``,
+			 					 		For example if the separator is ``" "`` in the keyword ``"Cycling"``, and the user types ``"Cycling"``,
 			 					 		a space and a placeholder is automatically inserted, making ``"Cycling <cost>"``.
 			 					 		If the user now presses space the cursor is only moved, no additional space is inserted, the space is 'eaten'.
     * - ``script``	
@@ -2805,7 +2805,7 @@ To make this easy for the user, a menu of choices is provided, this type describ
       - ''required''
       - Script that generates the code using the parameter.<br/>
 			 		 		This means you will likely need to do some escaping.<br/>
-			 		 		In the script, ``input@ refers to the name of the parameter, for example @"param1"``.
+			 		 		In the script, ``input`` refers to the name of the parameter, for example ``"param1"``.
 
 **Example**
 Apply the :doc:`/function#english_number` function to the parameter:
@@ -2828,7 +2828,7 @@ A dimension or axis for the statistics panel.
 
 One or more dimensions are combined in a graph, these combinations are called :ref:`statistics category`s.
 
-Statistics dimensions are automatically generated for all card fields in a :ref:`game` that don't set ``show statistics@ to @false``.
+Statistics dimensions are automatically generated for all card fields in a :ref:`game` that don't set ``show statistics`` to ``false``.
 
 Categories are also automatically generated from dimensions.
 
@@ -2871,7 +2871,7 @@ Categories are also automatically generated from dimensions.
       - :ref:`double`	
       - ''none''
       - For numeric dimensions: group numbers together into bins this large.<br/>
-			 			 		For example with ``bin size: 5@, values @1@ and @3@ both get put under @"1-5"``.
+			 			 		For example with ``bin size: 5``, values ``1`` and ``3`` both get put under ``"1-5"``.
     * - ``show empty``	
       - :ref:`boolean`
       - ``false``	
@@ -3130,11 +3130,11 @@ A reference to a normal :ref:`font` for drawing text.
     * - ``weight``	
       - :ref:`scriptable` font weight	
       - ``"normal"``
-      - Weight of the font, one of ``"normal"@ or @"bold"``. This can be changed locally by :ref:`tagged string|tags`.
+      - Weight of the font, one of ``"normal"`` or ``"bold"``. This can be changed locally by :ref:`tagged string|tags`.
     * - ``style``	
       - :ref:`scriptable` font style	
       - ``"normal"``
-      - Style of the font, one of ``"normal"@ or @"italic"``. This can be changed locally by :ref:`tagged string|tags`.
+      - Style of the font, one of ``"normal"`` or ``"italic"``. This can be changed locally by :ref:`tagged string|tags`.
     * - ``underline``	
       - :ref:`scriptable` :ref:`boolean`
       - ``false``	
@@ -3229,7 +3229,7 @@ The rest of the properties depends on the ``type``.
       - The points that form this shape
     * - ``"symmetry"``
       - ``kind``	
-      - ``rotation@ or @reflection``	
+      - ``rotation`` or ``reflection``	
       - ``"rotation"``
       - What kind of symmetry is this?
     * - ^^^	
@@ -3247,7 +3247,7 @@ The rest of the properties depends on the ``type``.
       - :ref:`vector2d`
       -  	
       - Direction perpendicular to the 'mirror' (this is a direction, so relative to the center).
-    * - ``"group"@ and @"symmetry"``
+    * - ``"group"`` and ``"symmetry"``
 		``parts``		:ref:`list` of :ref:`symbol part`s		 	Parts in this group.
 
 
@@ -3283,23 +3283,23 @@ The control points of a shape are circular, the point after the last point in th
       -  	
       - Position of the control point.
     * - ``lock``	
-      - ``free@, @direction@ or @size``
+      - ``free``, ``direction`` or ``size``
       -  ``"free"``
 			 			 		Is this point 'locked', i.e. is the relation between the two handles fixed?<br/>
-			 			 		If ``lock@ is @"direction"`` then the two handles must lie on a line.<br/>
-			 			 		If ``lock@ is @"direction"`` then the two handles must lie exactly oppisite each other on the same distance from the point.
+			 			 		If ``lock`` is ``"direction"`` then the two handles must lie on a line.<br/>
+			 			 		If ``lock`` is ``"direction"`` then the two handles must lie exactly oppisite each other on the same distance from the point.
     * - ``line after``	
-      - ``line@ or @curve``
+      - ``line`` or ``curve``
       - ``"line"``
       - Is the segment between this control point and the next one in the list a straight line or a cubic B&eacute;zier curve?
     * - ``handle before``
       - :ref:`vector2d`
       -  	
-      - Position of the handle for the segment between this point and the previous one, relative to the point's ``position@.<br/>Only when that point's @line after == "curve"``.
+      - Position of the handle for the segment between this point and the previous one, relative to the point's ``position``.<br/>Only when that point's ``line after == "curve"``.
     * - ``handle after``
       - :ref:`vector2d`
       -  	
-      - Position of the handle for the segment between this point and the next one, relative to the point's ``position@.<br/>Only when @line after == "curve"``.
+      - Position of the handle for the segment between this point and the next one, relative to the point's ``position``.<br/>Only when ``line after == "curve"``.
 
 **Example**
 Look at a symbol file made with the program.
@@ -3349,7 +3349,7 @@ List
 **File syntax**
 In files a list is represented as multiple keys, one for each element.
 The keys are all in the singular for of the name of the list,
-if the list is named for instance ``symbols@ each key will be named @symbol``.
+if the list is named for instance ``symbols`` each key will be named ``symbol``.
 
 .. code-block::
 
@@ -3557,7 +3557,7 @@ A simple :ref:`field` script that converts everything to upper case:
 
     script: to_upper(value)
 
-A larger script, changes ``"y"@s to @"x"@s and @"a"@s to @"b"``s:
+A larger script, changes ``"y"``s to ``"x"``s and ``"a"``s to ``"b"``s:
 
 .. code-block::
 
@@ -3682,7 +3682,7 @@ A piece of code enclosed in curly braces defines a function.
 A function can be called using parentheses, for example ``function(argument:value)``.
 
 **Composition**
-Functions can be composed using the ``+@ operator, evaluating @a + b@ first evaluates @a@ and uses its result as @input@ for @b``:
+Functions can be composed using the ``+`` operator, evaluating ``a + b`` first evaluates ``a`` and uses its result as ``input`` for ``b``:
 
 .. code-block::
 
@@ -3782,7 +3782,7 @@ These flags can appear in any order.
       - Fill the box exactly, by stretching the text.<br/>
 			For images: stretch them, but preserve the aspect ratio.
     * - ``if-overflow``	
-      - Only apply ``justify@, @justify-all@ and @stretch`` when the box is overfull.
+      - Only apply ``justify``, ``justify-all`` and ``stretch`` when the box is overfull.
     * - ``force``	
       - Also justify text at the end of a line in a multiline text field.<br/>
 			Normally only lines ending in a soft line break are justified.
@@ -4033,7 +4033,7 @@ Primitive Types
     * - :doc:`regex <#regex>`
       - Regular expression strings
     * - :doc:`boolean <#boolean>`
-      - ``true@ or @false``
+      - ``true`` or ``false``
     * - :doc:`int <#int>`
       - Integer numbers, ``1, 2, 100``
     * - :doc:`double <#double>`
@@ -4096,7 +4096,7 @@ This can be nested arbitrarily.
 
 The ``+`` operator concatenates strings. Numbers and most other values are automatically converted to strings when needed. This conversion can be forced with the :doc:`/function#to_string` function.
 
-Using the ``[]@ or @.`` operator characters in a string can be selected. 0 is the first character:
+Using the ``[]`` or ``.`` operator characters in a string can be selected. 0 is the first character:
 
 .. code-block::
 
@@ -4133,7 +4133,7 @@ These tags affect the presentation and sometimes the behaviour of the text.
 A tag is something like ``"<tag>some text</tag>"``, similar to HTML.
 Tags are closed by the same tag with a ``/`` before it.
 
-To represent the character ``"<"@ in a tagged string use @"\<"`` in script code.
+To represent the character ``"<"`` in a tagged string use ``"\<"`` in script code.
 This is written as the character with code 1 in files.
 
 **Basic markup**
@@ -4154,7 +4154,7 @@ This is written as the character with code 1 in files.
     * - ``<color:???>``	
       - The text inside the tag is rendered with the given :ref:`color`.
     * - ``<size:???>``	
-      - The text inside the tag is rendered with the given font size in points, for example ``"<size:12>text</size>"@ makes the text 12 points. The text is scaled down proportionally when it does not fit in a text box and the @scale down to`` attribute allows it.
+      - The text inside the tag is rendered with the given font size in points, for example ``"<size:12>text</size>"`` makes the text 12 points. The text is scaled down proportionally when it does not fit in a text box and the ``scale down to`` attribute allows it.
     * - ``<font:???>``	
       - The text inside the tag is rendered with the given font family.
     * - ``<align:???>``
@@ -4243,7 +4243,7 @@ A 'localized string' is a :ref:`map` of :ref:`:string`s, indexed by locale name.
 It is used to translate games and stylesheets to other user interface languages.
 
 Localized strings can be given with a ``localized`` prefix on the property name.
-For example, a field has a ``description@ which is a :ref:`:string`, and a @localized_description`` for localized variants. So
+For example, a field has a ``description`` which is a :ref:`:string`, and a ``localized_description`` for localized variants. So
 
 
 .. code-block::
@@ -4353,13 +4353,13 @@ For more information, see
 Boolean
 ~~~~~~~
 
-A boolean is either ``true@ or @false``.
+A boolean is either ``true`` or ``false``.
 
-In a script, numbers are implicitly converted to booleans, a non-zero number is ``true@, 0 is @false``.
+In a script, numbers are implicitly converted to booleans, a non-zero number is ``true``, 0 is ``false``.
 
-When converted to a number, ``true@ becomes @1@ and @false@ becomes @0``.
+When converted to a number, ``true`` becomes ``1`` and ``false`` becomes ``0``.
 
-The strings ``"yes"@ and @"no"`` can also be converted to booleans.
+The strings ``"yes"`` and ``"no"`` can also be converted to booleans.
 
 **File syntax**
 
@@ -4374,7 +4374,7 @@ The strings ``"yes"@ and @"no"`` can also be converted to booleans.
 
      true or false
 
-The operators ``or@, @and@ and @xor`` combine two booleans:
+The operators ``or``, ``and`` and ``xor`` combine two booleans:
 
 .. list-table:: 
     :header-rows: 1
@@ -4509,16 +4509,16 @@ where red_component, green_component and blue_component are numbers between 0 an
 
 In most places MSE also supports colors with a transparency value, notated as
 <pre><span class='hl-kw'>rgba</span>(<i>red_component</i>, <i>green_component</i>, <i>blue_component</i>, <i>alpha_component</i>)</pre>
-An alpha value of ``0@ indicates a transparent color, an alpha value of @255`` is completely opaque.
+An alpha value of ``0`` indicates a transparent color, an alpha value of ``255`` is completely opaque.
 
 You can also use HTML style hexadecimal colors,
 <pre>#<i>rgb</i>, #<i>rgba</i>, #<i>rrggbb</i>, #<i>rrggbbaa</i></pre>
 For example, <tt>#ff0000</tt> is red, as is <tt>#f00</tt>
 
 **Named colors**
-MSE also supports named colors, for instance ``"white"@ is the same as @rgb(255,255,255)``.
+MSE also supports named colors, for instance ``"white"`` is the same as ``rgb(255,255,255)``.
 For a full list of supported colors, see [[https://docs.wxwidgets.org/3.0/classwx_colour_database.html|the wxWidgets documentation`.
-In addition, the named color ``"transparent"@ stands for the completely transparent color, @rgba(0,0,0,0)``.
+In addition, the named color ``"transparent"`` stands for the completely transparent color, ``rgba(0,0,0,0)``.
 
 In scripts named colors are represented as :ref:`string`s.
 
@@ -4627,7 +4627,7 @@ A possible choice for a choice :ref:`field`.
       -  
       - Is this choice selectable?
     * - ``type``	
-      - ``"check"@ or @"radio"``
+      - ``"check"`` or ``"radio"``
       - ``"check"``
       - How should this choice be displayed? As a checkbox or a radio box?<br/>
 			 			 		Only applies to multiple choice fields.
@@ -4655,7 +4655,7 @@ For example
     		choice: green
     		choice: yellow
 
-The choice red is called ``"large red"@, while green is @"small green"``.
+The choice red is called ``"large red"``, while green is ``"small green"``.
 The group choice 'just small' gets the name of the group, ``"small"``.
 
 **Example**
@@ -4710,8 +4710,8 @@ AKA: Two Dimensional Vector
 A coordinate or direction in a symbol.
 This is a pair of :ref:`double`s.
 
-The coordinates are usually in the range ``0@ to @1``.
-``(0,0)@ is the top-left of the symbol, @(1,1)`` the bottom-right.
+The coordinates are usually in the range ``0`` to ``1``.
+``(0,0)`` is the top-left of the symbol, ``(1,1)`` the bottom-right.
 
 **File syntax**
 
