@@ -394,32 +394,38 @@ such a package contains a data file called <tt>set</tt>.
 --Example--
 
 If the game looks like:
->mse version: 0.3.4
->name: my game
->set field:
->	name: copyright
->	type: text
->card field:
->	name: card name
->	type: text
->card field:
->	name: power
->	type: text
+
+.. code-block::
+
+    mse version: 0.3.4
+    name: my game
+    set field:
+    	name: copyright
+    	type: text
+    card field:
+    	name: card name
+    	type: text
+    card field:
+    	name: power
+    	type: text
 The the a set file would looks like:
->mse version: 0.3.4
->game: my game
->name: my set
->set info:
->	copyright: something
->extra set info:
->	name of style:
->		name of field: something
->card:
->	card name: first card
->	power: 100
->card:
->	card name: second card
->	power: 50
+
+.. code-block::
+
+    mse version: 0.3.4
+    game: my game
+    name: my set
+    set info:
+    	copyright: something
+    extra set info:
+    	name of style:
+    		name of field: something
+    card:
+    	card name: first card
+    	power: 100
+    card:
+    	card name: second card
+    	power: 50
 
 Pack Type
 ~~~~~~~~~
@@ -519,18 +525,24 @@ How that happens depends on the @select@ property:
 			@select: first@ can be used to make a kind of if statement: "If there are any X cards then use those, otherwise use Y cards".
 
 --Examples--
->pack item:
->	name: rare
->	select: no replace # this is optional, 'no replace' is the default
->	filter: card.rarity == "rare"
+
+.. code-block::
+
+    pack item:
+    	name: rare
+    	select: no replace # this is optional, 'no replace' is the default
+    	filter: card.rarity == "rare"
 
 Rare cards are those with the rarity value of @"rare"@.
 The cards are chosen without replacement, so in a single pack the same rare will not occur twice.
 
->pack item:
->	name: basic land
->	select: equal
->	filter: card.rarity == "basic land"
+
+.. code-block::
+
+    pack item:
+    	name: basic land
+    	select: equal
+    	filter: card.rarity == "basic land"
 
 Basic land cards are selected in equal amounts:
 Say a set contains two basic lands: "Good Land" and "Bad Land".
@@ -538,38 +550,47 @@ Then if 6 basic lands are selected, there will always be exactly 3 "Good Lands" 
 If an odd number of basic lands are selected then the amounts will be as close as possible to being equal.
 
 
->pack type:
->	name: booster pack
->	select: all # this is optional, 'all' is the default
->	item:
->		name: rare
->		amount: 1
->	item:
->		name: uncommon
->		amount: 3
->	item:
->		name: common
->		amount: 11
+
+.. code-block::
+
+    pack type:
+    	name: booster pack
+    	select: all # this is optional, 'all' is the default
+    	item:
+    		name: rare
+    		amount: 1
+    	item:
+    		name: uncommon
+    		amount: 3
+    	item:
+    		name: common
+    		amount: 11
 
 A Magic booster pack contains 1 rare, 3 uncommons and 11 commons.
 
->pack type:
->	name: special or else common
->	select: first
->	item: special
->	item: common
+
+.. code-block::
+
+    pack type:
+    	name: special or else common
+    	select: first
+    	item: special
+    	item: common
 
 If there are any special cards in the set, then "special or else common" will be a special card, otherwise it will be a common.
 
->pack type:
->	name: rare or mythic rare
->	select: proportional
->	item:
->		name: rare
->		weight: 2
->	item:
->		name: mythic rare
->		weight: 1
+
+.. code-block::
+
+    pack type:
+    	name: rare or mythic rare
+    	select: proportional
+    	item:
+    		name: rare
+    		weight: 2
+    	item:
+    		name: mythic rare
+    		weight: 1
 
 In Magic, individual "mythic rares" are twice as rare as normal rare cards.
 Since there are also less mythic rares, this does not mean that each booster pack has a 33% percent chance of containing a mythic rare.
@@ -613,13 +634,19 @@ A reference to another [[type:pack type]], from which one or more cards are chos
 		 					 	Cards from @filter@ will have a weight of 1.
 
 --Examples--
->item:
->	name: common
->	amount: 11
+
+.. code-block::
+
+    item:
+    	name: common
+    	amount: 11
 
 Include 11 commons in this [[type:pack type|pack]].
 
->item: common
+
+.. code-block::
+
+    item: common
 Short form. Include a single common in this pack.
 
 
@@ -650,7 +677,10 @@ This resolution could correspond to a point size of for instance 150pt.
 When the symbol is drawn at for instance 12pt the image well then be scaled down to @200/150*12 == 16@ pixels.
 
 Sizes like margin, padding and font size are given in 'pixels per point'. If for instance
-> text margin left: 0.1
+
+.. code-block::
+
+     text margin left: 0.1
 is specified, and the symbol is rendered at 12pt, the margin will be @12*0.1 == 1.2@ pixels.
 
 --Package format--
@@ -765,15 +795,21 @@ In [[type:stylesheet]]s the symbol fonts are not included inline, instead they a
       - Alignment of symbols in a line of text.
 
 --Example--
->symbol font:
->	name: magic-mana-small
->	size: 10
->	alignment: top left
+
+.. code-block::
+
+    symbol font:
+    	name: magic-mana-small
+    	size: 10
+    	alignment: top left
 The name can be scripted:
->symbol font:
->	name: { if set.use_larga_mana_symbols then "magic-mana-large" else "magic-mana-small" }
->	size: 10
->	alignment: top left
+
+.. code-block::
+
+    symbol font:
+    	name: { if set.use_larga_mana_symbols then "magic-mana-large" else "magic-mana-small" }
+    	size: 10
+    	alignment: top left
 
 Symbol Font Symbol
 __________________
@@ -847,21 +883,27 @@ A single symbol in a [[type:symbol font]].
 
 --Examples--
 A symbol with text:
->symbol:
->	image: blank.png
->	code:  .
->	regex: true
->	text font: Arial
+
+.. code-block::
+
+    symbol:
+    	image: blank.png
+    	code:  .
+    	regex: true
+    	text font: Arial
 
 Two symbols for the same code, which one is used depends on a function from the [[type:stylesheet]].
 It is recommended to only use functions in @enabled@, so each stylesheet can determine how the font should be used.
->symbol:
->	code: T
->	image: mana_t_old.png
->	enabled: { use_old_tap_symbol() }
->symbol:
->	code: T
->	image: mana_t.png
+
+.. code-block::
+
+    symbol:
+    	code: T
+    	image: mana_t_old.png
+    	enabled: { use_old_tap_symbol() }
+    symbol:
+    	code: T
+    	image: mana_t.png
 
 
 Insert Symbol Menu
@@ -913,30 +955,33 @@ For custom items the dialog will be titled with the @label@ and have message tex
 
 --Examples--
 A menu for magic mana symbols (simplified). Containing all types of items.
->insert symbol menu:
->	item:
->		type: custom
->		name: Generic
->		prompt: How much generic mana?
->	item:
->		type: line
->	item: W
->	item: U
->	item: B
->	item: R
->	item: G
->	item:
->		label: Complex
->		name: cplx
->	item:
->		type: line
->	item:
->		name: hybrid
->		item: W/U
->		item: U/B
->		item: B/R
->		item: R/G
->		item: G/W
+
+.. code-block::
+
+    insert symbol menu:
+    	item:
+    		type: custom
+    		name: Generic
+    		prompt: How much generic mana?
+    	item:
+    		type: line
+    	item: W
+    	item: U
+    	item: B
+    	item: R
+    	item: G
+    	item:
+    		label: Complex
+    		name: cplx
+    	item:
+    		type: line
+    	item:
+    		name: hybrid
+    		item: W/U
+    		item: U/B
+    		item: B/R
+    		item: R/G
+    		item: G/W
 
 
 Export Template
@@ -1179,7 +1224,10 @@ There are usually no other files in the package.
 			 					 	Translations for specific [[type:symbol font]]s, in particular the "insert symbol" menu.
 
 Some of the items can contain placeholders for other values, for example:
-> undo: &Undo%s	Ctrl+Z
+
+.. code-block::
+
+     undo: &Undo%s	Ctrl+Z
 The @%s@ is replaced by the name of the action to undo.
 This @%s@ should be used in exactly those entries that also contain it in the English locale.
 
@@ -1301,7 +1349,10 @@ The MSE settings are stored in a separate file.
 --Location--
 
 On Windows XP the settings are located in:
-> "C:\Documents and Settings\Application Data\Magic Set Editor\mse8.config"
+
+.. code-block::
+
+     "C:\Documents and Settings\Application Data\Magic Set Editor\mse8.config"
 
 --Properties--
 See the settings file for the properties.
@@ -1647,30 +1698,36 @@ Additional properties are available, depending on the type of field:
 
 --Example--
 The @title@ field gives the title of a set:
->set field:
->	type: text
->	name: title
->	identifying: true
+
+.. code-block::
+
+    set field:
+    	type: text
+    	name: title
+    	identifying: true
 
 The border color of cards can be selected from a list of choices, but other values are also possible.
 The default is based on a set field. Statistics don't make much sense for the border color.
->card field:
->	type: color
->	name: border color
->	default: set.border_color
->	choice:
->		name: black
->		color: rgb(0,0,0)
->	choice:
->		name: white
->		color: rgb(255,255,255)
->	choice:
->		name: silver
->		color: rgb(128,128,128)
->	choice:
->		name: gold
->		color: rgb(200,180,0)
->	show statistics: false
+
+.. code-block::
+
+    card field:
+    	type: color
+    	name: border color
+    	default: set.border_color
+    	choice:
+    		name: black
+    		color: rgb(0,0,0)
+    	choice:
+    		name: white
+    		color: rgb(255,255,255)
+    	choice:
+    		name: silver
+    		color: rgb(128,128,128)
+    	choice:
+    		name: gold
+    		color: rgb(200,180,0)
+    	show statistics: false
 
 
 Style
@@ -1705,13 +1762,19 @@ A style specifies the position of a box for the content.
 To specify the horizontal location ''two'' of @left@, @width@ and @right@ must be specified.
 
 For example:
-> left:  10
-> width: 20
+
+.. code-block::
+
+     left:  10
+     width: 20
 Implies that @right@ is 30 pixels.
 
 Similarly:
-> left: 10
-> right: 30
+
+.. code-block::
+
+     left: 10
+     right: 30
 Implies the @width@ is 20.
 
 The same holds for the vertical location and size; @top@, @height@ and @bottom@.
@@ -2169,7 +2232,10 @@ A way to render a choice [[type:field]], see [[type:style]].
 		 	A list of the selected items with both images and text.
 
 --Examples--
-> render style: image
+
+.. code-block::
+
+     render style: image
 
 Symbol Variation
 ________________
@@ -2263,22 +2329,25 @@ Depending on the @fill type@ there are additional properties:
 
 --Examples--
 'Common' and 'uncommon' magic expansion symbol styles:
->variation:
->	name: common
->	border radius: 0.10
->	# White border, black fill
->	fill type: solid
->	fill color:   rgb(0,0,0)
->	border color: rgb(255,255,255)
->variation:
->	name: uncommon
->	border radius: 0.05
->	fill type: linear gradient
->	# Black border, silver gradient fill
->	fill color 1:   rgb(224,224,224)
->	fill color 2:   rgb(84, 84, 84)
->	border color 1: rgb(0,  0,  0)
->	border color 2: rgb(0,  0,  0)
+
+.. code-block::
+
+    variation:
+    	name: common
+    	border radius: 0.10
+    	# White border, black fill
+    	fill type: solid
+    	fill color:   rgb(0,0,0)
+    	border color: rgb(255,255,255)
+    variation:
+    	name: uncommon
+    	border radius: 0.05
+    	fill type: linear gradient
+    	# Black border, silver gradient fill
+    	fill color 1:   rgb(224,224,224)
+    	fill color 2:   rgb(84, 84, 84)
+    	border color 1: rgb(0,  0,  0)
+    	border color 2: rgb(0,  0,  0)
 
 Text Layout
 ___________
@@ -2294,7 +2363,10 @@ A block is one or more paragraphs, ending in a line, "<line>\n</line>".
 
 It is possible to dig deeper into blocks, for example
 
-> card_style.text.layout.blocks[1].lines[0].middle
+
+.. code-block::
+
+     card_style.text.layout.blocks[1].lines[0].middle
 
 Is the middle of the first line of the second block.
 
@@ -2406,14 +2478,20 @@ The type of a value depends on the corresponding field:
 
 --Example--
 For the field:
->field:
->	type: choice
->	name: card color
->	choice: red
->	choice: green
->	choice: blue
+
+.. code-block::
+
+    field:
+    	type: choice
+    	name: card color
+    	choice: red
+    	choice: green
+    	choice: blue
 A value could be:
->card color: red
+
+.. code-block::
+
+    card color: red
 
 
 Card
@@ -2471,22 +2549,28 @@ A '''card''' in a [[type:set]].
 --Examples--
 
 With the following game:
->card field:
->	type: text
->	name: title
->card field:
->	type: color
->	name: card color
+
+.. code-block::
+
+    card field:
+    	type: text
+    	name: title
+    card field:
+    	type: color
+    	name: card color
 
 A card could look like:
->card:
->	stylesheet: new
->	has styling: false
->	notes: This card is not finished yet!
->	styling data:
->		extra large cards: true
->	title: My Card
->	card color: rgb(0,128,255)
+
+.. code-block::
+
+    card:
+    	stylesheet: new
+    	has styling: false
+    	notes: This card is not finished yet!
+    	styling data:
+    		extra large cards: true
+    	title: My Card
+    	card color: rgb(0,128,255)
 
 
 Keyword
@@ -2536,11 +2620,14 @@ These will match according to the @match@ property of that parameter type.
 When expanding the reminder text @param1@ refers to the first parameter in the match string, @param2@ to the second, etc.
 
 --Example--
->keyword:
->	keyword: Equip
->	match: Equip <atom-param>cost</atom-param>
->	mode: core
->	reminder: {param1}: Attach to target creature you control. Equip only as a sorcery.
+
+.. code-block::
+
+    keyword:
+    	keyword: Equip
+    	match: Equip <atom-param>cost</atom-param>
+    	mode: core
+    	reminder: {param1}: Attach to target creature you control. Equip only as a sorcery.
 
 
 Keyword Mode
@@ -2580,10 +2667,13 @@ This information can then be used to determine whether to expand the reminder te
       - Is this the default mode for new keywords?
 
 --Example--
->keyword mode:
->	name: custom
->	description: Custom keywords
->	is default: true
+
+.. code-block::
+
+    keyword mode:
+    	name: custom
+    	description: Custom keywords
+    	is default: true
 
 
 Keyword Param Type
@@ -2659,17 +2749,20 @@ A type of parameter that can be used in a [[type:keyword]].
 --Example--
 The 'number' parameter type. It matches a sequence of digits.
 It can be included in the reminder text directly, or by applying some function first.
->keyword parameter type:
->	name: number
->	match: [0-9]+
->	refer script:
->		name: normal
->		description: (1,2,3)
->		script: \{{input}\}
->	refer script:
->		name: as words
->		description: (one, two, three)
->		script: \{english_number({input})\}
+
+.. code-block::
+
+    keyword parameter type:
+    	name: number
+    	match: [0-9]+
+    	refer script:
+    		name: normal
+    		description: (1,2,3)
+    		script: \{{input}\}
+    	refer script:
+    		name: as words
+    		description: (one, two, three)
+    		script: \{english_number({input})\}
 
 Keyword Param Reference Script
 ______________________________
@@ -2711,10 +2804,13 @@ To make this easy for the user, a menu of choices is provided, this type describ
 
 --Example--
 Apply the [[fun:english_number]] function to the parameter:
->refer script:
->	name: as words
->	description: (one, two, three)
->	script: \{english_number({input})\}
+
+.. code-block::
+
+    refer script:
+    	name: as words
+    	description: (one, two, three)
+    	script: \{english_number({input})\}
 
 
 
@@ -2790,25 +2886,31 @@ Categories are also automatically generated from dimensions.
 
 --Example--
 Automatically generated statistics dimensions look like this:
->statistics dimension:
->	name: power
->	script: card.power
+
+.. code-block::
+
+    statistics dimension:
+    	name: power
+    	script: card.power
 
 Specify a specific order and color of values, otherwise they are ordered alphabeticaly and groups with no cards are not shown:
->statistics dimension:
->	name: color
->	script: card.color
->	group: white
->	group: blue
->	group: black
->	group: red
->	group: green
->	colors:
->		white: rgb(255,255,255)
->		blue:  rgb(0,0,255)
->		black: rgb(0,0,0)
->		red:   rgb(255,0,0)
->		green: rgb(0,255,0)
+
+.. code-block::
+
+    statistics dimension:
+    	name: color
+    	script: card.color
+    	group: white
+    	group: blue
+    	group: black
+    	group: red
+    	group: green
+    	colors:
+    		white: rgb(255,255,255)
+    		blue:  rgb(0,0,255)
+    		black: rgb(0,0,0)
+    		red:   rgb(255,0,0)
+    		green: rgb(0,255,0)
 
 Word List
 ~~~~~~~~~
@@ -2836,13 +2938,19 @@ A list of words. Used for drop down lists in the text editor, for example for ca
       - The words in the list
 
 --Example--
->word list:
->	name: type
->	word: Creature
->	word: Spell
->	word: Artifact
+
+.. code-block::
+
+    word list:
+    	name: type
+    	word: Creature
+    	word: Spell
+    	word: Artifact
 This can be used with for example:
-> @"<word-list-type>Creature</word-list-type>"@
+
+.. code-block::
+
+     @"<word-list-type>Creature</word-list-type>"@
 Which gives the creature choice, and that can be changed with a drop down list.
 
 Word List Word
@@ -2889,21 +2997,33 @@ A word can also be given in a short form, in that case only the name is specifie
 
 --Example--
 In short form:
->word: xyz
+
+.. code-block::
+
+    word: xyz
 Is the same as:
->word:
->	name: xyz
+
+.. code-block::
+
+    word:
+    	name: xyz
 
 Using a script,
->word:
->	script: "red,green,blue"
->	line below: true
+
+.. code-block::
+
+    word:
+    	script: "red,green,blue"
+    	line below: true
 Is the same as
->word: blue
->word: green
->word:
->	name: red
->	line below: true
+
+.. code-block::
+
+    word: blue
+    word: green
+    word:
+    	name: red
+    	line below: true
 
 
 Add Cards Script
@@ -2946,16 +3066,19 @@ A script to add multiple cards to the set at once.
 		 					 		The [[fun:new_card]] function can be used to make new cards.
 
 --Example--
->add cards script:
->	name: &Basic Lands
->	description: Adds 5 basic lands to the set.
->	script:
->		[ new_card([name: "Plains",   super_type: "Basic Land", sub_type: "Plains"])
->		, new_card([name: "Island",   super_type: "Basic Land", sub_type: "Island"])
->		, new_card([name: "Swamp",    super_type: "Basic Land", sub_type: "Swamp"])
->		, new_card([name: "Mountain", super_type: "Basic Land", sub_type: "Mountain"])
->		, new_card([name: "Forest",   super_type: "Basic Land", sub_type: "Forest"])
->		]
+
+.. code-block::
+
+    add cards script:
+    	name: &Basic Lands
+    	description: Adds 5 basic lands to the set.
+    	script:
+    		[ new_card([name: "Plains",   super_type: "Basic Land", sub_type: "Plains"])
+    		, new_card([name: "Island",   super_type: "Basic Land", sub_type: "Island"])
+    		, new_card([name: "Swamp",    super_type: "Basic Land", sub_type: "Swamp"])
+    		, new_card([name: "Mountain", super_type: "Basic Land", sub_type: "Mountain"])
+    		, new_card([name: "Forest",   super_type: "Basic Land", sub_type: "Forest"])
+    		]
 
 When invoked, this script will add the five basic lands to the set.
 
@@ -3037,11 +3160,14 @@ A reference to a normal [[type:font]] for drawing text.
       - Color for @<sep-soft>@ tags inserted by the [[fun:combined_editor]] function.
 
 --Example--
->font:
->	name: Times new Roman
->	size: 17
->	weight: bold
->	color: rgb(0,0,0)
+
+.. code-block::
+
+    font:
+    	name: Times new Roman
+    	size: 17
+    	weight: bold
+    	color: rgb(0,0,0)
 
 
 Symbol Part
@@ -3219,28 +3345,43 @@ List
 In files a list is represented as multiple keys, one for each element.
 The keys are all in the singular for of the name of the list,
 if the list is named for instance @symbols@ each key will be named @symbol@.
->symbol:
->	# first symbol here
->symbol:
->	# second symbol here
-># etc.
+
+.. code-block::
+
+    symbol:
+    	# first symbol here
+    symbol:
+    	# second symbol here
+    # etc.
 
 --Script syntax--
 In a script lists can be declared using square brackets.
-> []    # An empty list
-> [1]   # A list with a single element, the value 1
-> [1,2] # A list with two elements
+
+.. code-block::
+
+     []    # An empty list
+     [1]   # A list with a single element, the value 1
+     [1,2] # A list with two elements
 
 Lists can be accessed using either the bracket operator, or the dot operator.
 The first element of a list is numbered 0, the next 1, etc.
-> list.0    # The first element of the list 'list'
-> list[0]   # The same thing
-> list[0+0] # The same thing
+
+.. code-block::
+
+     list.0    # The first element of the list 'list'
+     list[0]   # The same thing
+     list[0+0] # The same thing
 
 It is possible to iterate over lists using the @for each@ construct:
-> for each x in [1,2,3] do "x = {x}. "
+
+.. code-block::
+
+     for each x in [1,2,3] do "x = {x}. "
 evaluates to:
-> "x = 1. x = 2. x = 3. "
+
+.. code-block::
+
+     "x = 1. x = 2. x = 3. "
 
 --Functions--
 There are several functions for working with lists:
@@ -3268,32 +3409,47 @@ Field Map
 A 'field map' is a [[type:map]], but indexed by [[type:field]]s.
 
 For instance if a game specifies the fields:
->field:
->	type: text
->	name: field1
->field:
->	type: color
->	name: field2
+
+.. code-block::
+
+    field:
+    	type: text
+    	name: field1
+    field:
+    	type: color
+    	name: field2
 
 Then the a field map of ''things'' for those fields would look like:
->field1: thing
->field2: thing
+
+.. code-block::
+
+    field1: thing
+    field2: thing
 
 A field map of [[type:style]]s would be:
->field1: # some text style for field1 goes here
->field2: # some color style for field2 goes here
+
+.. code-block::
+
+    field1: # some text style for field1 goes here
+    field2: # some color style for field2 goes here
 
 And a field map of [[type:value]]s would be:
->field1: text goes here
->field2: rgb(1,2,3)
+
+.. code-block::
+
+    field1: text goes here
+    field2: rgb(1,2,3)
 
 --Script syntax--
 
 In a script field maps can be accessed like normal [[type:map]]s based on the field name.
 So:
->card.field1 # retrieve the value of field1
->card["field" + 1] # the same thing
->card_style.field2 # retrieve the styling for field2
+
+.. code-block::
+
+    card.field1 # retrieve the value of field1
+    card["field" + 1] # the same thing
+    card_style.field2 # retrieve the styling for field2
 
 
 Map
@@ -3304,25 +3460,40 @@ A map is like a [[type:list]] with [[type:string]] keys.
 --File syntax--
 In files a map is represented as key/value pairs.
 For instance a map of [[type:color]]s could be:
->some map:
->	red:   rgb(255,0,0)
->	green: rgb(0,255,0)
->	blue:  rgb(0,0,255)
+
+.. code-block::
+
+    some map:
+    	red:   rgb(255,0,0)
+    	green: rgb(0,255,0)
+    	blue:  rgb(0,0,255)
 
 --Script syntax--
 In a script maps can be declared using square brackets.
-> []      # An empty map
-> [key:1] # A map with a single element, the value 1 under the key "key"
-> [red:rgb(255,0,0), green:rgb(0,255,0)] # A map with two elements
+
+.. code-block::
+
+     []      # An empty map
+     [key:1] # A map with a single element, the value 1 under the key "key"
+     [red:rgb(255,0,0), green:rgb(0,255,0)] # A map with two elements
 
 Like lists, maps can be accessed using either the bracket operator, or the dot operator.
-> map.key       # The elment named "key"
-> map["k"+"ey"] # The same thing
+
+.. code-block::
+
+     map.key       # The elment named "key"
+     map["k"+"ey"] # The same thing
 
 It is possible to iterate over the values maps using the @for@ construct:
-> for each x in [one: 1, two: 2] do "x = {x}. "
+
+.. code-block::
+
+     for each x in [one: 1, two: 2] do "x = {x}. "
 evaluates to:
-> "x = 1. x = 2. "
+
+.. code-block::
+
+     "x = 1. x = 2. "
 
 
 
@@ -3376,13 +3547,19 @@ A script is given in the same way as a [[type:string]].
 
 --Example--
 A simple [[type:field]] script that converts everything to upper case:
->script: to_upper(value)
+
+.. code-block::
+
+    script: to_upper(value)
 
 A larger script, changes @"y"@s to @"x"@s and @"a"@s to @"b"@s:
->script:
->	new_value := replace(value, match: "x", replace: "y")
->	new_value := replace(value, match: "a", replace: "b")
->	new_value
+
+.. code-block::
+
+    script:
+    	new_value := replace(value, match: "x", replace: "y")
+    	new_value := replace(value, match: "a", replace: "b")
+    	new_value
 
 
 Scriptable
@@ -3393,10 +3570,16 @@ Scriptable
 Many [[type:style]] properties are ''scriptable''; their value can be changed by a script.
 
 Consider for example:
->left: 123
+
+.. code-block::
+
+    left: 123
 This defines that the left coordinate of a field is 123 pixels.
 To script this you can write:
->left: { if card.name == "" then 100 else 123 }
+
+.. code-block::
+
+    left: { if card.name == "" then 100 else 123 }
 Now the left position depends on whether or not the name is empty.
 
 --File syntax--
@@ -3410,16 +3593,25 @@ A 'scriptable something' can take three forms:
   >	script: 100 + 23
 
 Note: To use a multiline script the following does not work:
->something: { 100 +
->             23 }
+
+.. code-block::
+
+    something: { 100 +
+                 23 }
 If the script has multiple lines, it must start on a new line, and be indented with a TAB:
->something:
->	{ 100 +
->	  23 }
+
+.. code-block::
+
+    something:
+    	{ 100 +
+    	  23 }
 or
->something:
->	script: 100 +
->	        23
+
+.. code-block::
+
+    something:
+    	script: 100 +
+    	        23
 
 
 Image
@@ -3431,9 +3623,12 @@ It is either given using a [[type:filename]] or as the output of a function.
 
 --File syntax--
 The syntax for files is similair to that of [[type:scriptable]] properties:
-> image: image.png
-> image: { "image.png" }
-> image: { linear_blend(...) }
+
+.. code-block::
+
+     image: image.png
+     image: { "image.png" }
+     image: { linear_blend(...) }
 
 --Script syntax--
 [[type:Filename]]s are implicitly converted to images as needed.
@@ -3483,14 +3678,20 @@ A function can be called using parentheses, for example @function(argument:value
 
 --Composition--
 Functions can be composed using the @+@ operator, evaluating @a + b@ first evaluates @a@ and uses its result as @input@ for @b@:
-> example := to_upper + { "result == {input}" }
-> example("xyz") == "result == XYZ"
+
+.. code-block::
+
+     example := to_upper + { "result == {input}" }
+     example("xyz") == "result == XYZ"
 
 Multiple functions can be changed together like this, this is especially convenient in combination with [[script:default arguments]].
 
 --Example--
-> example := { a + b }
-> example(a: 1, b: 2) == 3
+
+.. code-block::
+
+     example := { a + b }
+     example(a: 1, b: 2) == 3
 
 
 
@@ -3582,10 +3783,13 @@ These flags can appear in any order.
 			Normally only lines ending in a soft line break are justified.
 
 --Examples--
-> alignment: top left
-> alignment: middle center
-> alignment: top left force justify if-overflow
-> alignment: { "middle" + " " + "left" }
+
+.. code-block::
+
+     alignment: top left
+     alignment: middle center
+     alignment: top left force justify if-overflow
+     alignment: { "middle" + " " + "left" }
 
 
 Direction
@@ -3619,8 +3823,11 @@ In scripts, direction is passed around as a string.
       - Same as @top to bottom@.
 
 --Examples--
-> direction: horizontal
-> direction: top to bottom
+
+.. code-block::
+
+     direction: horizontal
+     direction: top to bottom
 
 
 Combine
@@ -3693,8 +3900,11 @@ In scripts, combine modes are stored as a string.
       - @(overlay(a,b) + overlay(b,a)) / 2@
 
 --Examples--
-> combine: overlay
-> combine_image(image1: ..., image2: ..., combine: "shadow")
+
+.. code-block::
+
+     combine: overlay
+     combine_image(image1: ..., image2: ..., combine: "shadow")
 
 
 
@@ -3730,7 +3940,10 @@ The value is one of the following options:
       - Use this shape as additional border for the shape below it.
 
 --Examples--
-> combine: overlap
+
+.. code-block::
+
+     combine: overlap
 
 
 Graph Type
@@ -3773,7 +3986,10 @@ The value is one of the following options:
 		 	 	Each circle is a small pie graph for the third axis.
 
 --Examples--
-> type: bar
+
+.. code-block::
+
+     type: bar
 
 
 
@@ -3831,12 +4047,18 @@ A string is just a piece of text.
 
 --File syntax--
 In files, strings are written just as their value:
-> string: this is some string
+
+.. code-block::
+
+     string: this is some string
 The whitespace at the beginning is removed by the program.
 Multiline strings are written on a new line, indented by a TAB:
-> string:
->	This is a very long string
->	It contains a line break.
+
+.. code-block::
+
+     string:
+    	This is a very long string
+    	It contains a line break.
 
 --Script syntax--
 In scripts, strings are written between double quotes, @"this is a string"@.
@@ -3861,18 +4083,27 @@ The backslash character is used to escape values:
       - An escaped &lt; for [[type:tagged string]]s.
 
 Sections between curly braces are interpreted as script code, that is concatentated with the string, for example
-> "ab{1 + 1}c" == "ab2c"
+
+.. code-block::
+
+     "ab{1 + 1}c" == "ab2c"
 This can be nested arbitrarily.
 
 The @+@ operator concatenates strings. Numbers and most other values are automatically converted to strings when needed. This conversion can be forced with the [[fun:to_string]] function.
 
 Using the @[]@ or @.@ operator characters in a string can be selected. 0 is the first character:
-> "xyz"[0]  ==  "x"
-> "xyz".0   ==  "x"  # same thing
-> "xyz".1   ==  "y"
-> "xyz".2   ==  "z"
+
+.. code-block::
+
+     "xyz"[0]  ==  "x"
+     "xyz".0   ==  "x"  # same thing
+     "xyz".1   ==  "y"
+     "xyz".2   ==  "z"
 It is an error to select characters outside the string
-> "xyz".10  # error
+
+.. code-block::
+
+     "xyz".10  # error
 
 --See also--
 
@@ -4009,12 +4240,15 @@ It is used to translate games and stylesheets to other user interface languages.
 Localized strings can be given with a @localized@ prefix on the property name.
 For example, a field has a @description@ which is a [[type::string]], and a @localized_description@ for localized variants. So
 
->field:
->	name: cost
->	description: How much this card costs
->	localized description:
->		en_US: How much this card costs
->		nl_NL: Hoeveel deze kaart kost
+
+.. code-block::
+
+    field:
+    	name: cost
+    	description: How much this card costs
+    	localized description:
+    		en_US: How much this card costs
+    		nl_NL: Hoeveel deze kaart kost
 
 
 Filename
@@ -4042,11 +4276,17 @@ Don't forget the double quotes (@""@) in scripts.
 When using an absolute filename to refer to a file from another [[file:package]],
 the [[type:dependency]] on that package must be declared.
 For example,
->include file: /common.mse-include/something
+
+.. code-block::
+
+    include file: /common.mse-include/something
 Will give a warning message, unless the file also lists
->depends on:
->	package: common.mse-include
->	version: 2007-01-01
+
+.. code-block::
+
+    depends on:
+    	package: common.mse-include
+    	version: 2007-01-01
 
 
 Dependency
@@ -4078,11 +4318,17 @@ The two properties can also be written on a single line, separated by a space (s
 
 --Example--
 The magic-new stylesheet depends on a particular version of the game file:
->depends on:
->	package: magic.mse-game
->	version: 2007-06-06
+
+.. code-block::
+
+    depends on:
+    	package: magic.mse-game
+    	version: 2007-06-06
 This can be written more compactly as
->depends on: magic.mse-game 2007-06-06
+
+.. code-block::
+
+    depends on: magic.mse-game 2007-06-06
 
 
 
@@ -4111,11 +4357,17 @@ When converted to a number, @true@ becomes @1@ and @false@ becomes @0@.
 The strings @"yes"@ and @"no"@ can also be converted to booleans.
 
 --File syntax--
-> boolean: true
-> boolean: false
+
+.. code-block::
+
+     boolean: true
+     boolean: false
 
 --Script syntax--
-> true or false
+
+.. code-block::
+
+     true or false
 
 The operators @or@, @and@ and @xor@ combine two booleans:
 
@@ -4168,10 +4420,16 @@ Integer numbers are numbers without a decimal point.
 In many cases negative numbers don't make sense, but the program never complains about them.
 
 --File syntax--
-> something: 123
+
+.. code-block::
+
+     something: 123
 
 --Script syntax--
-> 123 + 456 * -1
+
+.. code-block::
+
+     123 + 456 * -1
 
 --See also--
 
@@ -4194,11 +4452,17 @@ Real or floating point numbers are numbers with a decimal point.
 Conversion from integer to real numbers happens automatically in scripting.
 
 --File syntax--
-> something: 123
-> something: 0.5
+
+.. code-block::
+
+     something: 123
+     something: 0.5
 
 --Script syntax--
-> 123.1 + 456 * -1
+
+.. code-block::
+
+     123.1 + 456 * -1
 
 --See also--
 
@@ -4223,8 +4487,11 @@ Higher numbers mean newer versions.
 The version number can also be a date, of the form "YYYY-MM-DD"
 
 --Examples--
-> version: 1.2.3
-> version: 2007-07-12
+
+.. code-block::
+
+     version: 1.2.3
+     version: 2007-07-12
 
 
 Color
@@ -4299,7 +4566,10 @@ A point in time, consisting of a date and a time.
 The file syntax uses [[http://en.wikipedia.org/wiki/ISO_8601|ISO 8601]] notation.
 
 --File syntax--
-> something: 2008-12-31 23:59:59
+
+.. code-block::
+
+     something: 2008-12-31 23:59:59
 
 --See also--
 
@@ -4365,27 +4635,36 @@ The full name of a choice is that of the choice and its parents, separated by sp
 This is the value actually stored in values and manipulated by scripts.
 
 For example
->field:
->	type: choice
->	choice:
->		name: large
->		choice: red
->		choice: blue
->	choice:
->		name: small
->		group choice: just small
->		choice: green
->		choice: yellow
+
+.. code-block::
+
+    field:
+    	type: choice
+    	choice:
+    		name: large
+    		choice: red
+    		choice: blue
+    	choice:
+    		name: small
+    		group choice: just small
+    		choice: green
+    		choice: yellow
 
 The choice red is called @"large red"@, while green is @"small green"@.
 The group choice 'just small' gets the name of the group, @"small"@.
 
 --Example--
 In short form:
->choice: apples
+
+.. code-block::
+
+    choice: apples
 Is the same as:
->choice:
->	name: apples
+
+.. code-block::
+
+    choice:
+    	name: apples
 
 Color Choice
 ~~~~~~~~~~~~
@@ -4410,9 +4689,12 @@ A possible choice for a color [[type:field]].
       - Color this choice corresponds with.
 
 --Example--
->choice:
->	name: red
->	color: rgb(255,0,0)
+
+.. code-block::
+
+    choice:
+    	name: red
+    	color: rgb(255,0,0)
 
 
 Vector2D
@@ -4427,9 +4709,15 @@ The coordinates are usually in the range @0@ to @1@.
 @(0,0)@ is the top-left of the symbol, @(1,1)@ the bottom-right.
 
 --File syntax--
-> (x-coordinate,y-coordinate)
+
+.. code-block::
+
+     (x-coordinate,y-coordinate)
 For example
-> (0.5,0.5)
+
+.. code-block::
+
+     (0.5,0.5)
 
 --Script syntax--
 Vectors can not be represented in script syntax.
