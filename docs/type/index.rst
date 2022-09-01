@@ -4,6 +4,11 @@ Data Types
 Magic Set Editor uses many data types in the files and in scripting.
 There are for instance [[type:card]]s in [[type:set]]s, [[type:stylesheet]]s describing the layout of [[type:field]]s, etc.
 
+1. :doc:`set <#set>`
+2. :ref:`set`
+3. :ref:`sets <set>`
+
+
 File Types
 ----------
 
@@ -38,7 +43,7 @@ These are the 'major' data types that are written directly to [[file:packages]].
 Game
 ~~~~
 
---Overview--
+**Overview**
 
 Games are part of the [[file:style triangle]]:
 
@@ -59,12 +64,12 @@ Games are part of the [[file:style triangle]]:
 
 Games provide the ''description'', i.e. what kinds of things are on a card.
 
---Package format--
+**Package format**
 
 A game is described in a [[file:package]] with the <tt>.mse-game</tt> file extension.
 Such a package contains a [[file:format|data file]] called <tt>game</tt> that has the following properties.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -79,109 +84,109 @@ Such a package contains a [[file:format|data file]] called <tt>game</tt> that ha
       - <<<
       - <<<
       - <<<
-    * - @mse version@	
+    * - ``mse version``	
       - [[type:version]]
       - ''required''
       - Version of MSE this game is made for.
-    * - @short name@	
+    * - ``short name``	
       - [[type:string]]	
       - file name
       - A short name of this game, for the 'new set' list.
-    * - @full name@	
+    * - ``full name``	
       - [[type:string]]	
       - file name
       - A longer name of this game.
-    * - @icon@	
+    * - ``icon``	
       - [[type:filename]]
       - ''none''
       - Filename of an icon / preview for this game, for the 'new set' list.
-    * - @position hint@
+    * - ``position hint``
       - [[type:int]]	
       - &infin;	
       - Where to place this item in the 'new set' list? Lower numbers come first.
-    * - @version@	
+    * - ``version``	
       - [[type:version]]
-      - @0.0.0@	
+      - ``0.0.0``	
       - Version number of this package.
-    * - @depends on@	
+    * - ``depends on``	
       - [[type:list]] of [[type:dependency]]s
 			 			 		Packages this package depends on.
     * - '''Specific to games'''	
       - <<<
       - <<<
       - <<<
-    * - @init script@
+    * - ``init script``
       - [[type:script]]	
-      - @;@	
+      - ``;``	
       - Script to run when this game is loaded,<br/> can set variables
 				 					 		to be used by other scripts in this game or stylesheets using it.
-    * - @set fields@
+    * - ``set fields``
       - [[type:list]] of [[type:field]]s
       -  	
       - Fields for the styling panel.
-    * - @default set style@	
+    * - ``default set style``	
       - [[type:indexmap]] of [[type:style]]s
       -  	
       - Default style for the set fields, can be overridden by the stylesheet.
-    * - @card fields@
+    * - ``card fields``
       - [[type:list]] of [[type:field]]s
       -  	
       - Fields for each card.
-    * - @card list color script@
+    * - ``card list color script``
       - [[type:script]]	
       - from fields
-      - Script that determines the color of an item in the card list. <br/>If not set uses the @card list colors@ property of the first card field that has it.
-    * - @statistics dimensions@
+      - Script that determines the color of an item in the card list. <br/>If not set uses the ``card list colors`` property of the first card field that has it.
+    * - ``statistics dimensions``
       - [[type:list]] of [[type:statistics dimension]]s	
       - from fields
       - Dimensions for statistics, a dimension is roughly the same as an axis. <br/>By default all card fields with 'show statistics' set to true are used.
-    * - @statistics categories@
+    * - ``statistics categories``
       - [[type:list]] of [[type:statistics category]]s	
       - from dimensions
       - DOC_MSE_VERSION: not used since 0.3.6
 				 					 		Choices shown on the statistics panel. <br/>By default all statistics dimensions are used.
-    * - @pack types@
+    * - ``pack types``
       - [[type:list]] of [[type:pack type]]s
       -  	
       - DOC_MSE_VERSION: since 0.3.7
 				 					 		The types of card packs that will be listed on the random booster panel.
-    * - @has keywords@	
+    * - ``has keywords``	
       - [[type:boolean]]
-      - @false@	
+      - ``false``	
       - Does this game use keywords? Should the keywords tab be available?
-    * - @keyword match script@
+    * - ``keyword match script``
       - [[type:script]]	
-      - @;@	
-      - Script to apply to the @match@ property of keywords.
-    * - @keyword modes@	
+      - ``;``	
+      - Script to apply to the ``match`` property of keywords.
+    * - ``keyword modes``	
       - [[type:list]] of [[type:keyword mode]]s	
       -  
       - Choices for the 'mode' property of keywords.
-    * - @keyword parameter types@
+    * - ``keyword parameter types``
       - [[type:list]] of [[type:keyword param type]]s
       -  
       - Types of parameters available to keywords.
-    * - @keywords@
+    * - ``keywords``
       - [[type:list]] of [[type:keyword]]s	
       -  
       - Standard keywords for this game.
-    * - @word lists@
+    * - ``word lists``
       - [[type:list]] of [[type:word list]]s
       -  	
       - Word lists that can be used by text fields.
-    * - @add cards script@	
+    * - ``add cards script``	
       - [[type:list]] of [[type:add cards script]]s
       -  
       - DOC_MSE_VERSION: since 0.3.7
 				 						 	A list of scripts for conveniently adding multiple cards to a set.
 
---Examples--
+**Examples**
 Look at the game files in the standard MSE distribution for examples.
 
 Stylesheet
 ~~~~~~~~~~
 
---Overview--
+**Overview**
 
 Stylesheets are part of the [[file:style triangle]]:
 
@@ -202,11 +207,11 @@ Stylesheets are part of the [[file:style triangle]]:
 
 Stylesheets provide the ''look and feel'' of cards.
 
---Package format--
+**Package format**
 A stylesheet is described in a [[file:package]] with the <tt>.mse-style</tt> file extension,
 such a package contains a data file called <tt>style</tt>.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -221,31 +226,31 @@ such a package contains a data file called <tt>style</tt>.
       - <<<
       - <<<
       - <<<
-    * - @mse version@	
+    * - ``mse version``	
       - [[type:version]]
       - ''required''
       - Version of MSE this stylesheet is made for.
-    * - @short name@	
+    * - ``short name``	
       - [[type:string]]	
       - file name
       - A short name of this stylesheet, for the 'new set' and style panel lists.
-    * - @full name@	
+    * - ``full name``	
       - [[type:string]]	
       - file name
       - A longer name of this stylesheet.
-    * - @icon@	
+    * - ``icon``	
       - [[type:filename]]
       - ''none''
       - Filename of an icon / preview for this stylesheet, for the 'new set' and style panel lists.
-    * - @position hint@
+    * - ``position hint``
       - [[type:int]]	
       - &infin;	
       - Where to place this item in the list? Lower numbers come first.
-    * - @version@	
+    * - ``version``	
       - [[type:version]]
-      - @0.0.0@	
+      - ``0.0.0``	
       - Version number of this package.
-    * - @depends on@	
+    * - ``depends on``	
       - [[type:list]] of [[type:dependency]]s
 			 			 		Packages this package depends on.
 	
@@ -253,52 +258,52 @@ such a package contains a data file called <tt>style</tt>.
       - <<<
       - <<<
       - <<<
-    * - @game@	
+    * - ``game``	
       - Name of a [[type:game]]
       - ''required''
       - Game this stylesheet is made for
-    * - @card width@	
+    * - ``card width``	
       - [[type:double]]	
       - 100	
       - Width of cards in pixels
-    * - @card height@	
+    * - ``card height``	
       - [[type:double]]	
       - 100	
       - Height of cards in pixels
-    * - @card dpi@	
+    * - ``card dpi``	
       - [[type:double]]	
       - 96	
       - Resolution of cards in dots-per-inch
-    * - @card background@
+    * - ``card background``
       - [[type:color]]	
       - white	
       - Background color of cards
-    * - @init script@	
+    * - ``init script``	
       - [[type:script]]	
-      - @;@	
+      - ``;``	
       - Script to run when this stylesheet is loaded, after the game's init script.
-    * - @styling fields@
+    * - ``styling fields``
       - [[type:list]] of [[type:field]]s
       -  	
       - Fields for styling options, shown on the 'style' panel.
-    * - @styling style@
+    * - ``styling style``
       - [[type:indexmap]] of [[type:style]]s
       -  	
       - Styles for the styling fields.
-    * - @set info style@
+    * - ``set info style``
       - [[type:indexmap]] of [[type:style]]s
       - game.default_set_style
       - Styling for the 'set info' panel
-    * - @card style@	
+    * - ``card style``	
       - [[type:indexmap]] of [[type:style]]s
       -  	
       - Styles for the card fields defined in the game
-    * - @extra card fields@
+    * - ``extra card fields``
       - [[type:list]] of [[type:field]]s
       -  	
       - Additional fields to add to each card.<br/>
 			 					 		These fields are intended for things like lines and boxes, whose value is determined automatically.
-    * - @extra card style@
+    * - ``extra card style``
       - [[type:indexmap] of [[type:style]]s
       -  	
       - Styling for the extra card fields
@@ -306,7 +311,7 @@ such a package contains a data file called <tt>style</tt>.
 Set
 ~~~
 
---Overview--
+**Overview**
 
 Sets are part of the [[file:style triangle]]:
 
@@ -325,11 +330,11 @@ Sets are part of the [[file:style triangle]]:
       - [[type:Style]]	
       - [[type:Value]]
 
---Package format--
+**Package format**
 A set is described in a [[file:package]] with the <tt>.mse-set</tt> file extension,
 such a package contains a data file called <tt>set</tt>.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -344,54 +349,54 @@ such a package contains a data file called <tt>set</tt>.
       - <<<
       - <<<
       - <<<
-    * - @mse version@	
+    * - ``mse version``	
       - [[type:version]]
       - ''required''
       - Version of MSE this set is made with.
-    * - @short name@	
+    * - ``short name``	
       - [[type:string]]	
       - file name
       - Name of this set.
-    * - @depends on@	
+    * - ``depends on``	
       - [[type:list]] of [[type:dependency]]s
 			 			 		Packages this package depends on.
     * - '''Specific to sets'''	
       - <<<
       - <<<
       - <<<
-    * - @game@
+    * - ``game``
       - Name of a [[type:game]]
       - ''required''
       - The game this set is made for.
-    * - @stylesheet@
+    * - ``stylesheet``
       - Name of a [[type:stylesheet]]	
       - ''required''
       - The default style for drawing cards in this set.<br/>
-		 					 		This is without the game name or extension, so @"new"@ refers to the package @"gamename-new.mse-style"@.
-    * - @set info@
+		 					 		This is without the game name or extension, so ``"new"@ refers to the package @"gamename-new.mse-style"``.
+    * - ``set info``
       - [[type:indexmap]] of [[type:value]]s
       -  
       - The data for the [[prop:game:set fields]] defined in the game.
-    * - @styling@
+    * - ``styling``
       - [[type:map]] of [[type:indexmap]]s of [[type:value]]s
 		 	 				Data for the 'extra fields' of the stylesheet.<br/>
 		 	 				This is first indexed by stylesheet name, then by field name.<br/>
 		 	 				Data is given not only for the set's stylesheet but also for those of cards.
-    * - @cards@
+    * - ``cards``
       - [[type:list] of [[type:card]]s	
       -  
       - The cards in the set.
-    * - @keywords@
+    * - ``keywords``
       - [[type:list] of [[type:keyword]]s
       -  
       - The custom keywords in the set.
-    * - @pack types@
+    * - ``pack types``
       - [[type:list]] of [[type:pack type]]s
       -  
       - DOC_MSE_VERSION: since 0.3.8
 		 					 	The custom card pack types in the set.
 
---Example--
+**Example**
 
 If the game looks like:
 
@@ -432,7 +437,7 @@ Pack Type
 
 DOC_MSE_VERSION: since 0.3.8
 
---Overview--
+**Overview**
 
 A type of card packs. For instance "booster" and "tournament pack" are card pack types.
 
@@ -441,7 +446,7 @@ A pack type contains either:
 * one or more [[type:pack item]]s, indicating what kinds and how many cards are in the pack.
 * a combination of the above.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -452,79 +457,79 @@ A pack type contains either:
       - Type
       - Default	
       - Description
-    * - @name@
+    * - ``name``
       - [[type:string]]	
       -  	
       - Name of this card pack type.
 		 					 		Other pack types can refer to this name.
-    * - @select@
+    * - ``select``
       - see below	
       - see below
       - How are instances of this pack generated?
-    * - @enabled@
+    * - ``enabled``
       - [[type:scriptable]] [[type:boolean]]
-      - @true@	
+      - ``true``	
       - Is this pack type enabled, i.e. can the user select it?
-    * - @selectable@
+    * - ``selectable``
       - [[type:boolean]]
-      - @true@	
+      - ``true``	
       - Is this pack selectable from the list of packs in the user interface?
-    * - @summary@
+    * - ``summary``
       - [[type:boolean]]
-      - @true@	
+      - ``true``	
       - Is a summary of the total number of cards shown in the second panel in the user interface?<br/>
-		 					 		Note: this only applies to pack types that have the @filter@ property set.
-    * - @filter@
+		 					 		Note: this only applies to pack types that have the ``filter`` property set.
+    * - ``filter``
       - [[type:script]]	
       - ''optional''
       - Condition that a card must satisfy to be included in this pack type.
-    * - @items@
+    * - ``items``
       - [[type:list]] of [[type:pack item]]s
       -  	
       - The items to include in this pack.
 
---Selection--
+**Selection**
 
-The @select@ property specifies how instances of this pack are generated.
+The ``select`` property specifies how instances of this pack are generated.
 When the user selects that he wants 3 copies of pack X, then MSE will generate three ''instances'' of that pack.
-How that happens depends on the @select@ property:
+How that happens depends on the ``select`` property:
 
 .. list-table:: 
     :header-rows: 1
     :stub-columns: 1
     :align: left
 
-    * - @select@	
+    * - ``select``	
       - Description
-    * - @all@
-      - Each instance of this pack type contains all of the filtered cards and @items@.<br/>
-			In general, @select: all@ is used for the selectable pack types, while other @select@ types are used for the rest of the packs.<br/>
-			This is the default for pack types with @items@.
-    * - @replace@	
-      - Each instance of this pack type contains a single card or @item@, chosen at random with replacement.
-			The probability of picking an item is proportional to its @weight@, all filtered cards have weight 1.
-    * - @no replace@	
-      - Each instance of this pack type contains a single card or @item@, chosen at random without replacement.
+    * - ``all``
+      - Each instance of this pack type contains all of the filtered cards and ``items``.<br/>
+			In general, ``select: all@ is used for the selectable pack types, while other @select`` types are used for the rest of the packs.<br/>
+			This is the default for pack types with ``items``.
+    * - ``replace``	
+      - Each instance of this pack type contains a single card or ``item``, chosen at random with replacement.
+			The probability of picking an item is proportional to its ``weight``, all filtered cards have weight 1.
+    * - ``no replace``	
+      - Each instance of this pack type contains a single card or ``item``, chosen at random without replacement.
 			This means that the same card or item will not be chosen twice (if the set is large enough).<br/>
-			This is the default for pack types with a @filter@.
-    * - @proportional@
-      - Each instance of this pack type contains a single filtered card or @item@, chosen with probability proportional to the number of choices for the card/item.
+			This is the default for pack types with a ``filter``.
+    * - ``proportional``
+      - Each instance of this pack type contains a single filtered card or ``item``, chosen with probability proportional to the number of choices for the card/item.
 			The choice is made with replacement.
-    * - @nonempty@	
-      - Each instance of this pack type contains a single filtered card or @item@,
+    * - ``nonempty``	
+      - Each instance of this pack type contains a single filtered card or ``item``,
 			but items that contain no cards will be ignored.
 			The choice is made with replacement.
-    * - @equal@	
+    * - ``equal``	
       - Instead of choosing cards and items at random, they are chosen to make their numbers as equal as possible.
-    * - @equal proportional@
-      - A combination of @equal@ and @proportional@.
-    * - @equal nonempty@
-      - A combination of @equal@ and @nonempty@.
-    * - @first@	
+    * - ``equal proportional``
+      - A combination of ``equal@ and @proportional``.
+    * - ``equal nonempty``
+      - A combination of ``equal@ and @nonempty``.
+    * - ``first``	
       - If there are any cards, the first is always chosen, otherwise the first ''nonempty'' item is used.<br/>
-			@select: first@ can be used to make a kind of if statement: "If there are any X cards then use those, otherwise use Y cards".
+			``select: first`` can be used to make a kind of if statement: "If there are any X cards then use those, otherwise use Y cards".
 
---Examples--
+**Examples**
 
 .. code-block::
 
@@ -533,7 +538,7 @@ How that happens depends on the @select@ property:
     	select: no replace # this is optional, 'no replace' is the default
     	filter: card.rarity == "rare"
 
-Rare cards are those with the rarity value of @"rare"@.
+Rare cards are those with the rarity value of ``"rare"``.
 The cards are chosen without replacement, so in a single pack the same rare will not occur twice.
 
 
@@ -595,7 +600,7 @@ If there are any special cards in the set, then "special or else common" will be
 In Magic, individual "mythic rares" are twice as rare as normal rare cards.
 Since there are also less mythic rares, this does not mean that each booster pack has a 33% percent chance of containing a mythic rare.
 Instead the probability of a mythic rare is
-@number_of_mythics / (number_of_rares * 2 + number_of_mythics)@.
+``number_of_mythics / (number_of_rares * 2 + number_of_mythics)``.
 So, for example if there are 20 rares in a set and only 5 mythic rares, then one in 9 "rare or mythic rare" cards will be a mythic rare.
 
 Pack Item
@@ -603,11 +608,11 @@ _________
 
 DOC_MSE_VERSION: since 0.3.8
 
---Overview--
+**Overview**
 
 A reference to another [[type:pack type]], from which one or more cards are chosen.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -618,22 +623,22 @@ A reference to another [[type:pack type]], from which one or more cards are chos
       - Type	
       - Default	
       - Description
-    * - @name@
+    * - ``name``
       - Name of a [[type:pack item]]
       - ''required''
       - Name of the pack item to include in this pack.
-    * - @amount@
+    * - ``amount``
       - [[type:scriptable]] [[type:int]]
       - 1
       - How many of those cards are in the pack?
-    * - @weight@
+    * - ``weight``
       - [[type:scriptable]] [[type:double]]
       - 1
       - How 'important' is this item?
 		 					 	Items with a higher weight will be chosen more often.
-		 					 	Cards from @filter@ will have a weight of 1.
+		 					 	Cards from ``filter`` will have a weight of 1.
 
---Examples--
+**Examples**
 
 .. code-block::
 
@@ -653,14 +658,14 @@ Short form. Include a single common in this pack.
 Symbol Font
 ~~~~~~~~~~~
 
---Overview--
+**Overview**
 
 A symbol font is a font for drawing with images.
 Each [[type:symbol font symbol|symbol-font-symbol]] in the font is an image.
 
 A symbol font is referenced in [[type:stylesheet]]s using a [[type:symbol font reference]].
 
---Splitting--
+**Splitting**
 
 A piece of text drawn with the symbol font is split into separate symbols.
 The list of symbols in the font is scanned from top to bottom to find matches.
@@ -668,27 +673,27 @@ The list of symbols in the font is scanned from top to bottom to find matches.
 If the text is for instance "W/GR" and "W/G" should be rendered as a single symbol, then it should appear before the symbol "W".
 Otherwise the "W" is seen as a symbol and the program continues with rendering "/GR".
 
---Font size--
+**Font size**
 
 A symbol font is drawn using a specific point size, similar to normal fonts.
 Usually the images that make up the font are given in a very high resolution, for example 200x200.
 This resolution could correspond to a point size of for instance 150pt.
 
-When the symbol is drawn at for instance 12pt the image well then be scaled down to @200/150*12 == 16@ pixels.
+When the symbol is drawn at for instance 12pt the image well then be scaled down to ``200/150*12 == 16`` pixels.
 
 Sizes like margin, padding and font size are given in 'pixels per point'. If for instance
 
 .. code-block::
 
      text margin left: 0.1
-is specified, and the symbol is rendered at 12pt, the margin will be @12*0.1 == 1.2@ pixels.
+is specified, and the symbol is rendered at 12pt, the margin will be ``12*0.1 == 1.2`` pixels.
 
---Package format--
+**Package format**
 
 A symbol font is described in a [[file:package]] with the <tt>.mse-symbol-font</tt> file extension.
 Such a package contains a [[file:format|data file]] called <tt>symbol-font</tt> that has the following properties.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -703,71 +708,71 @@ Such a package contains a [[file:format|data file]] called <tt>symbol-font</tt> 
       - <<<
       - <<<
       - <<<
-    * - @mse version@	
+    * - ``mse version``	
       - [[type:version]]
       - ''required''
       - Version of MSE this symbol font is made for.
-    * - @short name@	
+    * - ``short name``	
       - [[type:string]]	
       - file name
       - A short name of this symbol font, currently not used by the program.
-    * - @full name@	
+    * - ``full name``	
       - [[type:string]]	
       - file name
       - A longer name of this symbol font, currently not used by the program.
-    * - @icon@	
+    * - ``icon``	
       - [[type:filename]]
       - ''none''
       - Filename of an icon, currently not used by the program.
-    * - @version@	
+    * - ``version``	
       - [[type:version]]
-      - @0.0.0@	
+      - ``0.0.0``	
       - Version number of this package.
-    * - @depends on@	
+    * - ``depends on``	
       - [[type:list]] of [[type:dependency]]s
 			 			 		Packages this package depends on.
     * - '''Specific to symbol fonts'''	
       - <<<
       - <<<
       - <<<
-    * - @image font size@	
+    * - ``image font size``	
       - [[type:double]]
-      - @12@	
+      - ``12``	
       - To what point size do the images correspond?
-    * - @horizontal space@	
+    * - ``horizontal space``	
       - [[type:double]]
-      - @0@	
+      - ``0``	
       - Horizontal spacing between symbols, in pixels.
-    * - @vertical space@	
+    * - ``vertical space``	
       - [[type:double]]
-      - @0@	
+      - ``0``	
       - Vertical spacing between symbols, in pixels.
-    * - @symbols@
+    * - ``symbols``
       - [[type:list]] of [[type:symbol font symbol]]s
       -  
       - Symbols that make up this font.
-    * - @scale text@
+    * - ``scale text``
       - [[type:boolean]]	
-      - @false@	
+      - ``false``	
       - Should text be scaled down to fit in a symbol?
-    * - @insert symbol menu@	
+    * - ``insert symbol menu``	
       - [[type:insert symbol menu|"insert symbol" menu]]
       - ''none''
       - A description of the menu to insert a symbol into the text.
 
---Examples--
-See for instance the @"magic-mana-small.mse-symbol-font"@ package in the MSE distribution.
+**Examples**
+See for instance the ``"magic-mana-small.mse-symbol-font"`` package in the MSE distribution.
 
 Symbol Font Reference
 _____________________
 
---Overview--
+**Overview**
 
 A reference to a [[type:symbol font]].
 
 In [[type:stylesheet]]s the symbol fonts are not included inline, instead they are referenced by their package name.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -778,23 +783,23 @@ In [[type:stylesheet]]s the symbol fonts are not included inline, instead they a
       - Type
       - Default
       - Description
-    * - @name@	
+    * - ``name``	
       - [[type:scriptable]] Name of a [[type:symbol font]]
 			 					''required''		Name of the symbol font package to use (without the extension).
-    * - @size@	
+    * - ``size``	
       - [[type:scriptable]] [[type:double]]
       - 12
       - Size in points to render the symbols with.
-    * - @scale down to@
+    * - ``scale down to``
       - [[type:double]]	
       - 1
       - Minimum size in points to scale the size down to.
-    * - @alignment@	
+    * - ``alignment``	
       - [[type:scriptable]] [[type:alignment]]
-      - @"middle center"@
+      - ``"middle center"``
       - Alignment of symbols in a line of text.
 
---Example--
+**Example**
 
 .. code-block::
 
@@ -814,11 +819,11 @@ The name can be scripted:
 Symbol Font Symbol
 __________________
 
---Overview--
+**Overview**
 
 A single symbol in a [[type:symbol font]].
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -829,59 +834,59 @@ A single symbol in a [[type:symbol font]].
       - Type
       - Default
       - Description
-    * - @image font size@
+    * - ``image font size``
       - [[type:double]]	
       - value from symbol font
       - To what point size does the images correspond?
-    * - @code@	
+    * - ``code``	
       - [[type:string]] or [[type:regex]]
       - ''required''	
       - Text this symbol matches.
-    * - @regex@	
+    * - ``regex``	
       - [[type:boolean]]
-      - @false@
+      - ``false``
       - Is the code a regular expression (as opposed to a string)?
-    * - @image@	
+    * - ``image``	
       - [[type:scriptable]] [[type:image]]
       - ''required''	
       - Image of this symbol.
-    * - @enabled@	
+    * - ``enabled``	
       - [[type:scriptable]] [[type:boolean]]
-      - @true@
+      - ``true``
       - Is this symbol actually used?<br/>
 			 					 			This can be scripted to optionally disable certain symbols.<br/>
 			 					 			If multiple symbols with the same code are given disabling the first switches to the second one.
-    * - @draw text@
+    * - ``draw text``
       - [[type:int]]
-      - @-1@
-      - The index of the captured regex expression to draw as text, or -1 to not draw text.<br/> For example with the code @"x([a-z])"@ and @draw text: 1@ the text of the symbol @"xb"@ will be @"b"@.
-    * - @text font@
+      - ``-1``
+      - The index of the captured regex expression to draw as text, or -1 to not draw text.<br/> For example with the code ``"x([a-z])"@ and @draw text: 1@ the text of the symbol @"xb"@ will be @"b"``.
+    * - ``text font``
       - [[type:font]]
       -  
       - Font to use for drawing text on symbols. The font size is in font points per text box font point.
-    * - @text alignment@	
+    * - ``text alignment``	
       - [[type:alignment]]	
-      - @"middle center"@
+      - ``"middle center"``
       - How should text be aligned on the symbol?
-    * - @text margin left@	
+    * - ``text margin left``	
       - [[type:double]]
-      - @0@
+      - ``0``
       - Margin on the left   of the text in pixels per point.
-    * - @text margin right@	
+    * - ``text margin right``	
       - [[type:double]]
-      - @0@
+      - ``0``
       - Margin on the right  of the text in pixels per point.
-    * - @text margin top@	
+    * - ``text margin top``	
       - [[type:double]]
-      - @0@
+      - ``0``
       - Margin on the top    of the text in pixels per point.
-    * - @text margin bottom@	
+    * - ``text margin bottom``	
       - [[type:double]]
-      - @0@
+      - ``0``
       - Margin on the bottom of the text in pixels per point.
 
 
---Examples--
+**Examples**
 A symbol with text:
 
 .. code-block::
@@ -893,7 +898,7 @@ A symbol with text:
     	text font: Arial
 
 Two symbols for the same code, which one is used depends on a function from the [[type:stylesheet]].
-It is recommended to only use functions in @enabled@, so each stylesheet can determine how the font should be used.
+It is recommended to only use functions in ``enabled``, so each stylesheet can determine how the font should be used.
 
 .. code-block::
 
@@ -909,13 +914,13 @@ It is recommended to only use functions in @enabled@, so each stylesheet can det
 Insert Symbol Menu
 __________________
 
---Overview--
+**Overview**
 
 A description of the "Insert symbol" menu for a specific [[type:symbol font]].
 
 The menu consists of a number of entries, either items, separators or submenus.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -926,34 +931,34 @@ The menu consists of a number of entries, either items, separators or submenus.
       - Type
       - Default	
       - Description
-    * - @type@
+    * - ``type``
       - One of:
-      - @"code"@ or @"submenu"@	
+      - ``"code"@ or @"submenu"``	
       - What type of menu item is this?
-		* @code@, inserts a symbol with the given code.
-		* @custom@, pops up a dialog where the user can choose a code to insert.
-		* @line@, a separating line.
-		* @submenu@, a submenu.
-    * - @name@
+		* ``code``, inserts a symbol with the given code.
+		* ``custom``, pops up a dialog where the user can choose a code to insert.
+		* ``line``, a separating line.
+		* ``submenu``, a submenu.
+    * - ``name``
       - [[type:string]]	
       - ''required''
       - Name of this menu item, corresponding to the code to insert.
-    * - @label@
+    * - ``label``
       - [[type:localized string]]	
       - name
       - Label to show in the menu.
-    * - @prompt@
+    * - ``prompt``
       - [[type:localized string]]	
       -  
-      - Prompt to use for the pop up box with @custom@ type
-    * - @items@
+      - Prompt to use for the pop up box with ``custom`` type
+    * - ``items``
       - [[type:list]] of [[type:insert symbol menu|submenu items]]
       -  
-      - Items in the submenu, when items are present the @type@ is set to @"submenu"@.
+      - Items in the submenu, when items are present the ``type@ is set to @"submenu"``.
 
-For custom items the dialog will be titled with the @label@ and have message text @prompt@.
+For custom items the dialog will be titled with the ``label@ and have message text @prompt``.
 
---Examples--
+**Examples**
 A menu for magic mana symbols (simplified). Containing all types of items.
 
 .. code-block::
@@ -987,16 +992,16 @@ A menu for magic mana symbols (simplified). Containing all types of items.
 Export Template
 ~~~~~~~~~~~~~~~
 
---Overview--
+**Overview**
 
 An export template describes a way for a set to be exported to a HTML or other text files.
 
---Package format--
+**Package format**
 An export template is described in a [[file:package]] with the <tt>.mse-export-template</tt> file extension.
 Its name should begin with <tt><i>game</i>-</tt> where <i>game</i> is the name of the game the template is made for.
 It should contain a [[file:format|data file]] called <tt>export-template</tt> with the following properties.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -1011,59 +1016,59 @@ It should contain a [[file:format|data file]] called <tt>export-template</tt> wi
       - <<<
       - <<<
       - <<<
-    * - @mse version@	
+    * - ``mse version``	
       - [[type:version]]
       - ''required''
       - Version of MSE this export template is made for.
-    * - @short name@	
+    * - ``short name``	
       - [[type:string]]	
       - file name
       - A short name of this export template, for the 'new set' and style panel lists.
-    * - @full name@	
+    * - ``full name``	
       - [[type:string]]	
       - file name
       - A longer name of this export template.
-    * - @icon@	
+    * - ``icon``	
       - [[type:filename]]
       - ''none''
       - Filename of an icon / preview for this export template, for the 'export to HTML' dialog.
-    * - @position hint@
+    * - ``position hint``
       - [[type:int]]	
       - &infin;	
       - Where to place this item in the list? Lower numbers come first.
-    * - @version@	
+    * - ``version``	
       - [[type:version]]
-      - @0.0.0@	
+      - ``0.0.0``	
       - Version number of this package.
-    * - @depends on@	
+    * - ``depends on``	
       - [[type:list]] of [[type:dependency]]s
 			 			 		Packages this package depends on.
     * - '''Specific to export template'''	
       - <<<
       - <<<
       - <<<
-    * - @game@	
+    * - ``game``	
       - Name of a [[type:game]]
       - ''required''
       - Game this export template is made for
-    * - @file type@	
+    * - ``file type``	
       - [[type:string]]	
-      - @"HTML files (*.html)|*.html"@
-			 			 		File type to use, this is a list separated by @|@ characters.
+      - ``"HTML files (*.html)|*.html"``
+			 			 		File type to use, this is a list separated by ``|`` characters.
 			 			 		Alternatingly, a human description and a file pattern to match are given.
-    * - @create directory@
+    * - ``create directory``
       - [[type:boolean]]
-      - @false@	
+      - ``false``	
       - Should a directory for data files be created? This is required for some script function.
-    * - @option fields@
+    * - ``option fields``
       - [[type:list]] of [[type:field]]s
       -  
       - Fields for additional options to show.
-    * - @option style@
+    * - ``option style``
       - [[type:indexmap]] of [[type:style]]s
       -  
-      - Styling for the @option fields@.
-    * - @script@	
+      - Styling for the ``option fields``.
+    * - ``script``	
       - [[type:script]]	
       -  	
       - Script that generates the text that will be written to the exported file.
@@ -1075,20 +1080,20 @@ During the evaluation of the script the following variables are available:
     :stub-columns: 1
     :align: left
 
-    * - @game@
+    * - ``game``
       - The current game.
-    * - @style@
+    * - ``style``
       - The current stylesheet.
-    * - @set@	
+    * - ``set``	
       - The set being exported.
-    * - @cards@
+    * - ``cards``
       - The cards selected by the user.
-    * - @options@
-      - The values of the @option fields@.
-    * - @directory@
-      - Name of the directory created (if @create directory@ is set).
+    * - ``options``
+      - The values of the ``option fields``.
+    * - ``directory``
+      - Name of the directory created (if ``create directory`` is set).
 
---See also--
+**See also**
 The following functions are made specifically for exporting to html:
 
 .. list-table:: 
@@ -1109,23 +1114,23 @@ The following functions are made specifically for exporting to html:
     * - [[fun:write_image_file]]
       - Write an image file to the output directory.
 
---Example--
-Look at the @"magic-spoiler.mse-export-template"@ for an example.
+**Example**
+Look at the ``"magic-spoiler.mse-export-template"`` for an example.
 
 Locale
 ~~~~~~
 
---Overview--
+**Overview**
 
 A locale gives a translation of the user interface of the program.
 
---Package format--
+**Package format**
 
 A locale is described in a [[file:package]] with the <tt>.mse-locale</tt> file extension.
 Such a package contains a data file called <tt>locale</tt> that has the following properties.
 There are usually no other files in the package.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -1140,31 +1145,31 @@ There are usually no other files in the package.
       - <<<
       - <<<
       - <<<
-    * - @mse version@	
+    * - ``mse version``	
       - [[type:version]]
       - ''required''
       - Version of MSE this locale is made for.
-    * - @short name@	
+    * - ``short name``	
       - [[type:string]]	
       - file name
       - A short name of this locale, for the options dialog.
-    * - @full name@	
+    * - ``full name``	
       - [[type:string]]	
       - file name
       - A longer name of this locale.
-    * - @icon@	
+    * - ``icon``	
       - [[type:filename]]
       - ''none''
       - Filename of an icon / preview for this locale, currently not used.
-    * - @version@	
+    * - ``version``	
       - [[type:version]]
-      - @0.0.0@	
+      - ``0.0.0``	
       - Version number of this package.
     * - '''Specific to locales'''	
       - <<<
       - <<<
       - <<<
-    * - @menu@	
+    * - ``menu``	
       - [[type:map]] of [[type:string]]s
       -  
       - Translations of menu items.<br/>
@@ -1172,55 +1177,55 @@ There are usually no other files in the package.
 			 					 	Keys to use with Alt+Something (displayed underlined) can be specified &</br>
 			 					 	For example
 			 					 	>>>new set: &amp;New...&#9;Ctrl+N
-    * - @help@	
+    * - ``help``	
       - [[type:map]] of [[type:string]]s
       -  
       - Translations of help texts for the status bar.
-    * - @tool@	
+    * - ``tool``	
       - [[type:map]] of [[type:string]]s
       -  
       - Translations of toolbar item texts.
-    * - @tooltip@	
+    * - ``tooltip``	
       - [[type:map]] of [[type:string]]s
       -  
       - Translations of tooltips for toolbar items.
-    * - @label@	
+    * - ``label``	
       - [[type:map]] of [[type:string]]s
       -  
       - Labels of controls in the GUI.
-    * - @button@	
+    * - ``button``	
       - [[type:map]] of [[type:string]]s
       -  
       - Labels of buttons in the GUI.
-    * - @title@	
+    * - ``title``	
       - [[type:map]] of [[type:string]]s
       -  
       - Titles of windows.
-    * - @action@	
+    * - ``action``	
       - [[type:map]] of [[type:string]]s
       -  
       - Names of actions for undo/redo, things like "typing" and "add card".
-    * - @error@	
+    * - ``error``	
       - [[type:map]] of [[type:string]]s
       -  
       - Error messages.
-    * - @type@	
+    * - ``type``	
       - [[type:map]] of [[type:string]]s
       -  
       - Types of objects for error messages.
-    * - @game@	
+    * - ``game``	
       - [[type:map]] of [[type:map]] of [[type:string]]s
-			 					 	Deprecated since MSE 2.1.3, use @localized_...@ instead.<br/>
+			 					 	Deprecated since MSE 2.1.3, use ``localized_...`` instead.<br/>
 			 					 	Translations for specific [[type:game]]s.<br/>
 			 					 	Field names and field descriptions are looked up in the locale, if they are found the translation is used, otherwise the value from the game file.<br/>
 			 					 	Extra keys not present in the English locale can be added here.
-    * - @stylesheet@	
+    * - ``stylesheet``	
       - [[type:map]] of [[type:map]] of [[type:string]]s
-			 					 	Deprecated since MSE 2.1.3, use @localized_...@ instead.<br/>
+			 					 	Deprecated since MSE 2.1.3, use ``localized_...`` instead.<br/>
 			 					 	Translations for specific [[type:stylesheet]]s.
-    * - @symbol font@	
+    * - ``symbol font``	
       - [[type:map]] of [[type:map]] of [[type:string]]s
-			 					 	Deprecated since MSE 2.1.3, use @localized_...@ instead.<br/>
+			 					 	Deprecated since MSE 2.1.3, use ``localized_...`` instead.<br/>
 			 					 	Translations for specific [[type:symbol font]]s, in particular the "insert symbol" menu.
 
 Some of the items can contain placeholders for other values, for example:
@@ -1228,16 +1233,16 @@ Some of the items can contain placeholders for other values, for example:
 .. code-block::
 
      undo: &Undo%s	Ctrl+Z
-The @%s@ is replaced by the name of the action to undo.
-This @%s@ should be used in exactly those entries that also contain it in the English locale.
+The ``%s`` is replaced by the name of the action to undo.
+This ``%s`` should be used in exactly those entries that also contain it in the English locale.
 
---Examples--
-Look at the @"en.mse-locale"@ file in the standard MSE distribution for an example.
+**Examples**
+Look at the ``"en.mse-locale"`` file in the standard MSE distribution for an example.
 
---Translating MSE--
+**Translating MSE**
 To translate the MSE user interface:
-* Create a copy of the @"en.mse-locale"@ directory, name it @"**.mse-locale"@, where @"**"@ is a two or three letter [[http://en.wikipedia.org/wiki/ISO_language_code|ISO language code]].
-* Open the @"locale"@ file with Notepad (or another program that supports UTF-8), and translate the strings.
+* Create a copy of the ``"en.mse-locale"@ directory, name it @"**.mse-locale"@, where @"**"`` is a two or three letter [[http://en.wikipedia.org/wiki/ISO_language_code|ISO language code]].
+* Open the ``"locale"`` file with Notepad (or another program that supports UTF-8), and translate the strings.
 * Add new keys for game, stylesheet or symbol font specific keys as described above.
 * Save the file, select the new locale from Edit->Preferences.
 * Restart MSE, and make sure everything looks right.
@@ -1247,15 +1252,15 @@ To translate the MSE user interface:
 Include
 ~~~~~~~
 
---Overview--
+**Overview**
 
 An include package contains files used by other packages, for example scripts or images.
 
---Package format--
+**Package format**
 An include package is described in a [[file:package]] with the <tt>.mse-include</tt> file extension.
 It should contain a [[file:format|data file]] called <tt>include</tt> with the following properties.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -1270,27 +1275,27 @@ It should contain a [[file:format|data file]] called <tt>include</tt> with the f
       - <<<
       - <<<
       - <<<
-    * - @mse version@	
+    * - ``mse version``	
       - [[type:version]]
       - ''required''
       - Version of MSE this include package is made for.
-    * - @short name@	
+    * - ``short name``	
       - [[type:string]]	
       - file name
       - A short name of this include package, currently not used.
-    * - @full name@	
+    * - ``full name``	
       - [[type:string]]	
       - file name
       - A longer name of this include package, currently not used.
-    * - @icon@	
+    * - ``icon``	
       - [[type:filename]]
       - ''none''
       - Filename of an icon / preview for this export template, currently not used.
-    * - @version@	
+    * - ``version``	
       - [[type:version]]
-      - @0.0.0@	
+      - ``0.0.0``	
       - Version number of this package.
-    * - @depends on@	
+    * - ``depends on``	
       - [[type:list]] of [[type:dependency]]s
 			 			 		Packages this package depends on.
 
@@ -1304,18 +1309,18 @@ BLANK
 Symbol
 ~~~~~~
 
---Overview--
+**Overview**
 
 A symbol file contains a symbol created with the symbol editor.
 
-Symbols are not stored in packages, the data file is directly written to a @".mse-symbol"@ file.
+Symbols are not stored in packages, the data file is directly written to a ``".mse-symbol"`` file.
 
---Coordinates--
+**Coordinates**
 
 Various parts of a symbol use [[type:vector2d|coordinates]].
-These are pairs of numbers in the range @0@ to @1@. @(0,0)@ is the top-left of the symbol, @(1,1)@ the bottom-right.
+These are pairs of numbers in the range ``0@ to @1@. @(0,0)@ is the top-left of the symbol, @(1,1)`` the bottom-right.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -1326,27 +1331,27 @@ These are pairs of numbers in the range @0@ to @1@. @(0,0)@ is the top-left of t
       - Type
       - Default	
       - Description
-    * - @mse version@	
+    * - ``mse version``	
       - [[type:version]]
       - ''required''
       - Version of MSE this symbol is made with.
-    * - @parts@	
+    * - ``parts``	
       - [[type:list]] of [[type:symbol part]]s
       -  	
       - The parts in this symbol.
 
---Example--
+**Example**
 Look at a file made with the program.
 
 
 Settings
 ~~~~~~~~
 
---Overview--
+**Overview**
 
 The MSE settings are stored in a separate file.
 
---Location--
+**Location**
 
 On Windows XP the settings are located in:
 
@@ -1354,7 +1359,7 @@ On Windows XP the settings are located in:
 
      "C:\Documents and Settings\Application Data\Magic Set Editor\mse8.config"
 
---Properties--
+**Properties**
 See the settings file for the properties.
 
 
@@ -1398,7 +1403,7 @@ These contain several properties, similair to the file types. But they are part 
 Field
 ~~~~~
 
---Overview--
+**Overview**
 
 A field is a description of a kind of 'container' to hold a value.
 
@@ -1424,7 +1429,7 @@ Fields are part of the [[file:style triangle]]:
       - [[type:Style]]	
       - [[type:Value]]
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -1435,78 +1440,78 @@ Fields are part of the [[file:style triangle]]:
       - Type
       - Default	
       - Description
-    * - @type@	
+    * - ``type``	
       - One of:
       - ''required''
       - Type of field.
-			* @text@
-			* @choice@
-			* @multiple choice@
-			* @package choice@
-			* @boolean@
-			* @image@
-			* @symbol@
-			* @color@
-			* @info@
-    * - @name@	
+			* ``text``
+			* ``choice``
+			* ``multiple choice``
+			* ``package choice``
+			* ``boolean``
+			* ``image``
+			* ``symbol``
+			* ``color``
+			* ``info``
+    * - ``name``	
       - [[type:string]]	
       - ''required''
       - Name of the field.
-    * - @description@	
+    * - ``description``	
       - [[type:localized string]]	
-      - @""@	
+      - ``""``	
       - Description of the field, shown in the status bar when the mouse is over the field.
-    * - @icon@	
+    * - ``icon``	
       - [[type:filename]]
       -  	
       - Filename of an icon for this field, used for automatically generated [[type:statistics category]]s.
-    * - @editable@	
+    * - ``editable``	
       - [[type:boolean]]
-      - @true@	
+      - ``true``	
       - Can values of this field be edited?
-    * - @save value@	
+    * - ``save value``	
       - [[type:boolean]]
-      - @true@	
+      - ``true``	
       - Should values of this field be saved to files? Should be disabled for values that are generated by scripts.
-    * - @show statistics@
+    * - ``show statistics``
       - [[type:boolean]]
-      - @true@	
+      - ``true``	
       - Should a [[type:statistics dimension]] and [[type:statistics category|category]] be made for this field,
 			 			 		causing it to be listed on the statistics panel?
-    * - @identifying@	
+    * - ``identifying``	
       - [[type:boolean]]
-      - @false@	
+      - ``false``	
       - Does this field give the name of the [[type:card]] or [[type:set]]?
-    * - @card list column@
+    * - ``card list column``
       - [[type:int]]	
-      - @0@	
+      - ``0``	
       - On what position in the card list should this field be put?
-    * - @card list width@
+    * - ``card list width``
       - [[type:int]]	
-      - @100@	
+      - ``100``	
       - Width of the card list column in pixels.
-    * - @card list visible@
+    * - ``card list visible``
       - [[type:boolean]]
-      - @false@	
+      - ``false``	
       - Should this field be shown in the card list by default?
-    * - @card list allow@
+    * - ``card list allow``
       - [[type:boolean]]
-      - @true@	
+      - ``true``	
       - Should this field be allowed in the card list at all?
-    * - @card list name@
+    * - ``card list name``
       - [[type:localized string]]	
       - field name
       - Alternate name to use for the card list, for example an abbreviation.
-    * - @card list alignment@
+    * - ``card list alignment``
       - [[type:alignment]]
-      - @left@	
+      - ``left``	
       - Alignment of the card list column.
-    * - @sort script@	
+    * - ``sort script``	
       - [[type:script]]	
       -  	
       - Alternate way to sort the card list when using this column to sort the list.
 
-The @type@ determines what values of this field contain:
+The ``type`` determines what values of this field contain:
 
 .. list-table:: 
     :header-rows: 1
@@ -1516,31 +1521,31 @@ The @type@ determines what values of this field contain:
     * - Type
       - Values contain	
       - Displayed as
-    * - @text@	
+    * - ``text``	
       - Text with markup (a [[type:tagged string]])	
       - Text
-    * - @choice@	
+    * - ``choice``	
       - A choice from a list
       - Text or an image
-    * - @multiple choice@
+    * - ``multiple choice``
       - Zero or more choices from a list
       - A single image or multiple images
-    * - @package choice@
+    * - ``package choice``
       - A choice from a list of installed [[type:package]]s
       - Text and/or an image
-    * - @boolean@	
-      - @yes@ or @no@	
+    * - ``boolean``	
+      - ``yes@ or @no``	
       - Text or an image or both
-    * - @color@	
+    * - ``color``	
       - Any color or a restricted selection from a list	
       - A box filled with the color
-    * - @image@	
+    * - ``image``	
       - Any image	
       - The image
-    * - @symbol@	
+    * - ``symbol``	
       - A [[type:symbol]] edited with the symbol editor	
       - The image
-    * - @info@	
+    * - ``info``	
       - An informational message, for example to group fields together.	
       - A box containing the label
 
@@ -1556,148 +1561,148 @@ Additional properties are available, depending on the type of field:
       - Type	
       - Default	
       - Description
-    * - @"text"@
-      - @script@
+    * - ``"text"``
+      - ``script``
       - [[type:script]]	
       -  
       - Script to apply to values of this field after each change.<br/>
-		 		 		 		If the script evaluates to a constant (i.e. doesn't use @value@) then values in this field can effectively not be edited.
+		 		 		 		If the script evaluates to a constant (i.e. doesn't use ``value``) then values in this field can effectively not be edited.
     * - ^^^	
-      - @default@
+      - ``default``
       - [[type:script]]	
       -  
       - Script to determine the value when it is in the default state (not edited).
     * - ^^^	
-      - @default name@
+      - ``default name``
       - [[type:string]]
-      - @"Default"@
+      - ``"Default"``
       - Name of the default state, currently not used.
     * - ^^^	
-      - @multi line@
+      - ``multi line``
       - [[type:boolean]]
-      - @false@
+      - ``false``
       - Can values of this field contain line breaks?
-    * - @"choice"@
-      - @script@
+    * - ``"choice"``
+      - ``script``
       - [[type:script]]	
       -  
       - Script to apply to values of this field after each change.<br/>
-		 		 		 		If the script evaluates to a constant (i.e. doesn't use @value@) then values in this field can effectively not be edited.
+		 		 		 		If the script evaluates to a constant (i.e. doesn't use ``value``) then values in this field can effectively not be edited.
     * - ^^^	
-      - @default@
+      - ``default``
       - [[type:script]]	
       -  
       - Script to determine the value when it is in the default state (not edited).
     * - ^^^	
-      - @initial@
+      - ``initial``
       - [[type:string]]	
       -  
       - Initial value for new values for this field.
     * - ^^^	
-      - @default name@
+      - ``default name``
       - [[type:string]]
-      - @"Default"@
+      - ``"Default"``
       - Name of the default state.
     * - ^^^	
-      - @choices@
+      - ``choices``
       - [[type:list]] of [[type:choice]]s
       -  
       - Possible values for this field.
     * - ^^^	
-      - @choice colors@
+      - ``choice colors``
       - [[type:map]] of opaque [[type:color]]s
       -  
       - Colors of the choices for statistics graphs.
     * - ^^^	
-      - @choice colors cardlist@
+      - ``choice colors cardlist``
       - [[type:map]] of opaque [[type:color]]s
       -  
-      - Colors of the choices for lines in the card list,<br/> see also the @card list color script@ property of [[type:game]]s.
-    * - @"multiple choice"@
+      - Colors of the choices for lines in the card list,<br/> see also the ``card list color script`` property of [[type:game]]s.
+    * - ``"multiple choice"``
       -  
       - <<<
       - <<<
       - <<<
 		'' Multiple choice fields have the same attributes as normal choice fields.''<br/>
-		To refer to a combination of values in the initial attribute use @choice1, choice2, choice3@.<br/>
-		These choices must appear in the same order as they do in the @choices@ property.
-    * - @"boolean"@
-      - ''A boolean field is a choice field with the choices @"yes"@ and @"no"@.''
+		To refer to a combination of values in the initial attribute use ``choice1, choice2, choice3``.<br/>
+		These choices must appear in the same order as they do in the ``choices`` property.
+    * - ``"boolean"``
+      - ''A boolean field is a choice field with the choices ``"yes"@ and @"no"``.''
       - <<<
       - <<<
       - <<<
-    * - @"package choice"@
-		@script@	[[type:script]]		 	Script to apply to values of this field after each change.<br/>
-		 		 		 		If the script evaluates to a constant (i.e. doesn't use @value@) then values in this field can effectively not be edited.
+    * - ``"package choice"``
+		``script``	[[type:script]]		 	Script to apply to values of this field after each change.<br/>
+		 		 		 		If the script evaluates to a constant (i.e. doesn't use ``value``) then values in this field can effectively not be edited.
     * - ^^^	
-      - @match@	
+      - ``match``	
       - [[type:string]]
       - ''required'' 
-      - Filenames of the packages to match, can include wildcards @"*"@. For example @"magic-mana-*.mse-symbol-font"@.
+      - Filenames of the packages to match, can include wildcards ``"*"@. For example @"magic-mana-*.mse-symbol-font"``.
     * - ^^^	
-      - @initial@
+      - ``initial``
       - [[type:string]]
       - ''required'' 
       - Initial package for new values for this field.
     * - ^^^	
-      - @reqired@
+      - ``reqired``
       - [[type:boolean]]
-      - @true@ 
+      - ``true`` 
       - Must a package always be selected? Or is it allowed to select nothing?
     * - ^^^	
-      - @empty name@
+      - ``empty name``
       - [[type:string]]
-      - @"None"@
-      - Name of the empty state. Applies only if @required: false@.
-    * - @"color"@
-      - @script@
+      - ``"None"``
+      - Name of the empty state. Applies only if ``required: false``.
+    * - ``"color"``
+      - ``script``
       - [[type:script]]	
       -  
       - Script to apply to values of this field after each change.<br/>
-		 		 		 		If the script evaluates to a constant (i.e. doesn't use @value@) then values in this field can effectively not be edited.
+		 		 		 		If the script evaluates to a constant (i.e. doesn't use ``value``) then values in this field can effectively not be edited.
     * - ^^^	
-      - @default@
+      - ``default``
       - [[type:script]]	
       -  
       - Script to determine the value when it is in the default state (not edited).
     * - ^^^	
-      - @initial@
+      - ``initial``
       - [[type:string]]	
       -  
       - Initial color for new values for this field.
     * - ^^^	
-      - @default name@
+      - ``default name``
       - [[type:string]]
-      - @"Default"@
+      - ``"Default"``
       - Name of the default state.
     * - ^^^	
-      - @allow custom@
+      - ``allow custom``
       - [[type:boolean]]
-      - @true@
+      - ``true``
       - Are colors other then those from the choices allowed?
     * - ^^^	
-      - @choices@
+      - ``choices``
       - [[type:list]] of [[type:color choice]]s
       -  
       - Possible values for this field.
-    * - @"image"@
+    * - ``"image"``
       - ''no extra properties''
       - <<<
       - <<<
       - <<<
-    * - @"symbol"@
+    * - ``"symbol"``
       - ''no extra properties''
       - <<<
       - <<<
       - <<<
-    * - @"info"@
-      - @script@
+    * - ``"info"``
+      - ``script``
       - [[type:script]]	
       -  
       - Script to determine the value to show.
 
---Example--
-The @title@ field gives the title of a set:
+**Example**
+The ``title`` field gives the title of a set:
 
 .. code-block::
 
@@ -1733,7 +1738,7 @@ The default is based on a set field. Statistics don't make much sense for the bo
 Style
 ~~~~~
 
---Overview--
+**Overview**
 
 A style specifies how a [[type:field]] should look,
 things like position, size, fonts, colors, etc.
@@ -1755,11 +1760,11 @@ Styles are part of the [[file:style triangle]]:
       - '''Style'''	
       - [[type:Value]]
 
---Positioning--
+**Positioning**
 
 <img src="style-positioning.png" alt="" style="float:right;border:1px solid #ccc;"/>
 A style specifies the position of a box for the content.
-To specify the horizontal location ''two'' of @left@, @width@ and @right@ must be specified.
+To specify the horizontal location ''two'' of ``left@, @width@ and @right`` must be specified.
 
 For example:
 
@@ -1767,7 +1772,7 @@ For example:
 
      left:  10
      width: 20
-Implies that @right@ is 30 pixels.
+Implies that ``right`` is 30 pixels.
 
 Similarly:
 
@@ -1775,12 +1780,12 @@ Similarly:
 
      left: 10
      right: 30
-Implies the @width@ is 20.
+Implies the ``width`` is 20.
 
-The same holds for the vertical location and size; @top@, @height@ and @bottom@.
+The same holds for the vertical location and size; ``top@, @height@ and @bottom``.
 
---Rotation--
-Rotating a box can be done with the @angle@ property.
+**Rotation**
+Rotating a box can be done with the ``angle`` property.
 The angle gives a counter clockwise rotation in degrees of the box.
 The box is rotated such that the corner for which the position is specified is at the correct position after rotating.
 
@@ -1816,7 +1821,7 @@ Here are some examples:
 	 	>       angle:  180
 
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -1827,47 +1832,47 @@ Here are some examples:
       - Type
       - Default	
       - Description
-    * - @z index@	
+    * - ``z index``	
       - [[type:int]]	
-      - @0@	
-      - Stacking of this box, fields with a higher @z index@ are placed on top of those with a lower index.
-    * - @tab index@	
+      - ``0``	
+      - Stacking of this box, fields with a higher ``z index`` are placed on top of those with a lower index.
+    * - ``tab index``	
       - [[type:int]]	
-      - @0@	
+      - ``0``	
       - Index for moving through the fields with the tab key, fields with a lower tab index come first. Otherwise the order is from top to bottom and then left to right.
-    * - @left@	
+    * - ``left``	
       - [[type:scriptable]] [[type:double]]
       - ''Required''
       - Distance between left edge of the box and the left of the card in pixels.
-    * - @width@	
+    * - ``width``	
       - [[type:scriptable]] [[type:double]]
       - ''Required''
       - Width of the box in pixels.
-    * - @right@	
+    * - ``right``	
       - [[type:scriptable]] [[type:double]]
       - ''Required''
       - Distance between right edge of the box and the ''left'' of the card in pixels.
-    * - @top@
+    * - ``top``
       - [[type:scriptable]] [[type:double]]
       - ''Required''
       - Distance between top edge of the box and the top of the card in pixels.
-    * - @height@	
+    * - ``height``	
       - [[type:scriptable]] [[type:double]]
       - ''Required''
       - Height of the box in pixels.
-    * - @bottom@	
+    * - ``bottom``	
       - [[type:scriptable]] [[type:double]]
       - ''Required''
       - Distance between bottom edge of the box and the ''top'' of the card in pixels.
-    * - @angle@	
+    * - ``angle``	
       - [[type:scriptable]] [[type:int]]
-      - @0@	
+      - ``0``	
       - Rotation of this box, in degrees counter clockwise.
-    * - @visible@	
+    * - ``visible``	
       - [[type:scriptable]] [[type:boolean]]
-      - @true@	
+      - ``true``	
       - Is this field visible at all?
-    * - @mask@	
+    * - ``mask``	
       - [[type:image|scriptable image]]	
       - ''none''
       - A mask to apply to the box, black areas in the mask become transparent, similar to [[fun:set_mask]].
@@ -1884,116 +1889,116 @@ The rest of the properties depend on the type of [[type:field]] this style is fo
       - Type
       - Default	
       - Description
-    * - @"text"@
-      - @font@
+    * - ``"text"``
+      - ``font``
       - [[type:font]]	
       - ''Required'' 
       - Font to render the text.
     * - ^^^	
-      - @symbol font@	
+      - ``symbol font``	
       - [[type:symbol font]]
       -  	
       - Font to render symbols in the text (optional).
     * - ^^^	
-      - @always symbol@	
+      - ``always symbol``	
       - [[type:boolean]]
-      - @false@	
+      - ``false``	
       - Should all text be rendered with symbols?<br/>
 		 			 			 		Text that is not supported by the symbol font is still rendered as normal text.
     * - ^^^	
-      - @allow formating@
+      - ``allow formating``
       - [[type:boolean]]
-      - @true@	
+      - ``true``	
       - Is custom formating (bold, italic) allowed?
     * - ^^^	
-      - @alignment@	
+      - ``alignment``	
       - [[type:scriptable]] [[type:alignment]]
-      - @top left@
+      - ``top left``
       - Alignment of the text.
     * - ^^^	
-      - @direction@	
+      - ``direction``	
       - [[type:direction]]
-      - @"left to right"@
-      - Direction in which the text flows. If set to @"vertical"@ it is as if a line break is inserted after each character.
+      - ``"left to right"``
+      - Direction in which the text flows. If set to ``"vertical"`` it is as if a line break is inserted after each character.
     * - ^^^	
-      - @padding left@	
+      - ``padding left``	
       - [[type:scriptable]] [[type:double]]	
-      - @0@	
+      - ``0``	
       - Padding between the text and the border of the box, in pixels.
     * - ^^^	
-      - @padding right@	
+      - ``padding right``	
       - ^^^
       - ^^^	
       - ^^^
     * - ^^^	
-      - @padding top@	
+      - ``padding top``	
       - ^^^
       - ^^^	
       - ^^^
     * - ^^^	
-      - @padding bottom@
+      - ``padding bottom``
       - ^^^
       - ^^^	
       - ^^^
     * - ^^^	
-      - @padding left min@
+      - ``padding left min``
       - [[type:scriptable]] [[type:double]]	
       - &infin;	
       - Minimal padding around the field.<br/> When the text is scaled down the padding is scaled as well, but it becomes no smaller than this.
     * - ^^^	
-      - @padding right min@
+      - ``padding right min``
       - ^^^
       - ^^^	
       - ^^^
     * - ^^^	
-      - @padding top min@
+      - ``padding top min``
       - ^^^
       - ^^^	
       - ^^^
     * - ^^^	
-      - @padding bottom min@
+      - ``padding bottom min``
       - ^^^
       - ^^^	
       - ^^^
     * - ^^^	
-      - @line height soft@
+      - ``line height soft``
       - [[type:scriptable]] [[type:double]]	
-      - @1@	
+      - ``1``	
       - Multiplier for the line height of 'soft' line breaks. These are breaks caused by wrapping around lines that are too long.<br/>
-		 			 			 		A line height of @0@ means all lines are in the same position, @1@ is normal behaviour, @2@ skips a line, etc.
+		 			 			 		A line height of ``0@ means all lines are in the same position, @1@ is normal behaviour, @2`` skips a line, etc.
     * - ^^^	
-      - @line height hard@
+      - ``line height hard``
       - [[type:scriptable]] [[type:double]]	
-      - @1@	
+      - ``1``	
       - Multiplier for the line height of 'hard' line breaks. These are breaks caused by the enter key.
     * - ^^^	
-      - @line height line@
+      - ``line height line``
       - [[type:scriptable]] [[type:double]]	
-      - @1@	
-      - Multiplier for the line height of 'soft' line breaks. These are breaks caused by @"<line>\n</line>"@ tags.
+      - ``1``	
+      - Multiplier for the line height of 'soft' line breaks. These are breaks caused by ``"<line>\n</line>"`` tags.
     * - ^^^	
-      - @line height soft max@
+      - ``line height soft max``
       - [[type:scriptable]] [[type:double]]	
       - ''disabled''
       - When there is still vertical room in the text box, increase the line heights to at most these values to spread the text more evenly.
     * - ^^^	
-      - @line height hard max@
+      - ``line height hard max``
       - ^^^
       - ^^^	
       - ^^^
     * - ^^^	
-      - @line height line max@
+      - ``line height line max``
       - ^^^
       - ^^^	
       - ^^^
     * - ^^^	
-      - @paragraph height@
+      - ``paragraph height``
       - [[type:double]]	
       - ''flexible''
-      - The height of paragraphs. If specified, each paragraph is given this much space, and aligned inside that space as specified by @alignment@.<br/>
-		 			 			 		A paragraph break is any line break that is not soft (i.e. caused by word wrap or a @<soft>@ break).
+      - The height of paragraphs. If specified, each paragraph is given this much space, and aligned inside that space as specified by ``alignment``.<br/>
+		 			 			 		A paragraph break is any line break that is not soft (i.e. caused by word wrap or a ``<soft>`` break).
     * - ^^^	
-      - @mask@
+      - ``mask``
       - [[type:image|scriptable image]]
       - ''none''
       - A mask that indicates where in the box text can be placed.<br/>
@@ -2002,184 +2007,184 @@ The rest of the properties depend on the type of [[type:field]] this style is fo
 		 			 			 		The same mask image is also used to determine the size and shape of the box.
 		 			 			 		To include a certain pixel in the size/shape but not allow text to be placed there, it can be made dark gray (a value less than 128).
     * - ^^^	
-      - @layout@	
+      - ``layout``	
       - [[type:text layout]]	
       - ''automatic''
       - When read from a script, gives information on the layout of text in this box.
     * - ^^^	
-      - @content width@	
+      - ``content width``	
       - [[type:double]]	
       - ''automatic''
-      - When read from a script, gives the width of the current content in this box. Equivalent to @layout.width@
+      - When read from a script, gives the width of the current content in this box. Equivalent to ``layout.width``
     * - ^^^	
-      - @content height@
+      - ``content height``
       - [[type:double]]	
       - ''automatic''
-      - When read from a script, gives the height of the current content in this box. Equivalent to @layout.height@
+      - When read from a script, gives the height of the current content in this box. Equivalent to ``layout.height``
     * - ^^^	
-      - @content lines@	
+      - ``content lines``	
       - [[type:int]]	
       - ''automatic''
-      - When read from a script, gives the number of lines of the current content in this box. Equivalent to @length(layout.lines)@
+      - When read from a script, gives the number of lines of the current content in this box. Equivalent to ``length(layout.lines)``
 	
 !	<<<	<<<	<<<	<<<
-    * - @"choice"@,<br/>@"multiple choice"@,<br/>@"boolean"@
-		@popup style@	@"drop down"@ or @"in place"@		@"drop down"@	Where to place the drop down box for editing the value.<br/>
-		 		 					 		@"drop down"@ places the box below the field, similar to normal combo boxes.<br/>
-		 		 					 		@"in place"@ places the box at the mouse coordinates.
+    * - ``"choice"@,<br/>@"multiple choice"@,<br/>@"boolean"``
+		``popup style@	@"drop down"@ or @"in place"@		@"drop down"``	Where to place the drop down box for editing the value.<br/>
+		 		 					 		``"drop down"`` places the box below the field, similar to normal combo boxes.<br/>
+		 		 					 		``"in place"`` places the box at the mouse coordinates.
     * - ^^^	
-      - @render style@
+      - ``render style``
       - [[type:render style]]	
-      - @"text"@
+      - ``"text"``
       - How should the field be rendered?
     * - ^^^	
-      - @combine@
+      - ``combine``
       - [[type:combine]]
-      - @"normal"@
+      - ``"normal"``
       - How to combine the image with the background? Can be overridden using the [[fun:set_combine]] function.
     * - ^^^	
-      - @alignment@
+      - ``alignment``
       - [[type:alignment]]
-      - @"stretch"@
+      - ``"stretch"``
       - Alignment of text and images in the box.
     * - ^^^	
-      - @font@	
+      - ``font``	
       - [[type:font]]	
       -  	
-      - Font to use for rendering text (depending on @render style@)
+      - Font to use for rendering text (depending on ``render style``)
     * - ^^^	
-      - @image@	
+      - ``image``	
       - [[type:image|scriptable image]]	
       -  	
-      - Image to show (depending on @render style@).<br/>
-		 		 					 		The script will be called with @input@ set to the value to determine an image for.
+      - Image to show (depending on ``render style``).<br/>
+		 		 					 		The script will be called with ``input`` set to the value to determine an image for.
     * - ^^^	
-      - @choice images@
+      - ``choice images``
       - [[type:map]] of [[type:image]]s	
       -  	
       - An alternative way to specify what image to show.<br/>
 		 		 					 		For each [[type:choice]] a separate image is specified.
     * - ^^^	
-      - @content width@	
+      - ``content width``	
       - [[type:double]]
       - ''automatic''
       - When read from a script, gives the width of the current choice image in this box. <br/>
 		 			 				 		This is only useful when the alignment is changed, otherwise it is always equal the box size itself.
     * - ^^^	
-      - @content height@
+      - ``content height``
       - [[type:double]]
       - ''automatic''
       - When read from a script, gives the height of the current choice image in this box.
-    * - @"multiple choice"@
-		@direction@	[[type:scriptable]] [[type:direction]]	@"left to right"@	Direction the items are laid out in, only when @render style@ is @list@.
+    * - ``"multiple choice"``
+		``direction@	[[type:scriptable]] [[type:direction]]	@"left to right"@	Direction the items are laid out in, only when @render style@ is @list``.
     * - ^^^	
-      - @spacing@
+      - ``spacing``
       - [[type:scriptable]] [[type:double]]
-      - @0@
+      - ``0``
       - Spacing between the items.
 	
 !	<<<	<<<	<<<	<<<
-    * - @"package choice"@
+    * - ``"package choice"``
     * - ^^^	
-      - @font@	
+      - ``font``	
       - [[type:font]]	
       -  	
       - Font to use for rendering text.
 	
 !	<<<	<<<	<<<	<<<
-    * - @"color"@
-      - @radius@
+    * - ``"color"``
+      - ``radius``
       - [[type:double]]	
-      - @0@
+      - ``0``
       - Radius of rounded corners for the box in pixels.
     * - ^^^	
-      - @left width@
+      - ``left width``
       - [[type:double]]	
       - &infin;
       - Draw only this many pixels from the side, creating a box with a hole in it, or a card border.
     * - ^^^	
-      - @right width@
+      - ``right width``
       - ^^^
       - ^^^
       - ^^^
     * - ^^^	
-      - @top width@
+      - ``top width``
       - ^^^
       - ^^^
       - ^^^
     * - ^^^	
-      - @bottom width@
+      - ``bottom width``
       - ^^^
       - ^^^
       - ^^^
     * - ^^^	
-      - @combine@
+      - ``combine``
       - [[type:combine]]	
-      - @"normal"@
+      - ``"normal"``
       - How to combine the color with the background? Only applies when a mask is used.
 	
 !	<<<	<<<	<<<	<<<
-    * - @"image"@
-      - @default@
+    * - ``"image"``
+      - ``default``
       - [[type:image|scriptable image]]	
       - ''none''
       - A default image to use when the card has none.
 	
 !	<<<	<<<	<<<	<<<
-    * - @"symbol"@
-      - @variations@
+    * - ``"symbol"``
+      - ``variations``
       - [[type:list]] of [[type:symbol variation]]s
       -  
       - Available variations of the symbol, a variation describes color and border size.
     * - ^^^	
-      - @min aspect ratio@
+      - ``min aspect ratio``
       - [[type:double]]	
-      - @1@	
-      - Bounds for the aspect ratio, @width/height@ symbols can take. This can be used to make non-square symbols.
+      - ``1``	
+      - Bounds for the aspect ratio, ``width/height`` symbols can take. This can be used to make non-square symbols.
     * - ^^^	
-      - @max aspect ratio@
+      - ``max aspect ratio``
       - [[type:double]]	
-      - @1@	
+      - ``1``	
       - ^^^
 	
 !	<<<	<<<	<<<	<<<
-    * - @"info"@
-      - @font@
+    * - ``"info"``
+      - ``font``
       - [[type:font]]	
       - ''Required'' 
       - Font to render the text.
     * - ^^^	
-      - @alignment@	
+      - ``alignment``	
       - [[type:scriptable]] [[type:alignment]]
-      - @top left@
+      - ``top left``
       - Alignment of the text.
     * - ^^^	
-      - @padding left@	
+      - ``padding left``	
       - [[type:double]]	
-      - @0@	
+      - ``0``	
       - Padding between the text and the border of the box, in pixels.
     * - ^^^	
-      - @padding right@	
+      - ``padding right``	
       - ^^^
       - ^^^	
       - ^^^
     * - ^^^	
-      - @padding top@	
+      - ``padding top``	
       - ^^^
       - ^^^	
       - ^^^
     * - ^^^	
-      - @padding bottom@
+      - ``padding bottom``
       - ^^^
       - ^^^	
       - ^^^
     * - ^^^	
-      - @background color@
+      - ``background color``
       - opaque [[type:color]]
-      - @rgb(255,255,255)@
+      - ``rgb(255,255,255)``
       - Background color for the box, can be used to make it stand out.
 
---Example--
+**Example**
 
 
 Render Style
@@ -2187,7 +2192,7 @@ ____________
 
 A way to render a choice [[type:field]], see [[type:style]].
 
---Possible values--
+**Possible values**
 
 .. list-table:: 
     :header-rows: 1
@@ -2197,41 +2202,41 @@ A way to render a choice [[type:field]], see [[type:style]].
     * - Value
       - Sketch	
       - Description
-    * - @text@	
+    * - ``text``	
       - <img src="choice-render-style-text.png" alt=""/>
 		 	Rendered as text
-    * - @image@	
+    * - ``image``	
       - <img src="choice-render-style-image.png" alt=""/>
 		 	Rendered as an image
-    * - @both@	
+    * - ``both``	
       - <img src="choice-render-style-both.png" alt=""/>
 		 	Both an image and text
-    * - @hidden@	
+    * - ``hidden``	
       - <img src="choice-render-style-hidden.png" alt=""/>
 		 	The box is hidden, but the value can still be edited.
-    * - @image hidden@
+    * - ``image hidden``
       - <img src="choice-render-style-hidden.png" alt=""/>
 		 	The box is hidden, but the value can still be edited.
-    * - @checklist@	
+    * - ``checklist``	
       - <img src="choice-render-style-checklist-text.png" alt=""/>
 		 	A list of checkboxes, for multiple choice styles.
-    * - @image checklist@
+    * - ``image checklist``
       - <img src="choice-render-style-checklist-image.png" alt=""/>
 		 	A list of checkboxes with images instead of text.
-    * - @both checklist@
+    * - ``both checklist``
       - <img src="choice-render-style-checklist-both.png" alt=""/>
 		 	A list of checkboxes with both images and text.
-    * - @text list@	
+    * - ``text list``	
       - <img src="choice-render-style-list-text.png" alt=""/>
 		 	A list of the selected items, for multiple choice styles.
-    * - @image list@	
+    * - ``image list``	
       - <img src="choice-render-style-list-image.png" alt=""/>
 		 	A list of the selected items with images instead of text.
-    * - @both list@	
+    * - ``both list``	
       - <img src="choice-render-style-list-both.png" alt=""/>
 		 	A list of the selected items with both images and text.
 
---Examples--
+**Examples**
 
 .. code-block::
 
@@ -2240,11 +2245,11 @@ A way to render a choice [[type:field]], see [[type:style]].
 Symbol Variation
 ________________
 
---Overview--
+**Overview**
 
 A variation of a symbol, describes color and border.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -2255,19 +2260,19 @@ A variation of a symbol, describes color and border.
       - Type
       - Default	
       - Description
-    * - @name@	
+    * - ``name``	
       - [[type:string]]	
       - ''Required''
       - Name of this variation, refered to by the [[fun:symbol_variation]] function.
-    * - @border radius@
+    * - ``border radius``
       - [[type:double]]	
-      - @0.05@	
+      - ``0.05``	
       - Border radius of the symbol.
-    * - @fill type@	
-      - @solid@ or @linear gradient@ or @radial gradient@
-			 			@"solid"@	How to fill the symbol.
+    * - ``fill type``	
+      - ``solid@ or @linear gradient@ or @radial gradient``
+			 			``"solid"``	How to fill the symbol.
 
-Depending on the @fill type@ there are additional properties:
+Depending on the ``fill type`` there are additional properties:
 
 .. list-table:: 
     :header-rows: 1
@@ -2278,56 +2283,56 @@ Depending on the @fill type@ there are additional properties:
       - Property	
       - Type	
       - Description
-    * - @"solid"@	
-      - @fill color@	
+    * - ``"solid"``	
+      - ``fill color``	
       - [[type:color]]
       - Color to use for filling the symbol.
     * - ^^^
-      - @border color@	
+      - ``border color``	
       - [[type:color]]
       - Color to use for the border of the symbol.
-    * - @"linear gradient"@
-      - @fill color 1@	
+    * - ``"linear gradient"``
+      - ``fill color 1``	
       - [[type:color]]
       - Color to use for filling the symbol at the center of the gradient.
     * - ^^^
-      - @border color 1@
+      - ``border color 1``
       - [[type:color]]
       - Color to use for the border of the symbol at the center of the gradient.
     * - ^^^
-      - @fill color 2@	
+      - ``fill color 2``	
       - [[type:color]]
       - Color to use for filling the symbol at the ends of the gradient.
     * - ^^^
-      - @border color 2@
+      - ``border color 2``
       - [[type:color]]
       - Color to use for the border of the symbol at the ends of the gradient.
     * - ^^^
-      - @center x@, @center y@
+      - ``center x@, @center y``
       - [[type:double]]
       - Position of the center point of the gradient (in the range 0 to 1)
     * - ^^^
-      - @end x@, @end y@
+      - ``end x@, @end y``
       - [[type:double]]
       - Position of the end point of the gradient (in the range 0 to 1)
-    * - @"radial gradient"@
-      - @fill color 1@	
+    * - ``"radial gradient"``
+      - ``fill color 1``	
       - [[type:color]]
       - Color to use for filling the symbol at the center of the symbol.
     * - ^^^
-      - @border color 1@
+      - ``border color 1``
       - [[type:color]]
       - Color to use for the border of the symbol at the center of the symbol.
     * - ^^^
-      - @fill color 2@	
+      - ``fill color 2``	
       - [[type:color]]
       - Color to use for filling the symbol at the edges of the symbol.
     * - ^^^
-      - @border color 2@
+      - ``border color 2``
       - [[type:color]]
       - Color to use for the border of the symbol at the edges of the symbol.
 
---Examples--
+**Examples**
 'Common' and 'uncommon' magic expansion symbol styles:
 
 .. code-block::
@@ -2370,7 +2375,7 @@ It is possible to dig deeper into blocks, for example
 
 Is the middle of the first line of the second block.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -2380,31 +2385,31 @@ Is the middle of the first line of the second block.
     * - Property
       - Type
       - Description
-    * - @width@	
+    * - ``width``	
       - [[type:double]]	
       - Width of this line or group of lines in pixels.
-    * - @height@
+    * - ``height``
       - [[type:double]]	
       - Height of this line or group of lines in pixels.
-    * - @top@
+    * - ``top``
       - [[type:double]]	
       - Top y coordinate
-    * - @middle@
+    * - ``middle``
       - [[type:double]]	
       - Middle y coordinate
-    * - @bottom@
+    * - ``bottom``
       - [[type:double]]	
       - Bottom y coordinate
-    * - @lines@	
+    * - ``lines``	
       - [[type:list]] of [[type:text layout]]s
       - The lines in this part of the text.
-    * - @paragraphs@
+    * - ``paragraphs``
       - [[type:list]] of [[type:text layout]]s
       - The paragraphs in this part of the text.
-    * - @blocks@
+    * - ``blocks``
       - [[type:list]] of [[type:text layout]]s
       - The blocks in this part of the text.
-    * - @separators@
+    * - ``separators``
       - [[type:list]] of [[type:double]]s
       - The y coordinates of separators between blocks.
 
@@ -2413,7 +2418,7 @@ Is the middle of the first line of the second block.
 Value
 ~~~~~
 
---Overview--
+**Overview**
 
 A value is something that is 'stored in' a [[type:field]].
 
@@ -2434,7 +2439,7 @@ Values are part of the [[file:style triangle]]:
       - [[type:Style]]	
       - '''Value'''
 
---Possible types--
+**Possible types**
 
 The type of a value depends on the corresponding field:
 
@@ -2446,37 +2451,37 @@ The type of a value depends on the corresponding field:
     * - Field type	
       - Value data type
       - Description
-    * - @"text"@	
+    * - ``"text"``	
       - [[type:tagged string]]	
       - A piece of text, possibly with markup.
-    * - @"choice"@	
+    * - ``"choice"``	
       - [[type:string]]
       - One of the choices of the field.
-    * - @"multiple choice"@
+    * - ``"multiple choice"``
       - [[type:string]]
       - A list of choices from the field, separated by commas.<br/>
-			 				For example: @"red, green, blue"@.
-    * - @"package choice"@
+			 				For example: ``"red, green, blue"``.
+    * - ``"package choice"``
       - Name of a package	
       - The (file)name of a package, including the extension.
-    * - @"boolean"@	
-      - @"yes"@ or @"no"@	
+    * - ``"boolean"``	
+      - ``"yes"@ or @"no"``	
       - This can be directly used as a [[type:boolean]] value in scripts.
-    * - @"image"@	
+    * - ``"image"``	
       - [[type:filename]]	
       - Filename of an image file in the [[type:set]] package.
-    * - @"symbol"@	
+    * - ``"symbol"``	
       - [[type:filename]]	
       - Filename of a [[type:symbol]] file in the [[type:set]] package.<br/>
 			 				When accessed from a script, image fields can be directly used as [[type:image]]s.
-    * - @"color"@	
+    * - ``"color"``	
       - opaque [[type:color]]	
       - A color.
-    * - @"info"@	
+    * - ``"info"``	
       - [[type:string]]
       - A label for the information box.
 
---Example--
+**Example**
 For the field:
 
 .. code-block::
@@ -2497,11 +2502,11 @@ A value could be:
 Card
 ~~~~
 
---Overview--
+**Overview**
 
 A '''card''' in a [[type:set]].
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -2512,41 +2517,41 @@ A '''card''' in a [[type:set]].
       - Type
       - Default	
       - Description
-    * - @stylesheet@
+    * - ``stylesheet``
       - Name of a [[type:stylesheet]]	
       - ''none''
       - Use a different stylesheet for this card than the [[type:set]]'s default.
-    * - @has styling@
+    * - ``has styling``
       - [[type:boolean]]
       - false	
       - This card has styling data different from the set's default.
-    * - @styling data@	
+    * - ``styling data``	
       - [[type:indexmap]] of [[type:value]]s
       - false	
-      - Styling data, based on the [[type:stylesheet]]'s @style fields@.
-    * - @notes@
+      - Styling data, based on the [[type:stylesheet]]'s ``style fields``.
+    * - ``notes``
       - [[type:tagged string]]
-      - @""@	
+      - ``""``	
       - Notes for this card.
-    * - @time created@	
+    * - ``time created``	
       - [[type:date]]	
       - ''now''	
       - Time at which the card was created.
-    * - @time modified@	
+    * - ``time modified``	
       - [[type:date]]	
       - ''now''	
       - Time at which the card was last modified.
-    * - @extra data@
+    * - ``extra data``
       - [[type:map]] of [[type:indexmap]]s of [[type:value]]s
 				 					 		Data for the 'extra card fields' of the stylesheet.<br/>
 				 					 		This is first indexed by stylesheet name, then by field name.
     * - ''remaining keys''	
       - [[type:indexmap]] of [[type:value]]s
       -  	
-      - The remaining keys contain the data for the game's @card fields@.<br/>
-				 					 		So for example @card.some_field@ corresponds to the value of the card field @some field@.
+      - The remaining keys contain the data for the game's ``card fields``.<br/>
+				 					 		So for example ``card.some_field@ corresponds to the value of the card field @some field``.
 
---Examples--
+**Examples**
 
 With the following game:
 
@@ -2576,13 +2581,13 @@ A card could look like:
 Keyword
 ~~~~~~~
 
---Overview--
+**Overview**
 
 A keyword in a [[type:set]] or a [[type:game]].
 
 A keyword is something that matches a piece of text, and optionally some kind of reminder text can be shown.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -2593,33 +2598,33 @@ A keyword is something that matches a piece of text, and optionally some kind of
       - Type
       - Default	
       - Description
-    * - @keyword@	
+    * - ``keyword``	
       - [[type:string]]	
       - ''required''
       - Name of the keyword.
-    * - @match@	
+    * - ``match``	
       - [[type:string]]	
       - ''required''
       - String to match.
-    * - @reminder@	
+    * - ``reminder``	
       - [[type:scriptable]] [[type:string]]
       - ''required''
       - Script to generate the reminder text of this keyword.
-    * - @rules@	
+    * - ``rules``	
       - [[type:string]]	
-      - @""@	
+      - ``""``	
       - Explanation or additional rules for this keyword.
-    * - @mode@	
+    * - ``mode``	
       - Name of a [[type:keyword mode]]	
       -  	
       - Mode of this keyword.
 
-The match string can include parameters, @"<atom-param>type</atom-param>"@ where @"type"@ is the name of a [[type:keyword param type|keyword parameter type]] in the game.
-These will match according to the @match@ property of that parameter type.
+The match string can include parameters, ``"<atom-param>type</atom-param>"@ where @"type"`` is the name of a [[type:keyword param type|keyword parameter type]] in the game.
+These will match according to the ``match`` property of that parameter type.
 
-When expanding the reminder text @param1@ refers to the first parameter in the match string, @param2@ to the second, etc.
+When expanding the reminder text ``param1@ refers to the first parameter in the match string, @param2`` to the second, etc.
 
---Example--
+**Example**
 
 .. code-block::
 
@@ -2633,7 +2638,7 @@ When expanding the reminder text @param1@ refers to the first parameter in the m
 Keyword Mode
 ~~~~~~~~~~~~
 
---Overview--
+**Overview**
 
 A mode for [[type:keyword]]s.
 
@@ -2642,7 +2647,7 @@ This becomes a choice in the 'mode' box on the keywords panel.
 The idea behind modes is that a mode indicates what type of keyword it is, for example an "official" keyword, a "simple" keyword or a "custom" keyword.
 This information can then be used to determine whether to expand the reminder text.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -2653,20 +2658,20 @@ This information can then be used to determine whether to expand the reminder te
       - Type
       - Default	
       - Description
-    * - @name@	
+    * - ``name``	
       - [[type:string]]	
       - ''required''
       - Name of the mode, this is shown in the box and used in scripts.
-    * - @description@	
+    * - ``description``	
       - [[type:string]]	
-      - @""@	
+      - ``""``	
       - A description of this mode.
-    * - @is default@	
+    * - ``is default``	
       - [[type:boolean]]
-      - @false@	
+      - ``false``	
       - Is this the default mode for new keywords?
 
---Example--
+**Example**
 
 .. code-block::
 
@@ -2679,11 +2684,11 @@ This information can then be used to determine whether to expand the reminder te
 Keyword Param Type
 ~~~~~~~~~~~~~~~~~~
 
---Overview--
+**Overview**
 
 A type of parameter that can be used in a [[type:keyword]].
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -2694,59 +2699,59 @@ A type of parameter that can be used in a [[type:keyword]].
       - Type
       - Default	
       - Description
-    * - @name@	
+    * - ``name``	
       - [[type:string]]	
       - ''required''
       - Name of the parameter type.
-    * - @description@	
+    * - ``description``	
       - [[type:string]]	
       - ''required''
       - Description of the parameter type.
-    * - @placeholder@	
+    * - ``placeholder``	
       - [[type:string]]	
-      - @name@ of this param type
+      - ``name`` of this param type
       - Placeholder to use for empty parameters, the name is used if this is empty.
-    * - @optional@	
+    * - ``optional``	
       - [[type:boolean]]
-      - @true@	
-      - Is a placeholder used when a keyword is encountered with no parameter,<br/> for example @"Cycling "@ would become @"Cycling <atom-kwpph>cost</atom-kwpph>"@.
-    * - @match@	
+      - ``true``	
+      - Is a placeholder used when a keyword is encountered with no parameter,<br/> for example ``"Cycling "@ would become @"Cycling <atom-kwpph>cost</atom-kwpph>"``.
+    * - ``match``	
       - [[type:regex]]	
       - ''required''
       - Regular expression that this param type matches.
-    * - @separator before is@
+    * - ``separator before is``
       - [[type:regex]]	
-      - @""@	
+      - ``""``	
       - Regular expression of separator before parameters of this type.
-    * - @separator after is@
+    * - ``separator after is``
       - [[type:regex]]	
-      - @""@	
+      - ``""``	
       - Regular expression of separator after  parameters of this type.
-    * - @eat separator@
+    * - ``eat separator``
       - [[type:boolean]]
-      - @true@	
+      - ``true``	
       - Allow the user to 'type over' the separator.<br/>
-			 					 		For example if the separator is @" "@ in the keyword @"Cycling"@, and the user types @"Cycling"@,
-			 					 		a space and a placeholder is automatically inserted, making @"Cycling <cost>"@.
+			 					 		For example if the separator is ``" "@ in the keyword @"Cycling"@, and the user types @"Cycling"``,
+			 					 		a space and a placeholder is automatically inserted, making ``"Cycling <cost>"``.
 			 					 		If the user now presses space the cursor is only moved, no additional space is inserted, the space is 'eaten'.
-    * - @script@	
+    * - ``script``	
       - [[type:script]]	
       -  	
       - Script to apply to parameters of this type before substituting them back into the text.
-    * - @reminder script@
+    * - ``reminder script``
       - [[type:script]]	
       -  	
       - Script to apply to parameters of this type before using them in the reminder text.
-    * - @example@	
+    * - ``example``	
       - [[type:string]]	
       -  	
       - Example for in the keyword editor, currently not used.
-    * - @refer scripts@
+    * - ``refer scripts``
       - [[type:list]] of [[type:keyword param reference script]]s
 			 					 		Scripts for inserting parameters of this type into the reminder text.
 			 					 		To make this easy for the user, a menu of ways to use a parameter is provided.
 
---Example--
+**Example**
 The 'number' parameter type. It matches a sequence of digits.
 It can be included in the reminder text directly, or by applying some function first.
 
@@ -2767,16 +2772,16 @@ It can be included in the reminder text directly, or by applying some function f
 Keyword Param Reference Script
 ______________________________
 
---Overview--
+**Overview**
 
 A way to use a [[type:keyword param type|keyword parameter]] in a [[type:keyword]]'s reminder text.
 
-Usually the parameters are included as @"{param1}"@, etc.
-But in some cases for instance a function should be applied, @"{fun(param1)}"@.
+Usually the parameters are included as ``"{param1}"``, etc.
+But in some cases for instance a function should be applied, ``"{fun(param1)}"``.
 
 To make this easy for the user, a menu of choices is provided, this type describes such a choice.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -2787,22 +2792,22 @@ To make this easy for the user, a menu of choices is provided, this type describ
       - Type	
       - Default	
       - Description
-    * - @name@	
+    * - ``name``	
       - [[type:string]]
       - ''required''
       - Name of the parameter type.
-    * - @description@	
+    * - ``description``	
       - [[type:string]]
       - ''required''
       - A description of the reference script.
-    * - @script@	
+    * - ``script``	
       - [[type:script]]
       - ''required''
       - Script that generates the code using the parameter.<br/>
 			 		 		This means you will likely need to do some escaping.<br/>
-			 		 		In the script, @input@ refers to the name of the parameter, for example @"param1"@.
+			 		 		In the script, ``input@ refers to the name of the parameter, for example @"param1"``.
 
---Example--
+**Example**
 Apply the [[fun:english_number]] function to the parameter:
 
 .. code-block::
@@ -2817,17 +2822,17 @@ Apply the [[fun:english_number]] function to the parameter:
 Statistics Dimension
 ~~~~~~~~~~~~~~~~~~~~
 
---Overview--
+**Overview**
 
 A dimension or axis for the statistics panel.
 
 One or more dimensions are combined in a graph, these combinations are called [[type:statistics category]]s.
 
-Statistics dimensions are automatically generated for all card fields in a [[type:game]] that don't set @show statistics@ to @false@.
+Statistics dimensions are automatically generated for all card fields in a [[type:game]] that don't set ``show statistics@ to @false``.
 
 Categories are also automatically generated from dimensions.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -2838,53 +2843,53 @@ Categories are also automatically generated from dimensions.
       - Type
       - Default	
       - Description
-    * - @name@	
+    * - ``name``	
       - [[type:string]]	
       - ''required''
       - Name of this dimension, used as an axis label and a label for automatically generated categories.
-    * - @description@	
+    * - ``description``	
       - [[type:localized string]]	
-      - @""@	
+      - ``""``	
       - A description of the dimension, currently not used.
-    * - @position hint@
+    * - ``position hint``
       - [[type:string]]	
-      - @0@	
+      - ``0``	
       - Hint for ordering dimensions.
-    * - @icon@	
+    * - ``icon``	
       - [[type:filename]]
       -  	
       - Filename of an icon for this dimension.
-    * - @script@	
+    * - ``script``	
       - [[type:script]]	
       - ''required''
       - Script that generates a value for each card in the set.
-    * - @numeric@	
+    * - ``numeric``	
       - [[type:boolean]]
-      - @false@	
+      - ``false``	
       - Is the value always a number?
-    * - @bin size@	
+    * - ``bin size``	
       - [[type:double]]	
       - ''none''
       - For numeric dimensions: group numbers together into bins this large.<br/>
-			 			 		For example with @bin size: 5@, values @1@ and @3@ both get put under @"1-5"@.
-    * - @show empty@	
+			 			 		For example with ``bin size: 5@, values @1@ and @3@ both get put under @"1-5"``.
+    * - ``show empty``	
       - [[type:boolean]]
-      - @false@	
-      - Should cards with the value @""@ be included?
-    * - @split list@	
+      - ``false``	
+      - Should cards with the value ``""`` be included?
+    * - ``split list``	
       - [[type:boolean]]
-      - @false@	
-      - Indicates the value is a list of the form @"item1, item2"@. The card is put under both items.
-    * - @colors@	
+      - ``false``	
+      - Indicates the value is a list of the form ``"item1, item2"``. The card is put under both items.
+    * - ``colors``	
       - [[type:map]] of opaque [[type:color]]s
       -  
       - Colors to use for specific values
-    * - @groups@	
+    * - ``groups``	
       - [[type:list]] of [[type:string]]s
       -  
       - Values to always show, and the order to show them in.
 
---Example--
+**Example**
 Automatically generated statistics dimensions look like this:
 
 .. code-block::
@@ -2917,7 +2922,7 @@ Word List
 
 A list of words. Used for drop down lists in the text editor, for example for card types.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -2928,16 +2933,16 @@ A list of words. Used for drop down lists in the text editor, for example for ca
       - Type	
       - Default	
       - Description
-    * - @name@
+    * - ``name``
       - [[type:string]]
       - ''Required''
-      - Name of this word list, refered to using a @"<word-list-...>"@ tag.
-    * - @words@
+      - Name of this word list, refered to using a ``"<word-list-...>"`` tag.
+    * - ``words``
       - [[type:list]] of [[type:word list word]]s
       - ''Required''
       - The words in the list
 
---Example--
+**Example**
 
 .. code-block::
 
@@ -2950,7 +2955,7 @@ This can be used with for example:
 
 .. code-block::
 
-     @"<word-list-type>Creature</word-list-type>"@
+     ``"<word-list-type>Creature</word-list-type>"``
 Which gives the creature choice, and that can be changed with a drop down list.
 
 Word List Word
@@ -2958,7 +2963,7 @@ Word List Word
 
 A word in a [[type:word list]].
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -2969,33 +2974,33 @@ A word in a [[type:word list]].
       - Type	
       - Default	
       - Description
-    * - @name@
+    * - ``name``
       - [[type:string]]
       - ''Required''
       - The word.
-    * - @line below@
+    * - ``line below``
       - [[type:boolean]]	
-      - @false@	
+      - ``false``	
       - Display a line below this item in the list?
-    * - @is prefix@
+    * - ``is prefix``
       - [[type:boolean]]	
-      - @false@	
+      - ``false``	
       - Should this word be used as a prefix before another word from the list?<br/>
 		 						 		Think "Legendary ". Note the space after it, words are directly concatenated.
-    * - @words@
+    * - ``words``
       - [[type:list]] of [[type:word list word]]s
       -  	
-      - A submenu. If given, the @name@ of this word is only used as a label for the menu.
-    * - @script@
+      - A submenu. If given, the ``name`` of this word is only used as a label for the menu.
+    * - ``script``
       - [[type:script]]
       - ''Optional''
       - A script that determines zero or more words.<br/>
-		 						 		The result should be a list of comma separated words, for example @"x,y,z"@ specifies three words.
+		 						 		The result should be a list of comma separated words, for example ``"x,y,z"`` specifies three words.
 		 						 		The words are included in the parent menu, not a sub menu.
 
 A word can also be given in a short form, in that case only the name is specified.
 
---Example--
+**Example**
 In short form:
 
 .. code-block::
@@ -3031,11 +3036,11 @@ Add Cards Script
 
 DOC_MSE_VERSION: since 0.3.7
 
---Overview--
+**Overview**
 
 A script to add multiple cards to the set at once.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -3046,26 +3051,26 @@ A script to add multiple cards to the set at once.
       - Type
       - Default	
       - Description
-    * - @name@
+    * - ``name``
       - [[type:string]]	
       -  	
       - Name of this script; appears in the menu.
-    * - @description@
+    * - ``description``
       - [[type:string]]	
-      - @""@	
+      - ``""``	
       - Description of this script; appears in the status bar.
-    * - @enabled@
+    * - ``enabled``
       - [[type:scriptable]] [[type:boolean]]
-      - @true@	
+      - ``true``	
       - Is this script enabled?
-    * - @script@
+    * - ``script``
       - [[type:script]]	
       -  	
       - Script that produces the cards.<br>
 		 					 		This script should return a [[type:list]] of [[type:card]]s.
 		 					 		The [[fun:new_card]] function can be used to make new cards.
 
---Example--
+**Example**
 
 .. code-block::
 
@@ -3087,11 +3092,11 @@ When invoked, this script will add the five basic lands to the set.
 Font
 ~~~~
 
---Overview--
+**Overview**
 
 A reference to a normal [[type:font]] for drawing text.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -3102,64 +3107,64 @@ A reference to a normal [[type:font]] for drawing text.
       - Type
       - Default	
       - Description
-    * - @name@	
+    * - ``name``	
       - [[type:scriptable]] [[type:string]]
       - ''required''
       - Name of the font as it appears in most text programs.
-    * - @italic name@	
+    * - ``italic name``	
       - [[type:scriptable]] [[type:string]]
       -  	
       - Optionally, a different font to use for italic text instead of the normal italic version of the font.
-    * - @size@	
+    * - ``size``	
       - [[type:scriptable]] [[type:double]]
       - ''required''
       - Size of the font in points on a 96 DPI display.
-    * - @scale down to@
+    * - ``scale down to``
       - [[type:double]]	
       - &infin;	
       - Minimum size in points to scale the size down to.
-    * - @max stretch@	
+    * - ``max stretch``	
       - [[type:double]]	
-      - @1.0@	
-      - Maximum multiplier by which the width of the text is compressed, so @max width: 0.5@ means the text can be compressed to half the normal width.
-    * - @weight@	
+      - ``1.0``	
+      - Maximum multiplier by which the width of the text is compressed, so ``max width: 0.5`` means the text can be compressed to half the normal width.
+    * - ``weight``	
       - [[type:scriptable]] font weight	
-      - @"normal"@
-      - Weight of the font, one of @"normal"@ or @"bold"@. This can be changed locally by [[type:tagged string|tags]].
-    * - @style@	
+      - ``"normal"``
+      - Weight of the font, one of ``"normal"@ or @"bold"``. This can be changed locally by [[type:tagged string|tags]].
+    * - ``style``	
       - [[type:scriptable]] font style	
-      - @"normal"@
-      - Style of the font, one of @"normal"@ or @"italic"@. This can be changed locally by [[type:tagged string|tags]].
-    * - @underline@	
+      - ``"normal"``
+      - Style of the font, one of ``"normal"@ or @"italic"``. This can be changed locally by [[type:tagged string|tags]].
+    * - ``underline``	
       - [[type:scriptable]] [[type:boolean]]
-      - @false@	
+      - ``false``	
       - Should the font be underlined?
-    * - @color@	
+    * - ``color``	
       - [[type:scriptable]] [[type:color]]
-      - @rgb(0,0,0)@
+      - ``rgb(0,0,0)``
       - What color should text be drawn in?
-    * - @shadow color@
+    * - ``shadow color``
       - [[type:scriptable]] [[type:color]]
-      - @"transparent"@
+      - ``"transparent"``
       - Color for a shadow below the text.
-    * - @shadow displacement x@
+    * - ``shadow displacement x``
       - [[type:double]]
-      - @0@	
+      - ``0``	
       - Relative position of the shadow in pixels.
-    * - @shadow displacement y@
+    * - ``shadow displacement y``
       - [[type:double]]
-      - @0@	
+      - ``0``	
       - ^^^
-    * - @shadow blur@	
+    * - ``shadow blur``	
       - [[type:double]]	
-      - @0@	
+      - ``0``	
       - How much should the shadow be blurred?
-    * - @separator color@
+    * - ``separator color``
       - [[type:color]]	
-      - @rgba(0,0,0,128)@
-      - Color for @<sep-soft>@ tags inserted by the [[fun:combined_editor]] function.
+      - ``rgba(0,0,0,128)``
+      - Color for ``<sep-soft>`` tags inserted by the [[fun:combined_editor]] function.
 
---Example--
+**Example**
 
 .. code-block::
 
@@ -3173,11 +3178,11 @@ A reference to a normal [[type:font]] for drawing text.
 Symbol Part
 ~~~~~~~~~~~
 
---Overview--
+**Overview**
 
 A part of a symbol, corresponds to an item you see in the list on the left of the editor.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -3188,19 +3193,19 @@ A part of a symbol, corresponds to an item you see in the list on the left of th
       - Type
       - Default	
       - Description
-    * - @type@	
+    * - ``type``	
       - One of:
-      - @"shape"@
+      - ``"shape"``
       - What type of symbol part is this?
-			* @shape@
-			* @group@
-			* @symmetry@
-    * - @name@	
+			* ``shape``
+			* ``group``
+			* ``symmetry``
+    * - ``name``	
       - [[type:string]]	
-      - @""@	
+      - ``""``	
       - The name of this part, for the part list.
 
-The rest of the properties depends on the @type@.
+The rest of the properties depends on the ``type``.
 
 .. list-table:: 
     :header-rows: 1
@@ -3212,48 +3217,48 @@ The rest of the properties depends on the @type@.
       - Type
       - Default	
       - Description
-    * - @"shape"@
-      - @combine@
+    * - ``"shape"``
+      - ``combine``
       - [[type:symbol combine]]
-      - @"overlap"@
+      - ``"overlap"``
       - How to combine the shape with those below it?
     * - ^^^	
-      - @points@
+      - ``points``
       - [[type:list]] of [[type:control point]]s
       -  
       - The points that form this shape
-    * - @"symmetry"@
-      - @kind@	
-      - @rotation@ or @reflection@	
-      - @"rotation"@
+    * - ``"symmetry"``
+      - ``kind``	
+      - ``rotation@ or @reflection``	
+      - ``"rotation"``
       - What kind of symmetry is this?
     * - ^^^	
-      - @copies@
+      - ``copies``
       - [[type:int]]	
       - 2	
       - How many times is the original copied (including the original itself)?
     * - ^^^	
-      - @center@
+      - ``center``
       - [[type:vector2d]]
       -  	
       - Coordinates of the center of symmetry.
     * - ^^^	
-      - @handle@
+      - ``handle``
       - [[type:vector2d]]
       -  	
       - Direction perpendicular to the 'mirror' (this is a direction, so relative to the center).
-    * - @"group"@ and @"symmetry"@
-		@parts@		[[type:list]] of [[type:symbol part]]s		 	Parts in this group.
+    * - ``"group"@ and @"symmetry"``
+		``parts``		[[type:list]] of [[type:symbol part]]s		 	Parts in this group.
 
 
---Example--
+**Example**
 Look at a symbol file made with the program.
 
 
 Control Point
 ~~~~~~~~~~~~~
 
---Overview--
+**Overview**
 
 A single [[http://en.wikipedia.org/wiki/Bezier_curve|B&eacute;zier curve]] control point in a [[type:symbol part|symbol shape]].
 
@@ -3262,7 +3267,7 @@ It also optionally has two 'handles' corresponding to the boxes attached with do
 
 The control points of a shape are circular, the point after the last point in the list is the first point.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -3273,30 +3278,30 @@ The control points of a shape are circular, the point after the last point in th
       - Type
       - Default	
       - Description
-    * - @position@	
+    * - ``position``	
       - [[type:vector2d]]
       -  	
       - Position of the control point.
-    * - @lock@	
-      - @free@, @direction@ or @size@
-      -  @"free"@
+    * - ``lock``	
+      - ``free@, @direction@ or @size``
+      -  ``"free"``
 			 			 		Is this point 'locked', i.e. is the relation between the two handles fixed?<br/>
-			 			 		If @lock@ is @"direction"@ then the two handles must lie on a line.<br/>
-			 			 		If @lock@ is @"direction"@ then the two handles must lie exactly oppisite each other on the same distance from the point.
-    * - @line after@	
-      - @line@ or @curve@
-      - @"line"@
+			 			 		If ``lock@ is @"direction"`` then the two handles must lie on a line.<br/>
+			 			 		If ``lock@ is @"direction"`` then the two handles must lie exactly oppisite each other on the same distance from the point.
+    * - ``line after``	
+      - ``line@ or @curve``
+      - ``"line"``
       - Is the segment between this control point and the next one in the list a straight line or a cubic B&eacute;zier curve?
-    * - @handle before@
+    * - ``handle before``
       - [[type:vector2d]]
       -  	
-      - Position of the handle for the segment between this point and the previous one, relative to the point's @position@.<br/>Only when that point's @line after == "curve"@.
-    * - @handle after@
+      - Position of the handle for the segment between this point and the previous one, relative to the point's ``position@.<br/>Only when that point's @line after == "curve"``.
+    * - ``handle after``
       - [[type:vector2d]]
       -  	
-      - Position of the handle for the segment between this point and the next one, relative to the point's @position@.<br/>Only when @line after == "curve"@.
+      - Position of the handle for the segment between this point and the next one, relative to the point's ``position@.<br/>Only when @line after == "curve"``.
 
---Example--
+**Example**
 Look at a symbol file made with the program.
 
 
@@ -3341,10 +3346,10 @@ Collection Types
 List
 ~~~~
 
---File syntax--
+**File syntax**
 In files a list is represented as multiple keys, one for each element.
 The keys are all in the singular for of the name of the list,
-if the list is named for instance @symbols@ each key will be named @symbol@.
+if the list is named for instance ``symbols@ each key will be named @symbol``.
 
 .. code-block::
 
@@ -3354,7 +3359,7 @@ if the list is named for instance @symbols@ each key will be named @symbol@.
     	# second symbol here
     # etc.
 
---Script syntax--
+**Script syntax**
 In a script lists can be declared using square brackets.
 
 .. code-block::
@@ -3372,7 +3377,7 @@ The first element of a list is numbered 0, the next 1, etc.
      list[0]   # The same thing
      list[0+0] # The same thing
 
-It is possible to iterate over lists using the @for each@ construct:
+It is possible to iterate over lists using the ``for each`` construct:
 
 .. code-block::
 
@@ -3383,7 +3388,7 @@ evaluates to:
 
      "x = 1. x = 2. x = 3. "
 
---Functions--
+**Functions**
 There are several functions for working with lists:
 
 .. list-table:: 
@@ -3404,7 +3409,7 @@ There are several functions for working with lists:
 Field Map
 ~~~~~~~~~
 
---Overview--
+**Overview**
 
 A 'field map' is a [[type:map]], but indexed by [[type:field]]s.
 
@@ -3440,7 +3445,7 @@ And a field map of [[type:value]]s would be:
     field1: text goes here
     field2: rgb(1,2,3)
 
---Script syntax--
+**Script syntax**
 
 In a script field maps can be accessed like normal [[type:map]]s based on the field name.
 So:
@@ -3457,7 +3462,7 @@ Map
 
 A map is like a [[type:list]] with [[type:string]] keys.
 
---File syntax--
+**File syntax**
 In files a map is represented as key/value pairs.
 For instance a map of [[type:color]]s could be:
 
@@ -3468,7 +3473,7 @@ For instance a map of [[type:color]]s could be:
     	green: rgb(0,255,0)
     	blue:  rgb(0,0,255)
 
---Script syntax--
+**Script syntax**
 In a script maps can be declared using square brackets.
 
 .. code-block::
@@ -3484,7 +3489,7 @@ Like lists, maps can be accessed using either the bracket operator, or the dot o
      map.key       # The elment named "key"
      map["k"+"ey"] # The same thing
 
-It is possible to iterate over the values maps using the @for@ construct:
+It is possible to iterate over the values maps using the ``for`` construct:
 
 .. code-block::
 
@@ -3537,22 +3542,22 @@ Script Related
 Script
 ~~~~~~
 
---Overview--
+**Overview**
 
 A script object is a piece of code written in the [[script:index|MSE scripting language]].
 
---File syntax--
+**File syntax**
 
 A script is given in the same way as a [[type:string]].
 
---Example--
+**Example**
 A simple [[type:field]] script that converts everything to upper case:
 
 .. code-block::
 
     script: to_upper(value)
 
-A larger script, changes @"y"@s to @"x"@s and @"a"@s to @"b"@s:
+A larger script, changes ``"y"@s to @"x"@s and @"a"@s to @"b"``s:
 
 .. code-block::
 
@@ -3565,7 +3570,7 @@ A larger script, changes @"y"@s to @"x"@s and @"a"@s to @"b"@s:
 Scriptable
 ~~~~~~~~~~
 
---Overview--
+**Overview**
 
 Many [[type:style]] properties are ''scriptable''; their value can be changed by a script.
 
@@ -3582,13 +3587,13 @@ To script this you can write:
     left: { if card.name == "" then 100 else 123 }
 Now the left position depends on whether or not the name is empty.
 
---File syntax--
+**File syntax**
 A 'scriptable something' can take three forms:
 # It can be a regular 'something'
   >something: 123
 # It can be a script that produces 'something', enclosed in curly braces:
   >something: {100 + 23}
-# It can be a script that produces 'something', indented and preceded by @script:@:
+# It can be a script that produces 'something', indented and preceded by ``script:``:
   >something:
   >	script: 100 + 23
 
@@ -3621,7 +3626,7 @@ Images are generated using scripts.
 
 It is either given using a [[type:filename]] or as the output of a function.
 
---File syntax--
+**File syntax**
 The syntax for files is similair to that of [[type:scriptable]] properties:
 
 .. code-block::
@@ -3630,10 +3635,10 @@ The syntax for files is similair to that of [[type:scriptable]] properties:
      image: { "image.png" }
      image: { linear_blend(...) }
 
---Script syntax--
+**Script syntax**
 [[type:Filename]]s are implicitly converted to images as needed.
 
---See also--
+**See also**
 The following functions transform images:
 
 .. list-table:: 
@@ -3668,16 +3673,16 @@ The following functions transform images:
 Function
 ~~~~~~~~
 
---Overview--
+**Overview**
 The [[script:index|scripting language]] allows you to define custom functions.
 
---Syntax--
+**Syntax**
 A piece of code enclosed in curly braces defines a function.
 
-A function can be called using parentheses, for example @function(argument:value)@.
+A function can be called using parentheses, for example ``function(argument:value)``.
 
---Composition--
-Functions can be composed using the @+@ operator, evaluating @a + b@ first evaluates @a@ and uses its result as @input@ for @b@:
+**Composition**
+Functions can be composed using the ``+@ operator, evaluating @a + b@ first evaluates @a@ and uses its result as @input@ for @b``:
 
 .. code-block::
 
@@ -3686,7 +3691,7 @@ Functions can be composed using the @+@ operator, evaluating @a + b@ first evalu
 
 Multiple functions can be changed together like this, this is especially convenient in combination with [[script:default arguments]].
 
---Example--
+**Example**
 
 .. code-block::
 
@@ -3743,10 +3748,10 @@ An alignment consists of:
 * (optional) how to fill the text box
 * (optional) when to fill the text box
 
---Script syntax--
+**Script syntax**
 In scripts, alignment is passed around as a string.
 
---Possible values--
+**Possible values**
 The value is a combination of one or more flags, separated by spaces.
 These flags can appear in any order.
 
@@ -3757,32 +3762,32 @@ These flags can appear in any order.
 
     * - Value
       - Description
-    * - @left@	
+    * - ``left``	
       - Horizontally, align at the left
-    * - @center@	
+    * - ``center``	
       - Horizontally, align in the middle
-    * - @right@	
+    * - ``right``	
       - Horizontally, align at the right
-    * - @top@
+    * - ``top``
       - Vertically, align at the top
-    * - @middle@	
+    * - ``middle``	
       - Vertically, align in the middle
-    * - @bottom@	
+    * - ``bottom``	
       - Vertically, align at the bottom
-    * - @justify@	
+    * - ``justify``	
       - Fill the box exactly, by moving words apart/together.
-    * - @justify-all@	
+    * - ``justify-all``	
       - Fill the box exactly, by moving individual characters apart/together.
-    * - @stretch@	
+    * - ``stretch``	
       - Fill the box exactly, by stretching the text.<br/>
 			For images: stretch them, but preserve the aspect ratio.
-    * - @if-overflow@	
-      - Only apply @justify@, @justify-all@ and @stretch@ when the box is overfull.
-    * - @force@	
+    * - ``if-overflow``	
+      - Only apply ``justify@, @justify-all@ and @stretch`` when the box is overfull.
+    * - ``force``	
       - Also justify text at the end of a line in a multiline text field.<br/>
 			Normally only lines ending in a soft line break are justified.
 
---Examples--
+**Examples**
 
 .. code-block::
 
@@ -3797,10 +3802,10 @@ Direction
 
 Specifies the direction of text flow in a text box.
 
---Script syntax--
+**Script syntax**
 In scripts, direction is passed around as a string.
 
---Possible values--
+**Possible values**
 
 .. list-table:: 
     :header-rows: 1
@@ -3809,20 +3814,20 @@ In scripts, direction is passed around as a string.
 
     * - Value
       - Description
-    * - @left to right@
+    * - ``left to right``
       - Text starts at the left.
-    * - @right to left@
+    * - ``right to left``
       - Text starts at the right ''(currently not implemented)''
-    * - @top to bottom@
+    * - ``top to bottom``
       - Text starts at the top, each character is on a new line.
-    * - @bottom to top@
+    * - ``bottom to top``
       - Text starts at the bottom ''(currently not implemented)''
-    * - @horizontal@	
-      - Same as @left to right@.
-    * - @vertical@	
-      - Same as @top to bottom@.
+    * - ``horizontal``	
+      - Same as ``left to right``.
+    * - ``vertical``	
+      - Same as ``top to bottom``.
 
---Examples--
+**Examples**
 
 .. code-block::
 
@@ -3838,10 +3843,10 @@ This is similair to the feature found in more advanced drawing programs.
 
 The formula's are from [[http://www.pegtop.net/delphi/articles/blendmodes/]].
 
---Script syntax--
+**Script syntax**
 In scripts, combine modes are stored as a string.
 
---Possible values--
+**Possible values**
 
 .. list-table:: 
     :header-rows: 1
@@ -3850,43 +3855,43 @@ In scripts, combine modes are stored as a string.
 
     * - Value
       - Description
-    * - @normal@	
+    * - ``normal``	
       - Normal behaviour, don't combine.
-    * - @add@
+    * - ``add``
       -  
-    * - @subtract@	
+    * - ``subtract``	
       -  
-    * - @stamp@	
+    * - ``stamp``	
       -  
-    * - @difference@	
+    * - ``difference``	
       -  
-    * - @negation@	
+    * - ``negation``	
       -  
-    * - @multiply@	
+    * - ``multiply``	
       -  
-    * - @darken@	
+    * - ``darken``	
       -  
-    * - @lighten@	
+    * - ``lighten``	
       -  
-    * - @color dodge@	
+    * - ``color dodge``	
       -  
-    * - @color burn@	
+    * - ``color burn``	
       -  
-    * - @screen@	
+    * - ``screen``	
       -  
-    * - @overlay@	
+    * - ``overlay``	
       -  
-    * - @hard light@	
+    * - ``hard light``	
       -  
-    * - @soft light@	
+    * - ``soft light``	
       -  
-    * - @reflect@	
+    * - ``reflect``	
       -  
-    * - @glow@	
+    * - ``glow``	
       -  
-    * - @freeze@	
+    * - ``freeze``	
       -  
-    * - @heat@	
+    * - ``heat``	
       -  
     * - <tt>and</tt>	
       - Bitwise and
@@ -3894,12 +3899,12 @@ In scripts, combine modes are stored as a string.
       - Bitwise or
     * - <tt>xor</tt>	
       - Bitwise xot
-    * - @shadow@	
+    * - ``shadow``	
       - Dark colors normally, white colors darken the background.
-    * - @symmetric overlay@
-      - @(overlay(a,b) + overlay(b,a)) / 2@
+    * - ``symmetric overlay``
+      - ``(overlay(a,b) + overlay(b,a)) / 2``
 
---Examples--
+**Examples**
 
 .. code-block::
 
@@ -3913,10 +3918,10 @@ Symbol Combine
 
 Specifies how symbol shapes are combined with those below it
 
---Script syntax--
+**Script syntax**
 In scripts, symbol combine modes are passed around as a string.
 
---Possible values--
+**Possible values**
 The value is one of the following options:
 
 .. list-table:: 
@@ -3926,20 +3931,20 @@ The value is one of the following options:
 
     * - Value
       - Description
-    * - @overlap@	
+    * - ``overlap``	
       - Place this shape on top of those below it.<br/> Further combine options only apply to this shape.
-    * - @merge@	
+    * - ``merge``	
       - Marge this shape with the one below it, they are considered a single shape for further combining.
-    * - @subtract@	
+    * - ``subtract``	
       - Subtract this shape from the one below it.
-    * - @intersection@
+    * - ``intersection``
       - Take the intersection of this shape and the one below it, only areas that are in both shapes remain.
-    * - @difference@	
+    * - ``difference``	
       - Take the difference of this shape and the one below it, only areas that are in exactly one of the shapes remain.
-    * - @border@	
+    * - ``border``	
       - Use this shape as additional border for the shape below it.
 
---Examples--
+**Examples**
 
 .. code-block::
 
@@ -3951,7 +3956,7 @@ Graph Type
 
 Types of graphs for the statistics panel.
 
---Possible values--
+**Possible values**
 The value is one of the following options:
 
 .. list-table:: 
@@ -3963,29 +3968,29 @@ The value is one of the following options:
       - Dimensions
       - Sketch
       - Description
-    * - @bar@	
+    * - ``bar``	
       - 1	
       - <img src="graph-type-bar.png" alt="bar graph"/>
 		 	 	One bar for each value on the axis, the height represent the number of cards with that value.
-    * - @pie@	
+    * - ``pie``	
       - 1	
       - <img src="graph-type-pie.png" alt="pie graph"/>
 		 	 	A pie graph, the size of the slice represents the numer of cards with a particular value.
-    * - @stack@
+    * - ``stack``
       - 2	
       - <img src="graph-type-stack.png" alt="stack graph"/>	
 		 	 	One bar for each value on the first axis, bars for each value on axis2 are stacked on top of each other.
-    * - @scatter@
+    * - ``scatter``
       - 2	
       - <img src="graph-type-scatter.png" alt="scatter graph"/>
 		 	 	Scatter plot, the size of the circles corresponds to the number of cards with those two values.
-    * - @scatter pie@
+    * - ``scatter pie``
       - 3	
       - <img src="graph-type-scatter-pie.png" alt="scatter-pie graph"/>
 		 	 	Scatter plot, the size of the circles corresponds to the number of cards with those two values.
 		 	 	Each circle is a small pie graph for the third axis.
 
---Examples--
+**Examples**
 
 .. code-block::
 
@@ -4020,7 +4025,7 @@ Primitive Types
     :align: left
 
     * - :doc:`string <#string>`
-      - Text, @"abc"@
+      - Text, ``"abc"``
     * - :doc:`tagged string <#tagged string>`
       - Text with tags
     * - :doc:`filename <#filename>`
@@ -4028,11 +4033,11 @@ Primitive Types
     * - :doc:`regex <#regex>`
       - Regular expression strings
     * - :doc:`boolean <#boolean>`
-      - @true@ or @false@
+      - ``true@ or @false``
     * - :doc:`int <#int>`
-      - Integer numbers, @1, 2, 100@
+      - Integer numbers, ``1, 2, 100``
     * - :doc:`double <#double>`
-      - Real numbers, @1, 0.5, 21.3@
+      - Real numbers, ``1, 0.5, 21.3``
     * - :doc:`version <#version>`
       - Version numbers
     * - :doc:`color <#color>`
@@ -4045,7 +4050,7 @@ String
 
 A string is just a piece of text.
 
---File syntax--
+**File syntax**
 In files, strings are written just as their value:
 
 .. code-block::
@@ -4060,8 +4065,8 @@ Multiline strings are written on a new line, indented by a TAB:
     	This is a very long string
     	It contains a line break.
 
---Script syntax--
-In scripts, strings are written between double quotes, @"this is a string"@.
+**Script syntax**
+In scripts, strings are written between double quotes, ``"this is a string"``.
 The backslash character is used to escape values:
 
 .. list-table:: 
@@ -4071,15 +4076,15 @@ The backslash character is used to escape values:
 
     * - Code
       - Represents
-    * - @\"@
+    * - ``\"``
       - A " character
-    * - @\{@
+    * - ``\{``
       - A { character
-    * - @\n@
+    * - ``\n``
       - A newline character (line break)
-    * - @\\@
+    * - ``\\``
       - A backslash
-    * - @\<@
+    * - ``\<``
       - An escaped &lt; for [[type:tagged string]]s.
 
 Sections between curly braces are interpreted as script code, that is concatentated with the string, for example
@@ -4089,9 +4094,9 @@ Sections between curly braces are interpreted as script code, that is concatenta
      "ab{1 + 1}c" == "ab2c"
 This can be nested arbitrarily.
 
-The @+@ operator concatenates strings. Numbers and most other values are automatically converted to strings when needed. This conversion can be forced with the [[fun:to_string]] function.
+The ``+`` operator concatenates strings. Numbers and most other values are automatically converted to strings when needed. This conversion can be forced with the [[fun:to_string]] function.
 
-Using the @[]@ or @.@ operator characters in a string can be selected. 0 is the first character:
+Using the ``[]@ or @.`` operator characters in a string can be selected. 0 is the first character:
 
 .. code-block::
 
@@ -4105,7 +4110,7 @@ It is an error to select characters outside the string
 
      "xyz".10  # error
 
---See also--
+**See also**
 
 .. list-table:: 
     :header-rows: 1
@@ -4121,17 +4126,17 @@ It is an error to select characters outside the string
 Tagged String
 ~~~~~~~~~~~~~
 
---Syntax--
+**Syntax**
 Strings in [[type:value|text values]] can contain markup tags.
 These tags affect the presentation and sometimes the behaviour of the text.
 
-A tag is something like @"<tag>some text</tag>"@, similar to HTML.
-Tags are closed by the same tag with a @/@ before it.
+A tag is something like ``"<tag>some text</tag>"``, similar to HTML.
+Tags are closed by the same tag with a ``/`` before it.
 
-To represent the character @"<"@ in a tagged string use @"\<"@ in script code.
+To represent the character ``"<"@ in a tagged string use @"\<"`` in script code.
 This is written as the character with code 1 in files.
 
---Basic markup--
+**Basic markup**
 
 .. list-table:: 
     :header-rows: 1
@@ -4140,39 +4145,39 @@ This is written as the character with code 1 in files.
 
     * - Tag
       - Description
-    * - @<b>@
+    * - ``<b>``
       - The text inside the tag is bold.
-    * - @<i>@
+    * - ``<i>``
       - The text inside the tag is italic.
-    * - @<sym>@	
+    * - ``<sym>``	
       - The text inside the tag is rendered as symbols, if a [[prop:style:symbol font]] is set for the text box.
-    * - @<color:???>@	
+    * - ``<color:???>``	
       - The text inside the tag is rendered with the given [[type:color]].
-    * - @<size:???>@	
-      - The text inside the tag is rendered with the given font size in points, for example @"<size:12>text</size>"@ makes the text 12 points. The text is scaled down proportionally when it does not fit in a text box and the @scale down to@ attribute allows it.
-    * - @<font:???>@	
+    * - ``<size:???>``	
+      - The text inside the tag is rendered with the given font size in points, for example ``"<size:12>text</size>"@ makes the text 12 points. The text is scaled down proportionally when it does not fit in a text box and the @scale down to`` attribute allows it.
+    * - ``<font:???>``	
       - The text inside the tag is rendered with the given font family.
-    * - @<align:???>@
+    * - ``<align:???>``
       - The block inside the tag is aligned with the given horizontal [[type:alignment]]
-    * - @<margin:??:??>@
+    * - ``<margin:??:??>``
       - The block inside the tag has additional left, right (optional), and top (optional) margins of the specified size in pixels.
-    * - @<li>@
-      - The text inside the tag is treated as a list marker, meaning that if the line wraps it will be indented to match the content of the @<li>@ tag.
-    * - @<line>@	
+    * - ``<li>``
+      - The text inside the tag is treated as a list marker, meaning that if the line wraps it will be indented to match the content of the ``<li>`` tag.
+    * - ``<line>``	
       - Line breaks inside this tag use the [[prop:style:line height line]], and they show a horizontal line.
-    * - @<soft-line>@	
+    * - ``<soft-line>``	
       - Line breaks inside this tag use the [[prop:style:soft line height]].
-    * - @<atom>@	
+    * - ``<atom>``	
       - An atomic piece of text. The cursor can never be inside it; it is selected as a whole.
-			The program automatically inserts @<atom-soft>@.
-    * - @<code>@	
+			The program automatically inserts ``<atom-soft>``.
+    * - ``<code>``	
       - The text inside the tag is rendered in a monospace font. This is used for syntax highlighting script code.
-    * - @<code-kw>@	
+    * - ``<code-kw>``	
       - The text inside the tag is highlighted as a keyword in source code.
-    * - @<code-str>@	
+    * - ``<code-str>``	
       - The text inside the tag is highlighted as a string in source code.
 
---Other tags--
+**Other tags**
 
 .. list-table:: 
     :header-rows: 1
@@ -4181,39 +4186,39 @@ This is written as the character with code 1 in files.
 
     * - Tag
       - Description
-    * - @<kw-?>@	
+    * - ``<kw-?>``	
       - Indicates that the text inside it is a keyword. This tag is automatically inserted by
 			The [[fun:expand_keywords]] function.<br/>
 			There are four versions, indicating whether or not reminder text is shown:
-			* @<kw-0>@, Reminder text hidden, by default
-			* @<kw-1>@, Reminder text shown, by default
-			* @<kw-a>@, Reminder hidden manually
-			* @<kw-A>@, Reminder shown manually
-    * - @<sep>@	
+			* ``<kw-0>``, Reminder text hidden, by default
+			* ``<kw-1>``, Reminder text shown, by default
+			* ``<kw-a>``, Reminder hidden manually
+			* ``<kw-A>``, Reminder shown manually
+    * - ``<sep>``	
       - A separator between fields. This tag is automatically inserted by the [[fun:combined_editor]] function.<br/>
 			Inserting this tag manually will confuse that function!<br/>
 			This tag can never be selected, and its contents can not be edited.
-    * - @<prefix>@	
+    * - ``<prefix>``	
       - At the beginning of a string, indicates a part that can not be selected. This tag is automatically inserted by the [[fun:combined_editor]] function.
-    * - @<suffix>@	
+    * - ``<suffix>``	
       - At the end of a string, indicates a part that can not be selected. This tag is automatically inserted by the [[fun:combined_editor]] function.
-    * - @<sep-soft>@	
-      - Like @<sep>@, only hidden. This is inserted by [[fun:combined_editor]]
-    * - @<soft>@	
-      - Text who's width is ignored for alignment, similar to @<sep-soft>@, but not a separator.
-    * - @<word-list-???>@
+    * - ``<sep-soft>``	
+      - Like ``<sep>``, only hidden. This is inserted by [[fun:combined_editor]]
+    * - ``<soft>``	
+      - Text who's width is ignored for alignment, similar to ``<sep-soft>``, but not a separator.
+    * - ``<word-list-???>``
       - Indicate that the text inside the tag should be selected from a [[type:word list]].
 			The <tt>???</tt> must be the name of a word list in the game.
-    * - @<error>@	
+    * - ``<error>``	
       - The text inside the tag is an error, and is shown with a red wavy underline.
-    * - @<error-spelling:???>@
+    * - ``<error-spelling:???>``
       - A spelling error, marked by the [[fun::check_spelling]] function.
 			The <tt>???</tt> part indicates the language used for spelling checking.
     * - any other tag	
       - Other tags are ignored.
 
 
---Related functions--
+**Related functions**
 The following script functions deal with tags:
 
 .. list-table:: 
@@ -4237,8 +4242,8 @@ Localized String
 A 'localized string' is a [[type:map]] of [[type::string]]s, indexed by locale name.
 It is used to translate games and stylesheets to other user interface languages.
 
-Localized strings can be given with a @localized@ prefix on the property name.
-For example, a field has a @description@ which is a [[type::string]], and a @localized_description@ for localized variants. So
+Localized strings can be given with a ``localized`` prefix on the property name.
+For example, a field has a ``description@ which is a [[type::string]], and a @localized_description`` for localized variants. So
 
 
 .. code-block::
@@ -4270,9 +4275,9 @@ There are two types of filenames, relative and absolute:
     * - <tt>/package/path/to/file</tt>
       - An absolute filename includes the name of the package. This is a package somewhere in the MSE data directory.
 
-Don't forget the double quotes (@""@) in scripts.
+Don't forget the double quotes (``""``) in scripts.
 
---Dependencies--
+**Dependencies**
 When using an absolute filename to refer to a file from another [[file:package]],
 the [[type:dependency]] on that package must be declared.
 For example,
@@ -4292,12 +4297,12 @@ Will give a warning message, unless the file also lists
 Dependency
 __________
 
---Overview--
+**Overview**
 
 [[type:Package]]s can depend on other packages.
 For example a [[type:stylesheet]] needs a particular version of the corresponding [[type:game]] package, and maybe some additional [[type:include]]s.
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -4307,16 +4312,16 @@ For example a [[type:stylesheet]] needs a particular version of the correspondin
     * - Property
       - Type
       - Description
-    * - @package@
+    * - ``package``
       - [[type:string]]	
       - Filename of the package this package depends on.
-    * - @version@
+    * - ``version``
       - [[type:version]]
       - Minimal version of that package that is required.
 
 The two properties can also be written on a single line, separated by a space (see the examples).
 
---Example--
+**Example**
 The magic-new stylesheet depends on a particular version of the game file:
 
 .. code-block::
@@ -4339,7 +4344,7 @@ Regular expressions (regexes) are things that can match parts of [[type:string]]
 
 Regexes are represented by normal [[type:string]]s.
 Note that to escape something in a regex the backslash is used, in script code this also needs to be escaped.
-For example, in a script, the regex matching a single backslash is @"\\\\"@.
+For example, in a script, the regex matching a single backslash is ``"\\\\"``.
 
 For more information, see
 [[http://www.wxwidgets.org/manuals/stable/wx_wxresyn.html|the wxWidgets regular expression documentation]].
@@ -4348,61 +4353,61 @@ For more information, see
 Boolean
 ~~~~~~~
 
-A boolean is either @true@ or @false@.
+A boolean is either ``true@ or @false``.
 
-In a script, numbers are implicitly converted to booleans, a non-zero number is @true@, 0 is @false@.
+In a script, numbers are implicitly converted to booleans, a non-zero number is ``true@, 0 is @false``.
 
-When converted to a number, @true@ becomes @1@ and @false@ becomes @0@.
+When converted to a number, ``true@ becomes @1@ and @false@ becomes @0``.
 
-The strings @"yes"@ and @"no"@ can also be converted to booleans.
+The strings ``"yes"@ and @"no"`` can also be converted to booleans.
 
---File syntax--
+**File syntax**
 
 .. code-block::
 
      boolean: true
      boolean: false
 
---Script syntax--
+**Script syntax**
 
 .. code-block::
 
      true or false
 
-The operators @or@, @and@ and @xor@ combine two booleans:
+The operators ``or@, @and@ and @xor`` combine two booleans:
 
 .. list-table:: 
     :header-rows: 1
     :stub-columns: 1
     :align: left
 
-    * - @a@	
-      - @b@	
+    * - ``a``	
+      - ``b``	
       - <tt>a or b</tt>
       - <tt>a and b</tt>
       - <tt>a xor b</tt>
-    * - @false@
-      - @false@	
-      - @false@	
-      - @false@	
-      - @false@
-    * - @false@
-      - @true@	
-      - @true@	
-      - @false@	
-      - @true@
-    * - @true@
-      - @false@	
-      - @true@	
-      - @false@	
-      - @true@
-    * - @true@
-      - @true@	
-      - @true@	
-      - @true@	
-      - @false@
+    * - ``false``
+      - ``false``	
+      - ``false``	
+      - ``false``	
+      - ``false``
+    * - ``false``
+      - ``true``	
+      - ``true``	
+      - ``false``	
+      - ``true``
+    * - ``true``
+      - ``false``	
+      - ``true``	
+      - ``false``	
+      - ``true``
+    * - ``true``
+      - ``true``	
+      - ``true``	
+      - ``true``	
+      - ``false``
 
---See also--
+**See also**
 
 .. list-table:: 
     :header-rows: 1
@@ -4419,19 +4424,19 @@ Int
 Integer numbers are numbers without a decimal point.
 In many cases negative numbers don't make sense, but the program never complains about them.
 
---File syntax--
+**File syntax**
 
 .. code-block::
 
      something: 123
 
---Script syntax--
+**Script syntax**
 
 .. code-block::
 
      123 + 456 * -1
 
---See also--
+**See also**
 
 .. list-table:: 
     :header-rows: 1
@@ -4451,20 +4456,20 @@ Real or floating point numbers are numbers with a decimal point.
 
 Conversion from integer to real numbers happens automatically in scripting.
 
---File syntax--
+**File syntax**
 
 .. code-block::
 
      something: 123
      something: 0.5
 
---Script syntax--
+**Script syntax**
 
 .. code-block::
 
      123.1 + 456 * -1
 
---See also--
+**See also**
 
 .. list-table:: 
     :header-rows: 1
@@ -4480,13 +4485,13 @@ Conversion from integer to real numbers happens automatically in scripting.
 Version
 ~~~~~~~
 
---File syntax--
+**File syntax**
 A version number consists of three components, in the form "a.b.c".
 Higher numbers mean newer versions.
 
 The version number can also be a date, of the form "YYYY-MM-DD"
 
---Examples--
+**Examples**
 
 .. code-block::
 
@@ -4497,27 +4502,27 @@ The version number can also be a date, of the form "YYYY-MM-DD"
 Color
 ~~~~~
 
---Syntax--
+**Syntax**
 In files and scritps a color can be represented as
 <pre><span class='hl-kw'>rgb</span>(<i>red_component</i>, <i>green_component</i>, <i>blue_component</i>)</pre>
 where red_component, green_component and blue_component are numbers between 0 and 255 (inclusive).
 
 In most places MSE also supports colors with a transparency value, notated as
 <pre><span class='hl-kw'>rgba</span>(<i>red_component</i>, <i>green_component</i>, <i>blue_component</i>, <i>alpha_component</i>)</pre>
-An alpha value of @0@ indicates a transparent color, an alpha value of @255@ is completely opaque.
+An alpha value of ``0@ indicates a transparent color, an alpha value of @255`` is completely opaque.
 
 You can also use HTML style hexadecimal colors,
 <pre>#<i>rgb</i>, #<i>rgba</i>, #<i>rrggbb</i>, #<i>rrggbbaa</i></pre>
 For example, <tt>#ff0000</tt> is red, as is <tt>#f00</tt>
 
---Named colors--
-MSE also supports named colors, for instance @"white"@ is the same as @rgb(255,255,255)@.
+**Named colors**
+MSE also supports named colors, for instance ``"white"@ is the same as @rgb(255,255,255)``.
 For a full list of supported colors, see [[https://docs.wxwidgets.org/3.0/classwx_colour_database.html|the wxWidgets documentation]].
-In addition, the named color @"transparent"@ stands for the completely transparent color, @rgba(0,0,0,0)@.
+In addition, the named color ``"transparent"@ stands for the completely transparent color, @rgba(0,0,0,0)``.
 
 In scripts named colors are represented as [[type:string]]s.
 
---Examples--
+**Examples**
 For example:
 
 .. list-table:: 
@@ -4528,32 +4533,32 @@ For example:
     * - Code
       - Represents	
       - <<<
-    * - @rgb(255,255,255)@
+    * - ``rgb(255,255,255)``
       - white
       - <div style="border:1px solid black; background:white;width:30px;height:15px;"> </div>
-    * - @rgb(0,0,0)@	
+    * - ``rgb(0,0,0)``	
       - black
       - <div style="border:1px solid black; background:black;width:30px;height:15px;"> </div>
-    * - @rgb(255,0,0)@
+    * - ``rgb(255,0,0)``
       - red
       - <div style="border:1px solid black; background:red;  width:30px;height:15px;"> </div>
-    * - @rgb(0,255,0)@
+    * - ``rgb(0,255,0)``
       - green
       - <div style="border:1px solid black; background:rgb(0,255,0);width:30px;height:15px;"> </div>
-    * - @rgb(0,0,255)@
+    * - ``rgb(0,0,255)``
       - blue
       - <div style="border:1px solid black; background:blue; width:30px;height:15px;"> </div>
-    * - @rgba(0,0,0,0)@
+    * - ``rgba(0,0,0,0)``
       - transparent	
       - <div style="border:1px solid black; width:30px;height:15px;text-align:center;">over</div>
-    * - @rgba(255,0,0,128)@
+    * - ``rgba(255,0,0,128)``
       - transparent red	
       - <div style="border:1px solid black; background:rgb(255,128,128);color:rgb(128,0,0);width:30px;height:15px;text-align:center;">over</div>
-    * - @rgba(0,0,255,192)@
+    * - ``rgba(0,0,255,192)``
       - transparent blue
       - <div style="border:1px solid black; background:rgb(64,64,255);color:rgb(0,0,192);width:30px;height:15px;text-align:center;">over</div>
 
---See also--
+**See also**
     * - [[fun:to_color]]	
       - Convert any value to a color
 
@@ -4565,13 +4570,13 @@ DOC_MSE_VERSION: since 0.3.8
 A point in time, consisting of a date and a time.
 The file syntax uses [[http://en.wikipedia.org/wiki/ISO_8601|ISO 8601]] notation.
 
---File syntax--
+**File syntax**
 
 .. code-block::
 
      something: 2008-12-31 23:59:59
 
---See also--
+**See also**
 
 .. list-table:: 
     :header-rows: 1
@@ -4590,7 +4595,7 @@ Choice
 
 A possible choice for a choice [[type:field]].
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -4601,35 +4606,35 @@ A possible choice for a choice [[type:field]].
       - Type
       - Default	
       - Description
-    * - @name@	
+    * - ``name``	
       - [[type:string]]	
       - ''Required''
       - Name of this choice, displayed in the drop down list.
-    * - @line below@	
+    * - ``line below``	
       - [[type:boolean]]
-      - @false@	
+      - ``false``	
       - Display a line below this item?
-    * - @group choice@
+    * - ``group choice``
       - [[type:string]]	
       - ''no''	
       - Can this submenu of choices itself be selected?
-    * - @choices@	
+    * - ``choices``	
       - [[type:list]] of [[type:choice]]s
       -  
       - Submenu of choices.
-    * - @enabled@	
+    * - ``enabled``	
       - [[type:scriptable]] [[type:boolean]]
       -  
       - Is this choice selectable?
-    * - @type@	
-      - @"check"@ or @"radio"@
-      - @"check"@
+    * - ``type``	
+      - ``"check"@ or @"radio"``
+      - ``"check"``
       - How should this choice be displayed? As a checkbox or a radio box?<br/>
 			 			 		Only applies to multiple choice fields.
 
 A choice can also be given in a short form, in that case only the name is specified.
 
---Names--
+**Names**
 
 The full name of a choice is that of the choice and its parents, separated by spaces.
 This is the value actually stored in values and manipulated by scripts.
@@ -4650,10 +4655,10 @@ For example
     		choice: green
     		choice: yellow
 
-The choice red is called @"large red"@, while green is @"small green"@.
-The group choice 'just small' gets the name of the group, @"small"@.
+The choice red is called ``"large red"@, while green is @"small green"``.
+The group choice 'just small' gets the name of the group, ``"small"``.
 
---Example--
+**Example**
 In short form:
 
 .. code-block::
@@ -4671,7 +4676,7 @@ Color Choice
 
 A possible choice for a color [[type:field]].
 
---Properties--
+**Properties**
 
 .. list-table:: 
     :header-rows: 1
@@ -4681,14 +4686,14 @@ A possible choice for a color [[type:field]].
     * - Property
       - Type
       - Description
-    * - @name@
+    * - ``name``
       - [[type:string]]	
       - Name of this choice, displayed in the drop down list.
-    * - @color@
+    * - ``color``
       - opaque [[type:color]]
       - Color this choice corresponds with.
 
---Example--
+**Example**
 
 .. code-block::
 
@@ -4705,10 +4710,10 @@ AKA: Two Dimensional Vector
 A coordinate or direction in a symbol.
 This is a pair of [[type:double]]s.
 
-The coordinates are usually in the range @0@ to @1@.
-@(0,0)@ is the top-left of the symbol, @(1,1)@ the bottom-right.
+The coordinates are usually in the range ``0@ to @1``.
+``(0,0)@ is the top-left of the symbol, @(1,1)`` the bottom-right.
 
---File syntax--
+**File syntax**
 
 .. code-block::
 
@@ -4719,7 +4724,7 @@ For example
 
      (0.5,0.5)
 
---Script syntax--
+**Script syntax**
 Vectors can not be represented in script syntax.
 
 
