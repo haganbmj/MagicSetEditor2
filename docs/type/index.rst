@@ -45,17 +45,17 @@ Game
 
 **Overview**
 
-Games are part of the :doc:`/file/style triangle`:
+Games are part of the :doc:`/concepts#style-triangle` (:ref:`/concepts#style-triangle`):
 
 .. list-table:: 
     :header-rows: 1
-    :stub-columns: 1
+    :stub-columns: 0
     :align: left
 
     * - Description	
       - Looks
       - Data
-    * - '''Game'''	
+    * - :ref:`Game`
       - :ref:`Stylesheet`
       - :ref:`Set`
     * - :ref:`Field`
