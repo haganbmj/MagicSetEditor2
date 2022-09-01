@@ -998,7 +998,7 @@ An export template describes a way for a set to be exported to a HTML or other t
 
 **Package format**
 An export template is described in a :doc:`/file/package` with the ``.mse-export-template`` file extension.
-Its name should begin with ``<i>game</i>-`` where <i>game</i> is the name of the game the template is made for.
+Its name should begin with ``game-`` where *game* is the name of the game the template is made for.
 It should contain a :doc:`/file/format|data file` called ``export-template`` with the following properties.
 
 **Properties**
@@ -4504,15 +4504,15 @@ Color
 
 **Syntax**
 In files and scritps a color can be represented as
-<pre><span class='hl-kw'>rgb</span>(<i>red_component</i>, <i>green_component</i>, <i>blue_component</i>)</pre>
+<pre><span class='hl-kw'>rgb</span>(*red_component*, *green_component*, *blue_component*)</pre>
 where red_component, green_component and blue_component are numbers between 0 and 255 (inclusive).
 
 In most places MSE also supports colors with a transparency value, notated as
-<pre><span class='hl-kw'>rgba</span>(<i>red_component</i>, <i>green_component</i>, <i>blue_component</i>, <i>alpha_component</i>)</pre>
+<pre><span class='hl-kw'>rgba</span>(*red_component*, *green_component*, *blue_component*, *alpha_component*)</pre>
 An alpha value of ``0`` indicates a transparent color, an alpha value of ``255`` is completely opaque.
 
 You can also use HTML style hexadecimal colors,
-<pre>#<i>rgb</i>, #<i>rgba</i>, #<i>rrggbb</i>, #<i>rrggbbaa</i></pre>
+<pre>#*rgb*, #*rgba*, #*rrggbb*, #*rrggbbaa*</pre>
 For example, ``#ff0000`` is red, as is ``#f00``
 
 **Named colors**

@@ -15,3 +15,7 @@
 .rst-content h6 {
     margin-left: -0.8em;
 }
+
+.rst-content tbody .line-block {
+    margin-bottom: 0;
+}
