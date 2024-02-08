@@ -55,7 +55,7 @@ pacman -S mingw32/mingw-w64-i686-hunspell
 pacman -S cmake
 ````
 
-   Use `mingw64/mingw-w64-x86_64-...` instead of for the 64bit build
+   Use `mingw64/mingw-w64-x86_64-...` instead of for the 64bit build.
  * Build
 
 ````
@@ -65,13 +65,14 @@ cmake --build build
 
 ## Building on linux
 
-Install the dependencies, for example on a debian based system
+ * Install the dependencies, for example on a Debian-based system:
+
 ````
 sudo apt install g++
 sudo apt install libboost-dev libwxgtk3.0-gtk3-dev libhunspell-dev
 ````
 
-Then use cmake to build
+Then use cmake to build:
 
 ````
 mkdir build && cd build
@@ -79,31 +80,29 @@ cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build .
 ````
 
-Use `CMAKE_BUILD_TYPE=Debug` for a debug build
+ * Use `CMAKE_BUILD_TYPE=Debug` for a debug build
 
 ## Building on Mac
 
-Install the dependencies, for example using Homebrew
+ * Install the dependencies, for example using Homebrew: (Note: Tested with boost 1.84.0, wxmac (wxwidgets) 3.2.4, hunspell 1.7.2, cmake 3.28.3, dylibbundler 1.0.5.)
 
 ````
-brew install boost wxwidgets hunspell
+brew install boost wxwidgets hunspell cmake dylibbundler
 ````
 
-Note: Tested with boost 1.72.0_3, wxmac (wxwidgets) 3.0.5.1_1, hunspell 1.7.0_2
-Then use cmake to build
+ * Then use cmake to build:
 
 ````
 mkdir build && cd build
-cmake -DCMAKE_BUILD_TYPE=Release ..
-cmake --build ..
+cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_APPLE_BUNDLE=1 ..
+cmake --build .
 ````
 
-Use `CMAKE_BUILD_TYPE=Debug` for a debug build
-
-Finally, copy the resources to a SharedSupport directory and run the executable
+   Use `CMAKE_BUILD_TYPE=Debug` for a debug build.
+ * Finally, copy the resources to a SharedSupport directory and run the executable:
 
 ````
-mkdir SharedSupport && cd SharedSupport
-cp -r ../resource SharedSupport/
-./magicseteditor
+mkdir magicseteditor.app/Contents/SharedSupport
+cp -r ../resource magicseteditor.app/Contents/SharedSupport
+open ./magicseteditor.app
 ````

@@ -50,6 +50,52 @@ configure_file(src/config.hpp.in src/config.hpp)
 
 target_sources(magicseteditor PRIVATE resource/win32_res.rc)
 
+# Halian trying Mac stuff
+
+if(BUILD_APPLE_BUNDLE)
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY
+        "${CMAKE_BINARY_DIR}/magicseteditor.app/Contents/PlugIns")
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}")
+    set_target_properties(
+    "magicseteditor"
+        PROPERTIES
+        MACOSX_BUNDLE_NAME                             "magicseteditor"
+        MACOSX_BUNDLE_VERSION                          "${PROJECT_VERSION}"
+        MACOSX_BUNDLE_GUI_IDENTIFIER                   "org.magicseteditor.gui"
+        MACOSX_BUNDLE_ICON_FILE                        "mse.icns"
+        MACOSX_BUNDLE_INFO_PLIST                       "MacOSXBundleInfo.plist.in"
+        MACOSX_BUNDLE                                  "TRUE"
+        # MACHO_COMPATIBILITY_VERSION                  "12.0.0"
+        RESOURCE                                       "${RESOURCE_FILES}"
+        XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY             ""
+        XCODE_ATTRIBUTE_CODE_SIGNING_REQUIRED          NO
+        XCODE_ATTRIBUTE_DEBUG_INFORMATION_FORMAT       dwarf
+        XCODE_ATTRIBUTE_GCC_INLINES_ARE_PRIVATE_EXTERN YES
+        XCODE_ATTRIBUTE_CLANG_LINK_OBJC_RUNTIME        NO
+    )
+    add_custom_command(
+        TARGET "magicseteditor"
+        POST_BUILD
+        COMMAND dylibbundler ARGS -od -ns -b -x "${CMAKE_BINARY_DIR}/magicseteditor.app/Contents/MacOS/magicseteditor" -d "${CMAKE_BINARY_DIR}/magicseteditor.app/Contents/libs"
+        WORKING_DIRECTORY "${CMAKE_BINARY_DIR}"
+        COMMENT "Changing library search path from absolute to relative…"
+    )
+    add_custom_command(
+        TARGET "magicseteditor"
+        POST_BUILD
+        COMMAND mkdir ARGS -v "${CMAKE_BINARY_DIR}/magicseteditor.app/Contents/Resources"
+        WORKING_DIRECTORY "${CMAKE_BINARY_DIR}"
+        COMMENT "Copying icons…"
+    )
+    add_custom_command(
+        TARGET "magicseteditor"
+        POST_BUILD
+        COMMAND cp ARGS -v "${PROJECT_SOURCE_DIR}/*.icns" "${CMAKE_BINARY_DIR}/magicseteditor.app/Contents/Resources"
+        WORKING_DIRECTORY "${CMAKE_BINARY_DIR}"
+        COMMENT "Copying icons…"
+    )
+endif()
+
 # magicseteditor.com: wrapper to enable command line executable on windows
 
 if(WIN32)
