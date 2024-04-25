@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-project(magicseteditor VERSION 2.4.0)
+project(magicseteditor VERSION 2.5.0)
 add_definitions(-DUNOFFICIAL_BUILD)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -25,6 +25,11 @@ if( NOT HUNSPELL_FOUND )
 		message("-- Found Hunspell at ${HUNSPELL_LIBRARIES}")
 	endif()
 endif()
+
+# You will most likely get a message about being unable to open hunspell-1.7.lib because pkgconf forgets to add the actual path to
+# HUNSPELL_LIBRARIES. If so, uncomment the below line and point it to the correct vcpkg root folder/library.
+#set(HUNSPELL_LIBRARIES "C:\\PATH\\TO\\ROOT\\vcpkg\\installed\\${VCPKG_TARGET_TRIPLET}\\lib\\hunspell-1.7.lib")
+message("-- Does this have a full path? If not, and it's just a file name, it's broken: Found Hunspell at ${HUNSPELL_LIBRARIES}")
 
 include_directories("${PROJECT_BINARY_DIR}/src")
 include_directories("${PROJECT_SOURCE_DIR}/src")
@@ -142,3 +147,6 @@ endif()
 
 # Test suite
 include(test/tests.cmake)
+
+# Debug Message
+message("-- Does this have a full path? If not, and it's just a file name, it's broken: Found Hunspell at ${HUNSPELL_LIBRARIES}")

@@ -14,29 +14,30 @@ The code depends on
 ## Building on windows with Visual Studio
 
 On windows, the program can be compiled with Visual Studio (recommended) or with mingw-gcc.
-
- * Download and install [Visual Studio Community edition](https://visualstudio.microsoft.com/vs/community/)
+ * VS instructions up-to-date as of April 2024
+ * Download and install [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/community/)
  * Download and install [vcpkg](https://github.com/microsoft/vcpkg)
- * Use vcpkg to install wxwidgets, boost, hunspell
+ * Use vcpkg to install pkgconf, wxwidgets, boost, hunspell
 
 ````
-vcpkg install wxwidgets
-vcpkg install boost-smart-ptr
-vcpkg install boost-regex
-vcpkg install boost-logic
-vcpkg install boost-pool
-vcpkg install boost-iterator
-vcpkg install hunspell
-vcpkg integrate install
+.\vcpkg install pkgconf wxwidgets boost-smart-ptr boost-regex boost-logic boost-pool boost-iterator hunspell --triplet=x64-windows-static
+
+and/or
+
+.\vcpkg install pkgconf wxwidgets boost-smart-ptr boost-regex boost-logic boost-pool boost-iterator hunspell --triplet=x86-windows-static
+
+.\vcpkg integrate install
 ````
 
  * Then just use "Open Folder" from inside visual studio to open the Magic Set Editor source code root folder.
- * Select the configuration that you want to build, and hit F7.
+ * Select the configuration that you want to build (release x64-windows-static), and hit F7.
 
 Notes:
+ * You will most likely get a message about being unable to open hunspell-1.7.lib because pkgconf forgets to add the actual path to HUNSPELL_LIBRARIES. If so, uncomment the noted line in CMakeLists.txt (line 31) and point it to the root vcpkg installation to find the correct hunspell-1.7.lib file.
+
  * You may need to work around [this bug](https://github.com/microsoft/vcpkg/issues/4756) by replacing `$VCPATH\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindwxWidgets.cmake` with the file from  https://github.com/CaeruleusAqua/vcpkg-wx-find (`$VCPATH` is usually `C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7`)
- * vcpkg by default installs 32 bit versions of libraries, use `vcpkg install PACKAGENAME:x64-windows` if you want to enable a 64 bit build.
- * Similarly, to use a static build, use `vcpkg install PACKAGENAME:x32-windows-static`.
+ * vcpkg by default installs 32 bit versions of libraries, use `vcpkg install PACKAGENAME --triplet=x64-windows` if you want to enable a 64 bit build.
+ * Similarly, to use a static build, use `vcpkg install PACKAGENAME --triplet=x32-windows` or `vcpkg install PACKAGENAME -triplet=x64-windows-static`.
  
 For running tests you will also need to
  * Download and install perl (For example [Strawberry perl](http://strawberryperl.com/) or using [MSYS2](https://www.msys2.org/))

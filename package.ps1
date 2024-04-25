@@ -1,6 +1,15 @@
 # Super basic build script for release versions.
 # Note the hardcoded version numbers which don't read from CMakeLists at all.
 
+# Set alias for 7zip
+$7zipPath = "$env:ProgramFiles\7-Zip\7z.exe"
+
+if (-not (Test-Path -Path $7zipPath -PathType Leaf)) {
+throw "7 zip file '$7zipPath' not found"
+}
+
+Set-Alias 7z $7zipPath
+
 # Cleanup and Recreate the working directories.
 Remove-Item .\out\temp -Recurse
 Remove-Item .\out\dist -Recurse
@@ -40,6 +49,7 @@ Copy-Item ./data/ko.mse-locale/		./out/temp/data/ko.mse-locale/ -Force -Recurse
 Copy-Item ./BUNDLED_README.txt ./out/temp/x64/README.txt -Force -Recurse
 Copy-Item ./out/build/x64-Release-static/magicseteditor.com ./out/temp/x64/ -Force -Recurse
 Copy-Item ./out/build/x64-Release-static/magicseteditor.exe ./out/temp/x64/ -Force -Recurse
+Copy-Item ./out/build/x64-Release-static/magicseteditor-cli.exe ./out/temp/x64/ -Force -Recurse
 #Copy-Item ./data/en.mse-locale/ ./out/temp/x64/data/en.mse-locale/ -Force -Recurse
 Copy-Item ./out/temp/data/ ./out/temp/x64/data/ -Force -Recurse
 
@@ -49,6 +59,7 @@ Copy-Item ./out/temp/data/ ./out/temp/x64/data/ -Force -Recurse
 Copy-Item ./BUNDLED_README.txt ./out/temp/x86/README.txt -Force -Recurse
 Copy-Item ./out/build/x86-Release-static/magicseteditor.com ./out/temp/x86/ -Force -Recurse
 Copy-Item ./out/build/x86-Release-static/magicseteditor.exe ./out/temp/x86/ -Force -Recurse
+Copy-Item ./out/build/x86-Release-static/magicseteditor-cli.exe ./out/temp/x86/ -Force -Recurse
 #Copy-Item ./data/en.mse-locale/ ./out/temp/x86/data/en.mse-locale/ -Force -Recurse
 Copy-Item ./out/temp/data/ ./out/temp/x86/data/ -Force -Recurse
 
