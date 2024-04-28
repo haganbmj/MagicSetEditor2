@@ -2,7 +2,7 @@ Magic Set Editor changelog, for the details see `git log`
 ==============================================================================
 
 ------------------------------------------------------------------------------
-HEAD: new items added as changes are made
+version 2.5.0 (Unofficial), 2024-04-28
 ------------------------------------------------------------------------------
 
 Features:
@@ -13,6 +13,7 @@ Bug fixes:
  * Fixed crash when 0 keywords match filter string in keyword panel (@llemoi, haganbmj#57)
  * Correct "all images" filter when selecting files. (haganbmj#70)
  * Correct localization of strings on Print window.
+ * Fixed issue where "All Images" filter on the art picker was not showing .jpeg files (BaconCatBug)
 
 Internal:
  * Add Mac OS build resources (@halian, haganbmj#67, haganbmj#68)
