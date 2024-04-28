@@ -53,7 +53,7 @@ Copy-Item ./out/build/x64-Release-static/magicseteditor-cli.exe ./out/temp/x64/ 
 #Copy-Item ./data/en.mse-locale/ ./out/temp/x64/data/en.mse-locale/ -Force -Recurse
 Copy-Item ./out/temp/data/ ./out/temp/x64/data/ -Force -Recurse
 
-7z a -tzip ./out/dist/MagicSetEditor-2.5.0-win64.zip ./out/temp/x64/**
+7z a -tzip ./out/dist/MagicSetEditor-2.5.0-unofficial-win64.zip ./out/temp/x64/**
 
 # Gather the relevant x86 files and Zip them.
 Copy-Item ./BUNDLED_README.txt ./out/temp/x86/README.txt -Force -Recurse
@@ -63,4 +63,4 @@ Copy-Item ./out/build/x86-Release-static/magicseteditor-cli.exe ./out/temp/x86/ 
 #Copy-Item ./data/en.mse-locale/ ./out/temp/x86/data/en.mse-locale/ -Force -Recurse
 Copy-Item ./out/temp/data/ ./out/temp/x86/data/ -Force -Recurse
 
-7z a -tzip ./out/dist/MagicSetEditor-2.5.0-win32.zip ./out/temp/x86/**
+7z a -tzip ./out/dist/MagicSetEditor-2.5.0-unofficial-win32.zip ./out/temp/x86/**
