@@ -4,6 +4,13 @@ Magic Set Editor, or MSE for short, is a program with which you can design your 
 
 More information on https://magicseteditor.boards.net/
 
+## Main Features in the Unofficial Branch
+ * Fixes the "All Image" art selector list to include .jpeg images.
+ * Allows for the option to remove aliasing on selected art by increasing the size of the stored images in the set file.
+ * Adds a text filter on the style tab for Stylesheet.
+ * Decouples the zoom and export scales.
+
+
 ## Dependencies
 
 The code depends on
