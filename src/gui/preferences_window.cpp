@@ -328,7 +328,7 @@ InternalPreferencesPage::InternalPreferencesPage(Window* parent) : PreferencesPa
   internal_scale_int = static_cast<int>(settings.internal_scale * 100);
   internal_scale->SetValue(String::Format(_("%d%%"), internal_scale_int));
 
-  int choices[] = { 100,200 };
+  int choices[] = { 100,200,300,400 };
   for (unsigned int i = 0; i < sizeof(choices) / sizeof(choices[0]); ++i) {
     internal_scale->Append(String::Format(_("%d%%"), choices[i]));
   }
