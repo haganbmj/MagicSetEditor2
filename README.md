@@ -4,12 +4,12 @@ Magic Set Editor, or MSE for short, is a program with which you can design your 
 
 More information on https://magicseteditor.boards.net/
 
-## Main Features in the Unofficial Branch
+## Main Features of This Branch
+
  * Fixes the "All Image" art selector list to include .jpeg images.
  * Allows for the option to remove aliasing on selected art by increasing the size of the stored images in the set file.
  * Adds a text filter on the style tab for Stylesheet.
  * Decouples the zoom and export scales.
-
 
 ## Dependencies
 
@@ -18,7 +18,7 @@ The code depends on
  * boost
  * hunspell
 
-## Building on windows with Visual Studio
+## Building on Windows with Visual Studio
 
 On windows, the program can be compiled with Visual Studio (recommended) or with mingw-gcc.
  * VS instructions up-to-date as of April 2024
@@ -26,16 +26,16 @@ On windows, the program can be compiled with Visual Studio (recommended) or with
  * Download and install [vcpkg](https://github.com/microsoft/vcpkg)
  * Use vcpkg to install pkgconf, wxwidgets, boost, hunspell
 
-````
+```
 .\vcpkg install pkgconf wxwidgets boost-smart-ptr boost-regex boost-logic boost-pool boost-iterator hunspell --triplet=x64-windows-static
-````
+```
 and/or
-````
+```
 .\vcpkg install pkgconf wxwidgets boost-smart-ptr boost-regex boost-logic boost-pool boost-iterator hunspell --triplet=x86-windows-static
-````
-````
+```
+```
 .\vcpkg integrate install
-````
+```
 
  * Then just use "Open Folder" from inside visual studio to open the Magic Set Editor source code root folder.
  * Select the configuration that you want to build (release x64-windows-static), and hit F7.
@@ -51,67 +51,87 @@ For running tests you will also need to
  * Download and install perl (For example [Strawberry perl](http://strawberryperl.com/) or using [MSYS2](https://www.msys2.org/))
 The tests can be run from inside visual studio
 
-## Building on windows with GCC (MSYS2)
+## Building on Windows with GCC (MSYS2)
 
  * Download and install [msys2](https://www.msys2.org/)
  * Install a recent version of the gcc compiler, cmake, and wxWidgets libraries:
 
-````
+```
 pacman -S mingw32/mingw-w64-i686-gcc
 pacman -S mingw32/mingw-w64-i686-wxWidgets
 pacman -S mingw32/mingw-w64-i686-boost
 pacman -S mingw32/mingw-w64-i686-hunspell
 pacman -S cmake
-````
+```
 
    Use `mingw64/mingw-w64-x86_64-...` instead of for the 64bit build.
  * Build
 
-````
+```
 cmake -G "MSYS Makefiles" -H. -Bbuild -DCMAKE_BUILD_TYPE=Release
 cmake --build build
-````
+```
 
-## Building on linux
+ Use `CMAKE_BUILD_TYPE=Debug` for a debug build.
 
- * Install the dependencies, for example on a Debian-based system:
+## Building on Linux
 
-````
+ * Install the dependencies; for example, on a Debian-based system:
+
+```
 sudo apt install g++
 sudo apt install libboost-dev libwxgtk3.0-gtk3-dev libhunspell-dev
-````
+```
 
 Then use cmake to build:
 
-````
+```
 mkdir build && cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build .
-````
+```
 
- * Use `CMAKE_BUILD_TYPE=Debug` for a debug build
+ Use `CMAKE_BUILD_TYPE=Debug` for a debug build.
 
-## Building on Mac
+## Building on FreeBSD
 
- * Install the dependencies, for example using Homebrew: (Note: Tested with boost 1.84.0, wxmac (wxwidgets) 3.2.4, hunspell 1.7.2, cmake 3.28.3, dylibbundler 1.0.5.)
+ * Install the dependencies:
 
-````
+```
+sudo pkg install hunspell cmake wx30-gtk3 boost-all
+```
+
+Then use cmake to build:
+
+```
+mkdir build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake --build .
+```
+
+ Use `CMAKE_BUILD_TYPE=Debug` for a debug build.
+
+## Building on Mac OS
+
+ * Install the dependencies; for example, using Homebrew: (Note: Tested with boost 1.84.0, wxmac (wxwidgets) 3.2.4, hunspell 1.7.2, cmake 3.28.3, dylibbundler 1.0.5.)
+
+```
 brew install boost wxwidgets hunspell cmake dylibbundler
-````
+```
 
  * Then use cmake to build:
 
-````
+```
 mkdir build && cd build
 cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_APPLE_BUNDLE=1 ..
 cmake --build .
-````
+```
 
-   Use `CMAKE_BUILD_TYPE=Debug` for a debug build.
+ Use `CMAKE_BUILD_TYPE=Debug` for a debug build.
  * Finally, copy the resources to a SharedSupport directory and run the executable:
 
-````
+```
 mkdir magicseteditor.app/Contents/SharedSupport
 cp -r ../resource magicseteditor.app/Contents/SharedSupport
 open ./magicseteditor.app
-````
+```
