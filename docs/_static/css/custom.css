@@ -1,0 +1,21 @@
+.wy-nav-content {
+    max-width: 1200px;
+}
+
+
+.rst-content code, .rst-content tt, code {
+    font-size: 85%;
+}
+
+.rst-content h1, 
+.rst-content h2, 
+.rst-content h3, 
+.rst-content h4, 
+.rst-content h5, 
+.rst-content h6 {
+    margin-left: -0.8em;
+}
+
+.rst-content tbody .line-block {
+    margin-bottom: 0;
+}
