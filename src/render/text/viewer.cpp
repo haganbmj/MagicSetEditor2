@@ -472,7 +472,7 @@ void TextViewer::prepareLinesTryScales(RotatedDC& dc, const String& text, const 
   
   // Try the layout at the previous scale, this could give a quick upper bound
   elements.getCharInfo(dc, scale, chars);
-  bool fits = prepareLinesAtScale(dc, chars, style, false, lines);
+  bool fits = prepareLinesAtScale(dc, chars, style, !style.field().multi_line, lines);
   if (fits) {
     min_scale = scale;
     max_scale = min(max_scale, bound_on_max_scale(dc,style,lines,scale));
@@ -483,7 +483,7 @@ void TextViewer::prepareLinesTryScales(RotatedDC& dc, const String& text, const 
     vector<Line> lines_before;
     vector<CharInfo> chars_before;
     elements.getCharInfo(dc, scale, chars_before);
-    fits = prepareLinesAtScale(dc, chars_before, style, false, lines_before);
+    fits = prepareLinesAtScale(dc, chars_before, style, !style.field().multi_line, lines_before);
     if (fits) {
       // too bad
       swap(lines, lines_before);
@@ -502,7 +502,7 @@ void TextViewer::prepareLinesTryScales(RotatedDC& dc, const String& text, const 
     best_scale = scale = min_scale;
     chars.clear();
     elements.getCharInfo(dc, scale, chars);
-    prepareLinesAtScale(dc, chars, style, false, lines);
+    prepareLinesAtScale(dc, chars, style, !style.field().multi_line, lines);
     max_scale = min(max_scale, bound_on_max_scale(dc,style,lines,scale));
   }
   
@@ -520,7 +520,7 @@ void TextViewer::prepareLinesTryScales(RotatedDC& dc, const String& text, const 
     vector<Line> lines_try;
     vector<CharInfo> chars_try;
     elements.getCharInfo(dc, scale, chars_try);
-    fits = prepareLinesAtScale(dc, chars_try, style, false, lines_try);
+    fits = prepareLinesAtScale(dc, chars_try, style, !style.field().multi_line, lines_try);
     if (fits) {
       min_scale = scale;
       max_scale = min(max_scale, bound_on_max_scale(dc,style,lines_try,scale));
@@ -538,7 +538,7 @@ void TextViewer::prepareLinesTryScales(RotatedDC& dc, const String& text, const 
     scale = min_scale;
     chars.clear();
     elements.getCharInfo(dc, scale, chars);
-    fits = prepareLinesAtScale(dc, chars, style, false, lines);
+    fits = prepareLinesAtScale(dc, chars, style, !style.field().multi_line, lines);
   }
   scale = min_scale;
 }
