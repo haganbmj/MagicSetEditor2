@@ -472,7 +472,7 @@ void TextViewer::prepareLinesTryScales(RotatedDC& dc, const String& text, const 
   
   // Try the layout at the previous scale, this could give a quick upper bound
   elements.getCharInfo(dc, scale, chars);
-  bool single_line = !style.field().multi_line;
+  bool single_line = !style.field().multi_line && !style.always_symbol;
   bool fits = prepareLinesAtScale(dc, chars, style, single_line, lines);
   if (fits) {
     min_scale = scale;
