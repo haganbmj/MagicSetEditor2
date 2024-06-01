@@ -105,8 +105,7 @@ public:
     , prefered_dimension_count(dimension_count)
     , show_empty(show_empty)
   {
-    //item_size = wxSize(150, 23);
-    subcolumns[0].size = wxSize(140,23);
+    subcolumns[0].size = wxSize(210, 23);
     if (dimension_count > 0) {
       subcolumns[0].selection  = NO_SELECTION;
       subcolumns[0].can_select = false;

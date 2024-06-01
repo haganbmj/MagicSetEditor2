@@ -4,12 +4,14 @@ Magic Set Editor, or MSE for short, is a program with which you can design your 
 
 More information on https://magicseteditor.boards.net/
 
-## Main Features of This Branch
-
+=======
+## Main Features in the Unofficial Branch
  * Fixes the "All Image" art selector list to include .jpeg images.
  * Allows for the option to remove aliasing on selected art by increasing the size of the stored images in the set file.
  * Adds a text filter on the style tab for Stylesheet.
  * Decouples the zoom and export scales.
+
+=======
 
 ## Dependencies
 
@@ -26,16 +28,17 @@ On windows, the program can be compiled with Visual Studio (recommended) or with
  * Download and install [vcpkg](https://github.com/microsoft/vcpkg)
  * Use vcpkg to install pkgconf, wxwidgets, boost, hunspell
 
-```
+=======
+````
 .\vcpkg install pkgconf wxwidgets boost-smart-ptr boost-regex boost-logic boost-pool boost-iterator hunspell --triplet=x64-windows-static
-```
+````
 and/or
-```
+````
 .\vcpkg install pkgconf wxwidgets boost-smart-ptr boost-regex boost-logic boost-pool boost-iterator hunspell --triplet=x86-windows-static
-```
-```
+````
+````
 .\vcpkg integrate install
-```
+````
 
  * Then just use "Open Folder" from inside visual studio to open the Magic Set Editor source code root folder.
  * Select the configuration that you want to build (release x64-windows-static), and hit F7.
