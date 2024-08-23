@@ -2,21 +2,23 @@ Magic Set Editor changelog, for the details see `git log`
 ==============================================================================
 
 ------------------------------------------------------------------------------
-version 2.5.0 (Unofficial), 2024-04-28
+version 2.5.0 (Unofficial), 2024-08-23
 ------------------------------------------------------------------------------
 
 Features:
  * Add Russian and Korean translations. Update locale files from Full-Magic-Pack (haganbmj#69)
+ * Increase stats column width by 50% (haganbmj#72)
 
 Bug fixes:
  * Fixed scrolled widgets not scrolling fully (or at all) on Linux (@llemoi, haganbmj#54)
  * Fixed crash when 0 keywords match filter string in keyword panel (@llemoi, haganbmj#57)
- * Correct "all images" filter when selecting files. (haganbmj#70)
+ * Correct "all images" filter when selecting files. (@BaconCatBug, haganbmj#70)
  * Correct localization of strings on Print window.
- * Fixed issue where "All Images" filter on the art picker was not showing .jpeg files (BaconCatBug)
+ * Correct how blend functions handle alpha functions. (haganbmj#83)
 
 Internal:
  * Add Mac OS build resources (@halian, haganbmj#67, haganbmj#68)
+ * CMakeLists updates for static compilation. (@BackCatBug, haganbmj#74) 
 
 ------------------------------------------------------------------------------
 version 2.4.0 (Unofficial), 2022-11-19
