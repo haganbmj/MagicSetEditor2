@@ -56,6 +56,21 @@ void linear_blend(Image& img1, const Image& img2, double x1,double y1, double x2
       data2 += 3;
     }
   }
+
+  // Blend Alpha for the two images.
+  if (img1.HasAlpha() && img2.HasAlpha()) {
+    Byte *alpha1 = img1.GetAlpha(), *alpha2 = img2.GetAlpha();
+    for (int y = 0; y < height; ++y) {
+      for (int x = 0; x < width; ++x) {
+        int mult = x * xm + y * ym + d;
+        if (mult < 0)      mult = 0;
+        if (mult > fixed)  mult = fixed;
+        alpha1[0] = alpha1[0] + mult * (alpha2[0] - alpha1[0]) / fixed;
+        alpha1 += 1;
+        alpha2 += 1;
+      }
+    }
+  }
 }
 
 // ----------------------------------------------------------------------------- : Mask Blend
