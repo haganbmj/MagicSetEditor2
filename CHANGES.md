@@ -14,7 +14,7 @@ Bug fixes:
  * Fixed crash when 0 keywords match filter string in keyword panel (@llemoi, haganbmj#57)
  * Correct "all images" filter when selecting files. (@BaconCatBug, haganbmj#70)
  * Correct localization of strings on Print window.
- * Correct how blend functions handle alpha functions. (haganbmj#83)
+ * Correct how blend functions handle alpha channels. (haganbmj#83)
 
 Internal:
  * Add Mac OS build resources (@halian, haganbmj#67, haganbmj#68)
