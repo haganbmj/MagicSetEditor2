@@ -80,12 +80,23 @@ void mask_blend(Image& img1, const Image& img2, const Image& mask) {
    || mask.GetWidth() != img1.GetWidth() || mask.GetHeight() != img1.GetHeight()) {
     throw Error(_("Images used for blending must have the same size"));
   }
+
+  int width = img1.GetWidth(), height = img1.GetHeight();
+  const int fixed = 1 << 16; // fixed point multiplier
   
-  UInt size = img1.GetWidth() * img1.GetHeight() * 3;
+  UInt size = width * height;
   Byte *data1 = img1.GetData(), *data2 = img2.GetData(), *dataM = mask.GetData();
   // for each subpixel...
-  for (UInt i = 0 ; i < size ; ++i) {
+  for (UInt i = 0 ; i < (size * 3) ; ++i) {
     data1[i] = (data1[i] * dataM[i] + data2[i] * (255 - dataM[i])) / 255;
+  }
+
+  // Blend Alpha for the two images.
+  if (img1.HasAlpha() && img2.HasAlpha()) {
+    Byte* alpha1 = img1.GetAlpha(), * alpha2 = img2.GetAlpha();
+    for (UInt i = 0; i < size; ++i) {
+      alpha1[i] = (alpha1[i] + alpha2[i]) / 2;
+    }
   }
 }
 
