@@ -82,7 +82,6 @@ void mask_blend(Image& img1, const Image& img2, const Image& mask) {
   }
 
   int width = img1.GetWidth(), height = img1.GetHeight();
-  const int fixed = 1 << 16; // fixed point multiplier
   
   UInt size = width * height;
   Byte *data1 = img1.GetData(), *data2 = img2.GetData(), *dataM = mask.GetData();
