@@ -36,12 +36,17 @@ and/or
 ````
 .\vcpkg install pkgconf wxwidgets boost-smart-ptr boost-regex boost-logic boost-pool boost-iterator hunspell --triplet=x86-windows-static
 ````
+then, regardless of your choice
 ````
 .\vcpkg integrate install
 ````
 
  * Then just use "Open Folder" from inside visual studio to open the Magic Set Editor source code root folder.
- * Select the configuration that you want to build (release x64-windows-static), and hit F7.
+ * Select the configuration that you want to build (probably release x64-windows-static).
+
+![configuration](https://github.com/haganbmj/MagicSetEditor2/blob/master/resource/readme/configuration.png)
+
+ * To build the app go to Build menu > build magicseteditor.exe
 
 Notes:
  * You will most likely get a message about being unable to open hunspell-1.7.lib because pkgconf forgets to add the actual path to HUNSPELL_LIBRARIES. If so, uncomment the noted line in CMakeLists.txt (line 31) and point it to the root vcpkg installation to find the correct hunspell-1.7.lib file.
