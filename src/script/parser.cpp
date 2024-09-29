@@ -122,7 +122,7 @@ bool isOper  (wxUniChar c) { return wxStrchr(_("+-*/!.@%^&:=<>;,"),c) != nullptr
 bool isLparen(wxUniChar c) { return c==_('(') || c==_('[') || c==_('{'); }
 bool isRparen(wxUniChar c) { return c==_(')') || c==_(']') || c==_('}'); }
 bool isDigitOrDot(wxUniChar c) { return isDigit(c) || c==_('.'); }
-bool isLongOper(StringView s) { return s==_(":=") || s==_("==") || s==_("!=") || s==_("<=") || s==_(">="); }
+bool isLongOper(StringView s) { return s==_(":=") || s==_("==") || s==_("!=") || s==_("<=") || s==_(">=") || s==_("->"); }
 
 // moveme
 // ----------------------------------------------------------------------------- : Tokenizing
@@ -351,7 +351,7 @@ enum Precedence
 {  PREC_ALL
 ,  PREC_NEWLINE  // newline ;
 ,  PREC_SEQ    // ;
-,  PREC_SET    // :=
+,  PREC_SET    // := ->
 ,  PREC_AND    // and or
 ,  PREC_CMP    // == != < > <= >=
 ,  PREC_ADD    // + -
@@ -736,7 +736,7 @@ ExprType parseOper(TokenIterator& input, Script& script, Precedence minPrec, Ins
       }
       script.addInstruction(I_POP); // discard result of first expression
       type = parseOper(input, script, PREC_SET);
-    } else if (minPrec <= PREC_SET && token==_(":=")) {
+    } else if (minPrec <= PREC_SET && (token==_(":=") || token==_("->"))) {
       // We made a mistake, the part before the := should be a variable name,
       // not an expression. Remove that instruction.
       Instruction& instr = script.getInstructions().back();
@@ -745,7 +745,11 @@ ExprType parseOper(TokenIterator& input, Script& script, Precedence minPrec, Ins
         return EXPR_FAILED;
       }
       script.getInstructions().pop_back();
-      type = parseOper(input, script, PREC_SET,  I_SET_VAR, instr.data);
+      if(token==_("->")) {	  
+        type = parseOper(input, script, PREC_SET,  I_SET_GLB, instr.data);
+      } else {
+        type = parseOper(input, script, PREC_SET,  I_SET_VAR, instr.data);
+      }
       if (type == EXPR_STATEMENT) {
         input.add_error(_("Warning: the right hand side of an assignment should always yield a value."));
       }

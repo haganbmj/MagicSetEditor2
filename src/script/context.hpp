@@ -54,6 +54,7 @@ public:
   void setVariable(const String& name, const ScriptValueP& value);
   /// Set a variable to a new value (in the current scope)
   void setVariable(Variable name, const ScriptValueP& value);
+  void setGlobalVariable(Variable name, const ScriptValueP& value);
   
   /// Get the value of a variable, throws if it not set
   ScriptValueP getVariable(const String& name);
@@ -89,6 +90,7 @@ public:// public for FOR_EACH
     VariableValue() : level(0) {}
     unsigned int level; ///< Scope level on which this variable was set
     ScriptValueP value; ///< Value of this variable
+    bool global_scope = false; ///< Is this variable globally scoped? 
   };
   /// Record of a variable binding that is being shadowed (overwritten) by another binding
   struct Binding {

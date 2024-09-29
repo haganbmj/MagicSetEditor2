@@ -301,6 +301,11 @@ ScriptValueP Context::dependencies(const Dependency& dep, const Script& script) 
           setVariable((Variable)i.data, stack.back());
           break;
         }
+        // Set a global variable (as normal)
+        case I_SET_GLB: {
+          setGlobalVariable((Variable)i.data, stack.back());
+          break;
+        }
         
         // Simple instruction: unary
         case I_UNARY: {
