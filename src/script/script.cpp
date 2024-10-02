@@ -176,6 +176,7 @@ String Script::dumpInstr(unsigned int pos, Instruction i) const {
     case I_JUMP_SC_OR:  ret += _("jump sc or");  break;
     case I_GET_VAR:    ret += _("get");    break;
     case I_SET_VAR:    ret += _("set");    break;
+    case I_SET_GLB:    ret += _("set_global");    break;
     case I_MEMBER_C:  ret += _("member_c");  break;
     case I_LOOP:    ret += _("loop");    break;
     case I_LOOP_WITH_KEY:ret += _("loop with key"); break;
@@ -236,7 +237,7 @@ String Script::dumpInstr(unsigned int pos, Instruction i) const {
     case I_CALL: case I_CLOSURE: case I_DUP:  // int
       ret += String::Format(_("\t%d"), i.data);
       break;
-    case I_GET_VAR: case I_SET_VAR: case I_NOP:          // variable
+    case I_GET_VAR: case I_SET_VAR: case I_NOP: case I_SET_GLB:          // variable
       ret += _("\t") + variable_to_string((Variable)i.data);
       break;
   }

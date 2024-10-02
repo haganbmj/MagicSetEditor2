@@ -745,7 +745,11 @@ ExprType parseOper(TokenIterator& input, Script& script, Precedence minPrec, Ins
         return EXPR_FAILED;
       }
       script.getInstructions().pop_back();
-      type = parseOper(input, script, PREC_SET,  I_SET_VAR, instr.data);
+      if(token==_("->")) {	  
+        type = parseOper(input, script, PREC_SET,  I_SET_GLB, instr.data);
+      } else {
+        type = parseOper(input, script, PREC_SET,  I_SET_VAR, instr.data);
+      }
       if (type == EXPR_STATEMENT) {
         input.add_error(_("Warning: the right hand side of an assignment should always yield a value."));
       }

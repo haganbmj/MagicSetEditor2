@@ -106,6 +106,11 @@ ScriptValueP Context::eval(const Script& script, bool useScope) {
           setVariable((Variable)i.data, stack.back());
           break;
         }
+        // Set a global variable
+        case I_SET_GLB: {
+          setGlobalVariable((Variable)i.data, stack.back());
+          break;
+        }
         
         // Get an object member
         case I_MEMBER_C: {
@@ -270,13 +275,26 @@ void Context::setVariable(Variable name, const ScriptValueP& value) {
     assert((size_t)name < variable_names.size());
   #endif
   VariableValue& var = variables[name];
-  if (var.level < level) {
+  if (var.level < level && !var.global_scope) {
     // keep shadow copy
     Binding bind = {name, var};
     shadowed.push_back(bind);
   }
+  if (!var.global_scope) {
+    var.global_scope = false;
+  }
   var.level = level;
   var.value = value;
+}
+
+void Context::setGlobalVariable(Variable name, const ScriptValueP& value) {
+#ifdef _DEBUG
+  assert((size_t)name < variable_names.size());
+#endif
+  VariableValue& var = variables[name];
+  var.level = level;
+  var.value = value;
+  var.global_scope = true;
 }
 
 ScriptValueP Context::getVariable(const String& name) {
