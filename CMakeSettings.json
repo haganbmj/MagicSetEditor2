@@ -64,7 +64,14 @@
       "cmakeCommandArgs": "-DVCPKG_TARGET_TRIPLET=x64-windows-static",
       "buildCommandArgs": "-v",
       "ctestCommandArgs": "",
-      "inheritEnvironments": [ "msvc_x64_x64" ]
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "variables": [
+        {
+          "name": "VCPKG_MANIFEST_FEATURES",
+          "value": "fonts",
+          "type": "STRING"
+        }
+      ]
     }
   ]
 }

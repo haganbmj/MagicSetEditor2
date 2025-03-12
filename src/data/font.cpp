@@ -8,6 +8,9 @@
 
 #include <util/prec.hpp>
 #include <data/font.hpp>
+#include <wx/stdpaths.h>
+#include <wx/dir.h>
+#include <wx/font.h>
 
 // ----------------------------------------------------------------------------- : Font
 
@@ -23,6 +26,41 @@ Font::Font()
   , separator_color(Color(0,0,0,128))
   , flags(FONT_NORMAL)
 {}
+
+bool Font::PreloadResourceFonts() {
+#if wxUSE_PRIVATE_FONTS  
+  wxUniChar pathSeparator = wxFileName::GetPathSeparator();
+  String appPath( wxFileName(wxStandardPaths::Get().GetExecutablePath()).GetPath() );
+  String fontsPath = appPath + pathSeparator + "resource" + pathSeparator + "fonts" + pathSeparator;
+
+  if (!wxDirExists(fontsPath))
+    return false;
+  
+  wxDir fontsDirectory(fontsPath);
+  vector<String> fontFilePaths;
+  String fontFileName = "";
+
+  // are there any font files in the resource/fonts directory?
+  if (!fontsDirectory.GetFirst(&fontFileName, "*.ttf"))
+    return false;
+
+  fontFilePaths.push_back(fontsPath + fontFileName);
+  while (fontsDirectory.GetNext(&fontFileName))
+    fontFilePaths.push_back(fontsPath + fontFileName);
+
+  bool preloadHadErrors = false;
+  for (String fn : fontFilePaths) {
+    if (!wxFont::AddPrivateFont(fn)) {
+      preloadHadErrors = true;
+      continue;
+    }
+  }
+
+  return preloadHadErrors;
+
+#endif // wxUSE_PRIVATE_FONTS
+  return false;
+}
 
 bool Font::update(Context& ctx) {
   bool changes = false;

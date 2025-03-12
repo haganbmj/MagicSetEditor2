@@ -15,6 +15,7 @@
 #include <data/locale.hpp>
 #include <data/installer.hpp>
 #include <data/format/formats.hpp>
+#include <data/font.hpp>
 #include <cli/cli_main.hpp>
 #include <cli/text_io_handler.hpp>
 #include <gui/welcome_window.hpp>
@@ -86,6 +87,7 @@ int MSE::OnRun() {
       // Platform friendly appname
       SetAppName(_("magicseteditor"));
     #endif
+    Font::PreloadResourceFonts();
     wxInitAllImageHandlers();
     wxFileSystem::AddHandler(new wxInternetFSHandler); // needed for update checker
     wxSocketBase::Initialize();
